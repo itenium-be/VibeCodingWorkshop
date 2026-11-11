@@ -118,6 +118,16 @@
 
 .card-stamped { position: relative; padding-right: 7.5rem; }
 
+.card-link {
+  margin-top: .3rem;
+  font-size: .75rem;
+  color: var(--z-ink-soft);
+  opacity: .7;
+  text-decoration: none;
+}
+
+.card-link:hover { opacity: 1; text-decoration: underline; }
+
 .card-stamp {
   position: absolute;
   right: .8rem;

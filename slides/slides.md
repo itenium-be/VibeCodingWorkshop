@@ -33,10 +33,10 @@ class: big-cards
 # Zelf gemaakt
 
 <div class="grid-2">
-  <Card v-click icon="🃏" title="Wiezen-scorebord" :prompts="120" :hours="9">De punten voor wiezen bijhouden</Card>
-  <Card v-click icon="🎁" title="Secret Santa" :prompts="2" :hours="1">Lootjes trekken, met een geheime link per persoon</Card>
-  <Card v-click icon="💌" title="Uitnodigingen" :prompts="53" :hours="4">Een website voor va zijn verjaardag, met QR-code</Card>
-  <Card v-click icon="📄" title="PDF Workbench" :prompts="10" :hours="1">PDF's samenvoegen, splitsen, pagina's herschikken</Card>
+  <Card v-click icon="🃏" title="Wiezen-scorebord" :prompts="120" :hours="9" href="https://laoujin.github.io/WiezeScoren/">De punten voor wiezen bijhouden</Card>
+  <Card v-click icon="🎁" title="Secret Santa" :prompts="2" :hours="1" href="https://secret-santa.sangu.be/">Lootjes trekken, met een geheime link per persoon</Card>
+  <Card v-click icon="💌" title="Uitnodigingen" :prompts="53" :hours="4" href="https://breibeest.github.io/guido-70/31-7/">Een website voor va zijn verjaardag, met QR-code</Card>
+  <Card v-click icon="📄" title="PDF Workbench" :prompts="10" :hours="1" href="https://dev.itenium.be/PdfMerge/">PDF's samenvoegen, splitsen, pagina's herschikken</Card>
 </div>
 
 ---
