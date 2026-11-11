@@ -19,12 +19,12 @@ Jij beschrijft, de AI bouwt.
 # Wat is vibe coding?
 
 <div class="grid-3" style="margin-top: 2rem">
-  <Card icon="💬" title="Jij vertelt">wat je wil, in gewone taal. Gewoon in het Nederlands.</Card>
-  <Card icon="🤖" title="De AI bouwt">een echte app, in een paar minuten.</Card>
-  <Card icon="👀" title="Jij kijkt">en zegt wat beter kan. En nog eens. En nog eens.</Card>
+  <Card v-click icon="💬" title="Jij vertelt">wat je wil, in gewone taal. Gewoon in het Nederlands.</Card>
+  <Card v-click icon="🤖" title="De AI bouwt">een echte app, in een paar minuten.</Card>
+  <Card v-click icon="👀" title="Jij kijkt">en zegt wat beter kan. En nog eens. En nog eens.</Card>
 </div>
 
-<p v-click style="margin-top: 2.5rem"><span class="pill">Programmeren hoef je niet te kunnen.</span></p>
+<div v-click class="ribbon">✨ Programmeren hoef je niet te kunnen.<small>Typen kan je al.</small></div>
 
 ---
 

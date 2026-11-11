@@ -14,6 +14,7 @@
 }
 
 .slidev-layout {
+  position: relative;
   height: 100%;
   padding: 2.75rem 3.5rem;
   background: var(--z-paper);
@@ -213,3 +214,19 @@
 }
 
 .crazy8 div { border: 1px dashed var(--z-ink-soft); padding: .3rem .45rem; font: 800 .9rem 'Baloo 2', sans-serif; color: var(--z-ink-soft); }
+
+.ribbon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 3.5rem;
+  background: var(--z-ink);
+  color: var(--z-sun);
+  font: 800 2rem 'Baloo 2', sans-serif;
+}
+
+.ribbon small { margin-left: auto; color: #fff; font: 700 1.1rem Nunito, sans-serif; }
