@@ -183,3 +183,33 @@
 
 .qr-code svg { display: block; width: 100%; height: auto; }
 .qr-url { font-weight: 700; font-size: 1.1rem; }
+
+/* A4 handout page (canvasWidth 794 = A4 width at 96 dpi) */
+.slidev-layout.page { padding: 2.4rem 2.6rem; font-size: 1.08rem; line-height: 1.4; }
+.page h1 { font-size: 2.6rem; margin-bottom: .6rem; }
+.page h2 { font-size: 1.45rem; margin: 1.4rem 0 .55rem; }
+.page .step-n { width: 2.2rem; height: 2.2rem; font-size: 1.15rem; border-radius: .7rem; box-shadow: 3px 3px 0 var(--z-ink); }
+.page .step + .step { margin-top: .5rem; }
+.page .step small { font-size: .95rem; }
+.page .prompt { padding: .6rem .85rem; font-size: .92rem; line-height: 1.45; box-shadow: 4px 4px 0 var(--z-ink); border-width: 2px; border-radius: .9rem; }
+.page .prompt + .prompt { margin-top: .75rem; }
+.page .prompt b { display: block; font-family: 'Baloo 2', sans-serif; font-size: .95rem; }
+.page .pill { padding: .35rem .9rem; box-shadow: 3px 3px 0 var(--z-ink); border-width: 2px; }
+.page ul { padding-left: 1.2rem; list-style: disc; }
+.page li + li { margin-top: .25rem; }
+.page .qr-code { width: 10rem; box-shadow: 4px 4px 0 var(--z-ink); }
+.page .qr-url { font-size: .85rem; }
+
+.write-lines div { height: 2.4rem; border-bottom: 2px dotted var(--z-ink-soft); }
+
+.crazy8 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 10.5rem);
+  border: 3px solid var(--z-ink);
+  border-radius: .9rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+.crazy8 div { border: 1px dashed var(--z-ink-soft); padding: .3rem .45rem; font: 800 .9rem 'Baloo 2', sans-serif; color: var(--z-ink-soft); }

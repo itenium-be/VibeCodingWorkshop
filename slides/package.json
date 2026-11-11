@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "slidev slides.md --open false",
-    "handout": "slidev ../handout/handout.md --port 3031 --open false",
+    "handout": "slidev ../handout/handout.md --open false",
     "build": "slidev build slides.md",
     "export:handout": "slidev export ../handout/handout.md --output ../handout/handout.pdf"
   },
