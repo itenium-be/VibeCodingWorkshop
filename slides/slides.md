@@ -65,14 +65,6 @@ class: big-cards
 <p v-click style="margin-top: 2.5rem">Je app is een <b>verzegelde envelop</b>, geen kluis. Prima voor familie en vrienden.</p>
 
 ---
-layout: center
----
-
-<div style="font-size: 6rem; line-height: 1">🎁</div>
-
-# Live demo: Secret Santa
-
----
 
 # Ideeën vinden
 
