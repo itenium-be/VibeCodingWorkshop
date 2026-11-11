@@ -65,20 +65,6 @@ class: big-cards
 
 
 ---
-
-# Wie ziet je app?
-
-<div class="chat">
-  <div v-click class="chat-row"><span class="chat-who">🙋</span><div class="bubble ask">Kan iedereen mijn app zien?</div></div>
-  <div v-click class="chat-row right"><div class="bubble">Ja: iedereen met de link kan je app openen 🔗</div><span class="chat-who">🤖</span></div>
-</div>
-
-<div class="postits">
-  <div v-click class="postit"><b>💻 Tenzij…</b>het alleen op je eigen computer draait</div>
-  <div v-click class="postit"><b>🔒 Tenzij…</b>je er een aanmeldscherm op zet</div>
-</div>
-
----
 class: rules
 ---
 
@@ -97,6 +83,20 @@ class: rules
     <Card v-click icon="🙈" title="Gegevens van anderen">Adressen, telefoonnummers</Card>
     <div v-click class="rule"><Squiggle /><div class="note ask">Niet zonder inloggen: vraag de lesgever</div></div>
   </div>
+</div>
+
+---
+
+# Wie ziet je app?
+
+<div class="chat">
+  <div v-click class="chat-row"><span class="chat-who">🙋</span><div class="bubble ask">Kan iedereen mijn app zien?</div></div>
+  <div v-click class="chat-row right"><div class="bubble">Ja: iedereen met de link kan je app openen 🔗</div><span class="chat-who">🤖</span></div>
+</div>
+
+<div class="postits">
+  <div v-click class="postit"><b>💻 Tenzij…</b>het alleen op je eigen computer draait</div>
+  <div v-click class="postit"><b>🔒 Tenzij…</b>je er een aanmeldscherm op zet</div>
 </div>
 
 ---
