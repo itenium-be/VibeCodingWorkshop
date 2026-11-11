@@ -104,7 +104,7 @@ class: rules
 # Slim beginnen
 
 <div class="grid-2" style="margin-top: 1.5rem">
-  <Card v-click icon="💬" title="Eerst brainstormen">Bespreek je idee met ChatGPT: "Stel me vragen tot mijn idee duidelijk is." Gratis, kost geen credits.</Card>
+  <Card v-click icon="💬" title="Eerst brainstormen">Bespreek je idee met ChatGPT: "Stel me vragen tot mijn idee duidelijk is."</Card>
   <Card v-click icon="✍️" title="Laat je bericht schrijven">"Schrijf nu één bericht dat ik in Lovable kan plakken."</Card>
   <Card v-click icon="🎨" title="Vraag 3 ontwerpen">In Lovable: "Maak 3 verschillende ontwerpen, dan kies ik er één."</Card>
   <Card v-click icon="🖼️" title="Tekeningen nodig?">Steek je hand op: de lesgever helpt.</Card>
