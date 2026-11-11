@@ -79,10 +79,8 @@ class: rules
 <div class="grid-3" style="margin-top: 1.5rem">
   <Card v-click icon="😤" title="Ergernissenlijst">Wat doe je nu op papier, in Excel, of vergeet je steeds?</Card>
   <Card v-click icon="🫶" title="Voor één persoon">Voor je kleinkind, je club, je tuin. Niet voor iedereen.</Card>
-  <Card v-click icon="✏️" title="Crazy 8s">8 ideeën in 8 minuten, op een blad dat je in 8 vouwt.</Card>
+  <Card v-click icon="✏️" title="Crazy 8s">8 ideeën in 8 minuten.</Card>
 </div>
-
-<p v-click style="margin-top: 2.5rem"><span class="pill">Oefening: 8 minuten, 8 ideeën. Kies er dan één.</span></p>
 
 ---
 
