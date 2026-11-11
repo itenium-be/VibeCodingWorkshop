@@ -87,7 +87,7 @@ class: rules
 
 ---
 
-# Wie ziet je app?
+# Bezin voor je begint
 
 <div class="chat">
   <div v-click class="chat-row"><span class="chat-who">🙋</span><div class="bubble ask">Kan iedereen mijn app zien?</div></div>
