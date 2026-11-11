@@ -32,11 +32,10 @@ class: big-cards
 
 # Zelf gemaakt
 
-<div class="grid-3">
+<div class="grid-2">
   <Card icon="🃏" title="Wiezen-scorebord">De punten voor kleurenwiezen, met vier spelers</Card>
   <Card icon="🎁" title="Secret Santa">Lootjes trekken, met een geheime link per persoon</Card>
   <Card icon="💌" title="Uitnodigingen">Een eigen uitnodiging per familie, met QR-code</Card>
-  <Card icon="🏆" title="Toernooi">Aftellen, scorebord en podium voor een game-avond</Card>
   <Card icon="🏠" title="Affiche">Een grappige 'te koop'-affiche als verjaardagscadeau</Card>
 </div>
 
