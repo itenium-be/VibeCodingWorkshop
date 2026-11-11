@@ -2,6 +2,7 @@
 theme: ./theme
 title: Vibe coding
 lang: nl
+siteUrl: https://itenium-be.github.io/VibeCodingWorkshop/
 layout: cover
 ---
 
