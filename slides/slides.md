@@ -53,6 +53,32 @@ class: big-cards
 </div>
 
 ---
+
+# Ideeën vinden
+
+<div class="grid-2" style="margin-top: 1.5rem">
+  <Card v-click icon="😤" title="Ergernissenlijst">Wat doe je nu op papier, in Excel, of vergeet je steeds?</Card>
+  <Card v-click icon="🫶" title="Voor één persoon">Voor je (klein)kind, je club, je tuin of gewoon jezelf.</Card>
+  <Card v-click icon="🤖" title="Vraag het de AI">"Ik hou van tuinieren en kaarten. Geef me 10 ideeën voor een app."</Card>
+  <Card v-click icon="🔁" title="Maak het simpeler">Een app die je al gebruikt, maar dan zoals jij het wil.</Card>
+</div>
+
+
+---
+
+# Wie ziet je app?
+
+<div class="chat">
+  <div v-click class="chat-row"><span class="chat-who">🙋</span><div class="bubble ask">Kan iedereen mijn app zien?</div></div>
+  <div v-click class="chat-row right"><div class="bubble">Ja: iedereen met de link kan je app openen 🔗</div><span class="chat-who">🤖</span></div>
+</div>
+
+<div class="postits">
+  <div v-click class="postit"><b>💻 Tenzij…</b>het alleen op je eigen computer draait</div>
+  <div v-click class="postit"><b>🔒 Tenzij…</b>je er een aanmeldscherm op zet</div>
+</div>
+
+---
 class: rules
 ---
 
@@ -71,25 +97,6 @@ class: rules
     <Card v-click icon="🙈" title="Gegevens van anderen">Adressen, telefoonnummers</Card>
     <div v-click class="rule"><Squiggle /><div class="note ask">Niet zonder inloggen: vraag de lesgever</div></div>
   </div>
-</div>
----
-
-# Ideeën vinden
-
-<div class="grid-2" style="margin-top: 1.5rem">
-  <Card v-click icon="😤" title="Ergernissenlijst">Wat doe je nu op papier, in Excel, of vergeet je steeds?</Card>
-  <Card v-click icon="🫶" title="Voor één persoon">Voor je (klein)kind, je club, je tuin of gewoon jezelf.</Card>
-  <Card v-click icon="🤖" title="Vraag het de AI">"Ik hou van tuinieren en kaarten. Geef me 10 ideeën voor een app."</Card>
-  <Card v-click icon="🔁" title="Maak het simpeler">Een app die je al gebruikt, maar dan zoals jij het wil.</Card>
-</div>
-
-<div v-click style="margin-top: 2rem">
-
-**Voor iedereen?** Iedereen met de link kan je app openen, tenzij:
-
-- het alleen op je eigen computer draait
-- je er een aanmeldscherm op zet
-
 </div>
 
 ---

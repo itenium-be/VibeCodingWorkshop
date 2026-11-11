@@ -303,3 +303,34 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .rules .card-icon { font-size: 3.6rem; }
 .rules .card b { font-size: 1.75rem; }
 .rules .card small { font-size: 1.15rem; }
+
+.chat { display: flex; flex-direction: column; gap: .8rem; margin-top: 1.5rem; }
+.chat-row { display: flex; align-items: center; gap: .6rem; }
+.chat-row.right { justify-content: flex-end; }
+.chat-who { font-size: 2.4rem; }
+
+.bubble {
+  padding: .6rem 1.2rem;
+  background: #fff;
+  border: 3px solid var(--z-ink);
+  border-radius: 1.4rem;
+  box-shadow: 4px 4px 0 var(--z-ink);
+  font-size: 1.4rem;
+}
+
+.bubble.ask { background: var(--z-sun); font-weight: 800; }
+
+.postits { display: flex; justify-content: center; gap: 2.5rem; margin-top: 2.2rem; }
+
+.postit {
+  width: 16rem;
+  padding: .9rem 1.1rem;
+  border: 2px solid var(--z-ink);
+  box-shadow: 4px 6px 0 #2b214033;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.postit b { display: block; font: 800 1.5rem 'Baloo 2', sans-serif; }
+.postit:nth-child(1) { background: var(--z-sky); transform: rotate(-3deg); }
+.postit:nth-child(2) { background: var(--z-pink); transform: rotate(2deg); }
