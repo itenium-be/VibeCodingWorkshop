@@ -55,14 +55,19 @@
   align-self: start;
   width: 15rem;
   aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  font-size: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   background: var(--z-rose);
   border: 5px solid var(--z-ink);
   border-radius: 42% 58% 63% 37% / 45% 41% 59% 55%;
   box-shadow: 10px 10px 0 var(--z-ink);
 }
+
+.cover-blob span { font-size: 4.5rem; line-height: 1; }
+.cover-blob b { font: 800 1.9rem/1 'Baloo 2', sans-serif; transform: rotate(-6deg); margin-top: .4rem; }
 
 .kicker {
   display: inline-block;
