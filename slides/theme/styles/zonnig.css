@@ -1,0 +1,185 @@
+:root {
+  --z-ink: #2b2140;
+  --z-ink-soft: #5d5470;
+  --z-paper: #fff6e5;
+  --z-sun: #ffd56b;
+  --z-rose: #ff7a8a;
+  --z-mint: #bdeccb;
+  --z-pink: #ffd1e0;
+  --z-butter: #ffe7a8;
+  --z-sky: #c9ddff;
+  --z-peach: #ffc9b8;
+  --z-lilac: #e2d4ff;
+  --z-shadow: 6px 6px 0 var(--z-ink);
+}
+
+.slidev-layout {
+  height: 100%;
+  padding: 2.75rem 3.5rem;
+  background: var(--z-paper);
+  color: var(--z-ink);
+  font-family: Nunito, sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.45;
+}
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.slidev-layout h1 { font-size: 3.2rem; margin-bottom: 1.25rem; }
+.slidev-layout h2 { font-size: 1.6rem; margin-bottom: .5rem; }
+.slidev-layout p + p { margin-top: .75rem; }
+.slidev-layout b, .slidev-layout strong { font-weight: 700; }
+
+/* cover: text and blob in separate grid columns so the blob can never cover the title */
+.slidev-layout.cover {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 15rem;
+  gap: 2.5rem;
+  align-items: center;
+  background: var(--z-sun);
+}
+
+.cover h1 { font-size: 6.5rem; line-height: .95; margin: .75rem 0 .5rem; }
+.cover p { font-size: 2.1rem; font-weight: 700; }
+
+.cover-blob {
+  width: 15rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  font-size: 6rem;
+  background: var(--z-rose);
+  border: 5px solid var(--z-ink);
+  border-radius: 42% 58% 63% 37% / 45% 41% 59% 55%;
+  box-shadow: 10px 10px 0 var(--z-ink);
+}
+
+.kicker {
+  display: inline-block;
+  padding: .3rem 1rem;
+  border-radius: 999px;
+  background: var(--z-ink);
+  color: var(--z-sun);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.slidev-layout.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--z-sun);
+}
+
+.center h1 { font-size: 4.5rem; }
+
+/* grids */
+.grid-2, .grid-3 { display: grid; gap: 1.1rem; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  padding: 1rem 1.1rem;
+  border: 3px solid var(--z-ink);
+  border-radius: 1.25rem;
+  box-shadow: var(--z-shadow);
+  background: var(--z-mint);
+}
+
+.card:nth-child(6n+2) { background: var(--z-pink); }
+.card:nth-child(6n+3) { background: var(--z-butter); }
+.card:nth-child(6n+4) { background: var(--z-sky); }
+.card:nth-child(6n+5) { background: var(--z-peach); }
+.card:nth-child(6n+6) { background: var(--z-lilac); }
+
+.card-icon { font-size: 2.4rem; line-height: 1.1; }
+.card b { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 1.4rem; line-height: 1.1; }
+.card small { font-size: 1rem; color: var(--z-ink-soft); line-height: 1.3; }
+
+.step { display: flex; gap: 1.1rem; align-items: center; }
+.step + .step { margin-top: 1rem; }
+
+.step-n {
+  flex: none;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: grid;
+  place-items: center;
+  background: var(--z-rose);
+  border: 3px solid var(--z-ink);
+  border-radius: 1rem;
+  box-shadow: 4px 4px 0 var(--z-ink);
+  font: 800 1.6rem 'Baloo 2', sans-serif;
+}
+
+.step small { display: block; font-size: 1.05rem; color: var(--z-ink-soft); }
+
+.pill {
+  display: inline-block;
+  padding: .5rem 1.25rem;
+  background: var(--z-mint);
+  border: 3px solid var(--z-ink);
+  border-radius: 1rem;
+  box-shadow: 5px 5px 0 var(--z-ink);
+  font-weight: 700;
+}
+
+.prompt {
+  padding: 1.1rem 1.4rem;
+  background: #fff;
+  border: 3px solid var(--z-ink);
+  border-radius: 1.25rem;
+  box-shadow: var(--z-shadow);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* stamp: "slams" onto the slide when its v-click is revealed */
+.stamp {
+  position: absolute;
+  right: 3rem;
+  bottom: 2.5rem;
+  width: 9rem;
+  height: 9rem;
+  display: grid;
+  place-items: center;
+  border: 5px double var(--z-rose);
+  border-radius: 50%;
+  color: var(--z-rose);
+  background: #fff8;
+  font: 800 1.25rem/1.05 'Baloo 2', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: .04em;
+  transform: rotate(-14deg) scale(1);
+  transition: transform .35s cubic-bezier(.3, 1.6, .5, 1), opacity .15s;
+}
+
+.stamp.slidev-vclick-hidden { transform: rotate(-30deg) scale(2.6); }
+.stamp span { padding: .5rem; }
+
+.qr { display: inline-flex; flex-direction: column; align-items: center; gap: .6rem; }
+
+.qr-code {
+  width: 15rem;
+  padding: .6rem;
+  background: #fff;
+  border: 3px solid var(--z-ink);
+  border-radius: 1rem;
+  box-shadow: var(--z-shadow);
+}
+
+.qr-code svg { display: block; width: 100%; height: auto; }
+.qr-url { font-weight: 700; font-size: 1.1rem; }
