@@ -116,6 +116,30 @@
 .card b { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 1.4rem; line-height: 1.1; }
 .card small { font-size: 1rem; color: var(--z-ink-soft); line-height: 1.3; }
 
+.card-stamped { position: relative; padding-right: 7.5rem; }
+
+.card-stamp {
+  position: absolute;
+  right: .8rem;
+  top: 50%;
+  width: 6rem;
+  height: 6rem;
+  margin-top: -3rem;
+  display: grid;
+  place-items: center;
+  border: 4px double var(--z-rose);
+  border-radius: 50%;
+  color: var(--z-rose);
+  background: #fff8;
+  font: 800 .8rem/1 'Baloo 2', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: .04em;
+  transform: rotate(-12deg);
+}
+
+.card-stamp strong { display: block; font-size: 2rem; line-height: .9; }
+
 .step { display: flex; gap: 1.1rem; align-items: center; }
 .step + .step { margin-top: 1rem; }
 
