@@ -100,6 +100,20 @@ class: rules
 </div>
 
 ---
+class: big-cards
+---
+
+# Vastgelopen?
+
+<div class="grid-3" style="margin-top: 2rem">
+  <Card v-click icon="📸" title="Plak een screenshot">Windows + Shift + S, daarna Ctrl + V in de chat</Card>
+  <Card v-click icon="🗣️" title="Zeg wat je ziet">"Als ik op Opslaan klik, gebeurt er niets"</Card>
+  <Card v-click icon="⏪" title="Ga terug">Klik bij een eerder bericht op Restore</Card>
+</div>
+
+<div v-click class="ribbon">🙋 En anders: steek je hand op!</div>
+
+---
 
 # Aan de slag
 
@@ -108,18 +122,6 @@ class: rules
 <Step n="3">Typ je eerste bericht: het recept!</Step>
 
 <p v-click style="margin-top: 2rem">🪙 <b>Credits</b> zijn je beltegoed: elk bericht kost er ongeveer één.<br>Denk even na voor je op verzenden drukt.</p>
-
----
-
-# Vastgelopen?
-
-<div class="grid-3" style="margin-top: 1.5rem">
-  <Card v-click icon="📸" title="Plak een screenshot">Windows + Shift + S, daarna Ctrl + V in de chat</Card>
-  <Card v-click icon="🗣️" title="Zeg wat je ziet">"Als ik op Opslaan klik, gebeurt er niets"</Card>
-  <Card v-click icon="⏪" title="Ga terug">Klik bij een eerder bericht op Restore</Card>
-</div>
-
-<p style="margin-top: 2.5rem">En anders: steek je hand op! 🙋</p>
 
 ---
 
