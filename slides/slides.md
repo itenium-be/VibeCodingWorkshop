@@ -54,10 +54,10 @@ class: big-cards
 
 ---
 
-# Wat (nog) niet
+# Bezin voor je begint
 
 <div class="grid-3" style="margin-top: 2rem">
-  <Card v-click icon="🔐" title="Echte geheimen">Wachtwoorden, pincodes, bankgegevens</Card>
+  <Card v-click icon="🔐" title="Geheimen">Wachtwoorden, pincodes, bankgegevens</Card>
   <Card v-click icon="💳" title="Betalingen">Geld ontvangen of betalen via je app</Card>
   <Card v-click icon="🙈" title="Gegevens van anderen">Adressen, telefoonnummers, medische info</Card>
 </div>
