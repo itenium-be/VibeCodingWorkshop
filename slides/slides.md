@@ -33,10 +33,10 @@ class: big-cards
 # Zelf gemaakt
 
 <div class="grid-2">
-  <Card v-click icon="🃏" title="Wiezen-scorebord">De punten voor kleurenwiezen, met vier spelers</Card>
+  <Card v-click icon="🃏" title="Wiezen-scorebord">De punten voor wiezen bijhouden</Card>
   <Card v-click icon="🎁" title="Secret Santa">Lootjes trekken, met een geheime link per persoon</Card>
-  <Card v-click icon="💌" title="Uitnodigingen">Een eigen uitnodiging per familie, met QR-code</Card>
-  <Card v-click icon="🏠" title="Affiche">Een grappige 'te koop'-affiche als verjaardagscadeau</Card>
+  <Card v-click icon="💌" title="Uitnodigingen">Een website voor va zijn verjaardag, met QR-code</Card>
+  <Card v-click icon="🏠" title="Affiche">Een grappige 'te koop'-affiche</Card>
 </div>
 
 ---
