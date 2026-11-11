@@ -1,0 +1,367 @@
+:root {
+  --z-ink: #2b2140;
+  --z-ink-soft: #5d5470;
+  --z-paper: #fff6e5;
+  --z-sun: #ffd56b;
+  --z-rose: #ff7a8a;
+  --z-mint: #bdeccb;
+  --z-pink: #ffd1e0;
+  --z-butter: #ffe7a8;
+  --z-sky: #c9ddff;
+  --z-peach: #ffc9b8;
+  --z-lilac: #e2d4ff;
+  --z-shadow: 6px 6px 0 var(--z-ink);
+}
+
+.slidev-layout {
+  position: relative;
+  height: 100%;
+  padding: 2.75rem 3.5rem;
+  background: var(--z-paper);
+  color: var(--z-ink);
+  font-family: Nunito, sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.45;
+}
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.slidev-layout h1 { font-size: 3.2rem; margin-bottom: 1.25rem; }
+.slidev-layout h2 { font-size: 1.6rem; margin-bottom: .5rem; }
+.slidev-layout p + p { margin-top: .75rem; }
+.slidev-layout b, .slidev-layout strong { font-weight: 700; }
+
+/* cover: text and blob in separate grid columns so the blob can never cover the title */
+.slidev-layout.cover {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 15rem;
+  gap: 2.5rem;
+  align-items: center;
+  background: var(--z-sun);
+}
+
+.cover h1 { font-size: 6.5rem; line-height: .95; margin: .75rem 0 .5rem; }
+.cover p { font-size: 2.1rem; font-weight: 700; }
+
+/* top-aligned to leave the bottom-right corner free for the stamp */
+.cover-blob {
+  align-self: start;
+  width: 15rem;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--z-rose);
+  border: 5px solid var(--z-ink);
+  border-radius: 42% 58% 63% 37% / 45% 41% 59% 55%;
+  box-shadow: 10px 10px 0 var(--z-ink);
+}
+
+.cover-blob span { font-size: 4.5rem; line-height: 1; }
+.cover-blob b { font: 800 1.9rem/1 'Baloo 2', sans-serif; transform: rotate(-6deg); margin-top: .4rem; }
+
+.kicker {
+  display: inline-block;
+  padding: .3rem 1rem;
+  border-radius: 999px;
+  background: var(--z-ink);
+  color: var(--z-sun);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.slidev-layout.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--z-sun);
+}
+
+.center h1 { font-size: 4.5rem; }
+
+/* grids */
+.grid-2, .grid-3 { display: grid; gap: 1.1rem; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  padding: 1rem 1.1rem;
+  border: 3px solid var(--z-ink);
+  border-radius: 1.25rem;
+  box-shadow: var(--z-shadow);
+  background: var(--z-mint);
+}
+
+.card:nth-child(6n+2) { background: var(--z-pink); }
+.card:nth-child(6n+3) { background: var(--z-butter); }
+.card:nth-child(6n+4) { background: var(--z-sky); }
+.card:nth-child(6n+5) { background: var(--z-peach); }
+.card:nth-child(6n+6) { background: var(--z-lilac); }
+
+.card-icon { font-size: 2.4rem; line-height: 1.1; }
+.card b { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 1.4rem; line-height: 1.1; }
+.card small { font-size: 1rem; color: var(--z-ink-soft); line-height: 1.3; }
+
+.card-stamped { position: relative; padding-right: 7.5rem; }
+
+a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
+
+.card-stamp {
+  position: absolute;
+  right: .8rem;
+  top: 50%;
+  width: 6rem;
+  height: 6rem;
+  margin-top: -3rem;
+  display: grid;
+  place-items: center;
+  border: 4px double var(--z-rose);
+  border-radius: 50%;
+  color: var(--z-rose);
+  background: #fff8;
+  font: 800 .8rem/1 'Baloo 2', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: .04em;
+  transform: rotate(-12deg);
+}
+
+.card-stamp strong { display: block; font-size: 2rem; line-height: .9; }
+
+.card-words {
+  align-self: flex-start;
+  margin-top: .35rem;
+  padding: .05rem .6rem;
+  background: #fff;
+  border: 2px solid var(--z-ink);
+  border-radius: .6rem;
+  font: 800 .95rem 'Baloo 2', sans-serif;
+  transform: rotate(-2deg);
+}
+
+.step { display: flex; gap: 1.1rem; align-items: center; }
+.step + .step { margin-top: 1rem; }
+
+.step-n {
+  flex: none;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: grid;
+  place-items: center;
+  background: var(--z-rose);
+  border: 3px solid var(--z-ink);
+  border-radius: 1rem;
+  box-shadow: 4px 4px 0 var(--z-ink);
+  font: 800 1.6rem 'Baloo 2', sans-serif;
+}
+
+.step small { display: block; font-size: 1.05rem; color: var(--z-ink-soft); }
+
+.pill {
+  display: inline-block;
+  padding: .5rem 1.25rem;
+  background: var(--z-mint);
+  border: 3px solid var(--z-ink);
+  border-radius: 1rem;
+  box-shadow: 5px 5px 0 var(--z-ink);
+  font-weight: 700;
+}
+
+.prompt {
+  padding: 1.1rem 1.4rem;
+  background: #fff;
+  border: 3px solid var(--z-ink);
+  border-radius: 1.25rem;
+  box-shadow: var(--z-shadow);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* stamp: "slams" onto the slide when its v-click is revealed */
+.stamp {
+  position: absolute;
+  right: 3rem;
+  bottom: 2.5rem;
+  width: 9rem;
+  height: 9rem;
+  display: grid;
+  place-items: center;
+  border: 5px double var(--z-rose);
+  border-radius: 50%;
+  color: var(--z-rose);
+  background: #fff8;
+  font: 800 1.25rem/1.05 'Baloo 2', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: .04em;
+  transform: rotate(-14deg) scale(1);
+  transition: transform .35s cubic-bezier(.3, 1.6, .5, 1), opacity .15s;
+}
+
+.stamp.slidev-vclick-hidden { transform: rotate(-30deg) scale(2.6); }
+.stamp span { padding: .5rem; }
+
+.qr { display: inline-flex; flex-direction: column; align-items: center; gap: .6rem; }
+
+.qr-code {
+  width: 15rem;
+  padding: .6rem;
+  background: #fff;
+  border: 3px solid var(--z-ink);
+  border-radius: 1rem;
+  box-shadow: var(--z-shadow);
+}
+
+.qr-code svg { display: block; width: 100%; height: auto; }
+.qr-url { font-weight: 700; font-size: 1.1rem; }
+
+/* A4 handout page (canvasWidth 794 = A4 width at 96 dpi) */
+.slidev-layout.page { padding: 2.4rem 2.6rem; font-size: 1.08rem; line-height: 1.4; }
+.page h1 { font-size: 2.6rem; margin-bottom: .6rem; }
+.page h2 { font-size: 1.45rem; margin: 1.4rem 0 .55rem; }
+.page .step-n { width: 2.2rem; height: 2.2rem; font-size: 1.15rem; border-radius: .7rem; box-shadow: 3px 3px 0 var(--z-ink); }
+.page .step + .step { margin-top: .5rem; }
+.page .step small { font-size: .95rem; }
+.page .prompt { padding: .6rem .85rem; font-size: .92rem; line-height: 1.45; box-shadow: 4px 4px 0 var(--z-ink); border-width: 2px; border-radius: .9rem; }
+.page .prompt + .prompt { margin-top: .75rem; }
+.page .prompt b { display: block; font-family: 'Baloo 2', sans-serif; font-size: .95rem; }
+.page .pill { padding: .35rem .9rem; box-shadow: 3px 3px 0 var(--z-ink); border-width: 2px; }
+.page ul { padding-left: 1.2rem; list-style: disc; }
+.page li + li { margin-top: .25rem; }
+.page .qr-code { width: 10rem; box-shadow: 4px 4px 0 var(--z-ink); }
+.page .qr-url { font-size: .85rem; }
+
+.write-lines div { height: 2.4rem; border-bottom: 2px dotted var(--z-ink-soft); }
+
+.crazy8 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 10.5rem);
+  border: 3px solid var(--z-ink);
+  border-radius: .9rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+.crazy8 div { border: 1px dashed var(--z-ink-soft); padding: .3rem .45rem; font: 800 .9rem 'Baloo 2', sans-serif; color: var(--z-ink-soft); }
+
+.ribbon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 3.5rem;
+  background: var(--z-ink);
+  color: var(--z-sun);
+  font: 800 2rem 'Baloo 2', sans-serif;
+}
+
+.ribbon small { margin-left: auto; color: #fff; font: 700 1.1rem Nunito, sans-serif; }
+
+.big-cards .card { min-height: 19rem; justify-content: center; align-items: center; text-align: center; gap: .5rem; padding: 1.5rem; }
+.big-cards .card-icon { font-size: 4.5rem; }
+.big-cards .card b { font-size: 2rem; }
+.big-cards .card small { font-size: 1.25rem; }
+
+.col { display: flex; flex-direction: column; align-items: center; }
+.col > .card { align-self: stretch; }
+.rule { display: flex; flex-direction: column; align-items: center; }
+.squiggle { width: 5rem; height: 4.4rem; margin: .3rem 0; color: var(--z-ink); }
+.squiggle.flip { transform: scaleX(-1); }
+
+.note {
+  padding: .7rem 1.1rem;
+  background: #fff;
+  border: 3px solid var(--z-ink);
+  border-radius: 1rem;
+  box-shadow: 5px 5px 0 var(--z-ink);
+  font: 800 1.6rem/1.15 'Baloo 2', sans-serif;
+  text-align: center;
+}
+
+.note.stop { background: var(--z-rose); }
+.note.ask { background: var(--z-butter); }
+
+.rules .card { min-height: 12.5rem; justify-content: center; align-items: center; text-align: center; gap: .35rem; }
+.rules .card-icon { font-size: 3.6rem; }
+.rules .card b { font-size: 1.75rem; }
+.rules .card small { font-size: 1.15rem; }
+
+.chat { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+.chat-row { display: flex; align-items: center; gap: .6rem; }
+.chat-row.right { justify-content: flex-end; }
+.chat-who { font-size: 3.2rem; }
+
+.bubble {
+  padding: .8rem 1.5rem;
+  background: #fff;
+  border: 3px solid var(--z-ink);
+  border-radius: 1.6rem;
+  box-shadow: 5px 5px 0 var(--z-ink);
+  font-size: 1.8rem;
+}
+
+.bubble.ask { background: var(--z-sun); font-weight: 800; }
+
+.postits { display: flex; justify-content: center; gap: 3rem; margin-top: 2.2rem; }
+
+.postit {
+  width: 20rem;
+  padding: 1.1rem 1.4rem;
+  border: 2px solid var(--z-ink);
+  box-shadow: 4px 6px 0 #2b214033;
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+.postit b { display: block; font: 800 1.9rem 'Baloo 2', sans-serif; }
+.postit:nth-child(1) { background: var(--z-sky); transform: rotate(-3deg); }
+.postit:nth-child(2) { background: var(--z-pink); transform: rotate(2deg); }
+
+.card-hinted { padding-bottom: 0; }
+.card-hinted small { margin-bottom: .6rem; }
+
+.card-hint {
+  margin: auto -1.1rem 0;
+  padding: .4rem 1.1rem;
+  background: var(--z-sun);
+  border-top: 3px solid var(--z-ink);
+  border-radius: 0 0 1rem 1rem;
+  font: 800 .95rem Nunito, sans-serif;
+  white-space: nowrap;
+}
+
+.card-stepped { position: relative; padding-left: 1.6rem; }
+.card-stepped .card-hint { margin-left: -1.6rem; padding-left: 1.6rem; }
+
+.card-step {
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  width: 2.6rem;
+  height: 2.6rem;
+  display: grid;
+  place-items: center;
+  background: var(--z-rose);
+  border: 3px solid var(--z-ink);
+  border-radius: .8rem;
+  box-shadow: 3px 3px 0 var(--z-ink);
+  font: 800 1.4rem 'Baloo 2', sans-serif;
+}

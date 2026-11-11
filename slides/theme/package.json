@@ -1,0 +1,12 @@
+{
+  "name": "slidev-theme-zonnig",
+  "private": true,
+  "keywords": ["slidev-theme"],
+  "engines": { "slidev": ">=53.0.0" },
+  "slidev": {
+    "defaults": {
+      "fonts": { "provider": "none", "sans": "Nunito", "serif": "Baloo 2" },
+      "transition": "slide-left"
+    }
+  }
+}

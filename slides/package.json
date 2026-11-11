@@ -1,0 +1,17 @@
+{
+  "name": "vibe-coding-workshop-slides",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev slides.md --open false",
+    "handout": "slidev ../handout/handout.md --open false",
+    "build": "slidev build slides.md",
+    "export:handout": "slidev export ../handout/handout.md --output ../handout/handout.pdf"
+  },
+  "dependencies": {
+    "@fontsource/baloo-2": "^5.3.0",
+    "@fontsource/nunito": "^5.3.0",
+    "@slidev/cli": "^53.1.0",
+    "qrcode": "^1.5.4"
+  }
+}
