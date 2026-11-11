@@ -268,3 +268,27 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .big-cards .card-icon { font-size: 4.5rem; }
 .big-cards .card b { font-size: 2rem; }
 .big-cards .card small { font-size: 1.25rem; }
+
+.col { display: flex; flex-direction: column; align-items: center; }
+.col > .card { align-self: stretch; }
+.rule { display: flex; flex-direction: column; align-items: center; }
+.squiggle { width: 5rem; height: 4.4rem; margin: .3rem 0; color: var(--z-ink); }
+.squiggle.flip { transform: scaleX(-1); }
+
+.note {
+  padding: .7rem 1.1rem;
+  background: #fff;
+  border: 3px solid var(--z-ink);
+  border-radius: 1rem;
+  box-shadow: 5px 5px 0 var(--z-ink);
+  font: 800 1.6rem/1.15 'Baloo 2', sans-serif;
+  text-align: center;
+}
+
+.note.stop { background: var(--z-rose); }
+.note.ask { background: var(--z-butter); }
+
+.rules .card { min-height: 12.5rem; justify-content: center; align-items: center; text-align: center; gap: .35rem; }
+.rules .card-icon { font-size: 3.6rem; }
+.rules .card b { font-size: 1.75rem; }
+.rules .card small { font-size: 1.15rem; }
