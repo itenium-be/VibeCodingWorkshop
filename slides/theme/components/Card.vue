@@ -4,10 +4,10 @@ defineProps<{ icon: string, title: string, prompts?: number, hours?: number, hre
 
 <template>
   <div class="card" :class="{ 'card-stamped': prompts }">
-    <span class="card-icon">{{ icon }}</span>
+    <a v-if="href" class="card-icon" :href="href" target="_blank">{{ icon }}</a>
+    <span v-else class="card-icon">{{ icon }}</span>
     <b>{{ title }}</b>
     <small><slot /></small>
-    <a v-if="href" class="card-link" :href="href" target="_blank">↗</a>
     <div v-if="prompts" class="card-stamp">
       <span><strong>{{ prompts }}</strong>prompts<br>±{{ hours }} uur</span>
     </div>
