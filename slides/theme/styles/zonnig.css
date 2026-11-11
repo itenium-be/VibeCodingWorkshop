@@ -237,3 +237,8 @@
 }
 
 .ribbon small { margin-left: auto; color: #fff; font: 700 1.1rem Nunito, sans-serif; }
+
+.big-cards .card { min-height: 19rem; justify-content: center; align-items: center; text-align: center; gap: .5rem; padding: 1.5rem; }
+.big-cards .card-icon { font-size: 4.5rem; }
+.big-cards .card b { font-size: 2rem; }
+.big-cards .card small { font-size: 1.25rem; }

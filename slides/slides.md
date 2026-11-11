@@ -15,6 +15,8 @@ Jij beschrijft, de AI bouwt.
 <Stamp v-click>zelf gemaakt</Stamp>
 
 ---
+class: big-cards
+---
 
 # Wat is vibe coding?
 
