@@ -336,9 +336,10 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .postit:nth-child(2) { background: var(--z-pink); transform: rotate(2deg); }
 
 .card-hinted { padding-bottom: 0; overflow: hidden; }
+.card-hinted small { margin-bottom: .6rem; }
 
 .card-hint {
-  margin: .6rem -1.1rem 0;
+  margin: auto -1.1rem 0;
   padding: .4rem 1.1rem;
   background: var(--z-sun);
   border-top: 3px solid var(--z-ink);
