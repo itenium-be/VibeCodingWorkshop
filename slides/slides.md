@@ -65,14 +65,12 @@ class: big-cards
 <p v-click style="margin-top: 2.5rem">Je app is een <b>verzegelde envelop</b>, geen kluis. Prima voor familie en vrienden.</p>
 
 ---
+layout: center
+---
+
+<div style="font-size: 6rem; line-height: 1">🎁</div>
 
 # Live demo: Secret Santa
-
-<div class="prompt">
-Maak een Secret Santa-app. De organisator vult de naam van het feest, de datum, het budget en de namen van de deelnemers in. De app loot wie voor wie een cadeau koopt (niemand trekt zichzelf) en geeft elke deelnemer een eigen geheime link. Geen accounts. Via die link zie je alleen voor wie jij koopt en diens verlanglijstje, en beheer je je eigen verlanglijstje. Niemand, ook de organisator niet, ziet de volledige loting. Feestelijke, warme stijl.
-</div>
-
-<p style="margin-top: 1.5rem">Daarna, één per bericht: een knop om te mailen, het budget groter tonen, …</p>
 
 ---
 
