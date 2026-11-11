@@ -66,16 +66,6 @@ class: big-cards
 
 ---
 
-# Het recept
-
-<Step n="1"><b>Wie</b> gebruikt het?<small>"Voor mijn kleinkinderen van 8 en 10"</small></Step>
-<Step n="2"><b>Wat</b> doet het?<small>"Ze beantwoorden vragen over onze familie en krijgen een score"</small></Step>
-<Step n="3"><b>Hoe</b> ziet het eruit?<small>"Vrolijk, grote knoppen, veel kleur"</small></Step>
-
-<p v-click style="margin-top: 2rem"><span class="pill">Daarna: één wijziging per bericht.</span></p>
-
----
-
 # Live demo: Secret Santa
 
 <div class="prompt">
