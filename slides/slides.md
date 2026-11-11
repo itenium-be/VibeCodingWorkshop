@@ -33,10 +33,10 @@ class: big-cards
 # Zelf gemaakt
 
 <div class="grid-2">
-  <Card v-click icon="🃏" title="Wiezen-scorebord">De punten voor wiezen bijhouden</Card>
-  <Card v-click icon="🎁" title="Secret Santa">Lootjes trekken, met een geheime link per persoon</Card>
-  <Card v-click icon="💌" title="Uitnodigingen">Een website voor va zijn verjaardag, met QR-code</Card>
-  <Card v-click icon="🏠" title="Affiche">Een grappige 'te koop'-affiche</Card>
+  <Card v-click icon="🃏" title="Wiezen-scorebord">De punten voor wiezen bijhouden, tot in de puntjes: avatars, handleiding, instellingen<br><b>120 berichten · ±9 uur</b></Card>
+  <Card v-click icon="🎁" title="Secret Santa">Lootjes trekken, met een geheime link per persoon<br><b>14 berichten · ±1 uur</b></Card>
+  <Card v-click icon="💌" title="Uitnodigingen">Een website voor va zijn verjaardag, met QR-code<br><b>53 berichten · ±4 uur</b></Card>
+  <Card v-click icon="📄" title="PDF Workbench">PDF's samenvoegen, splitsen, pagina's herschikken<br><b>10 berichten · ±1 uur</b></Card>
 </div>
 
 ---
