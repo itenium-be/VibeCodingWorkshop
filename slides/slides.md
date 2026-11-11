@@ -76,10 +76,11 @@ class: rules
 
 # Ideeën vinden
 
-<div class="grid-3" style="margin-top: 1.5rem">
+<div class="grid-2" style="margin-top: 1.5rem">
   <Card v-click icon="😤" title="Ergernissenlijst">Wat doe je nu op papier, in Excel, of vergeet je steeds?</Card>
   <Card v-click icon="🫶" title="Voor één persoon">Voor je (klein)kind, je club, je tuin of gewoon jezelf.</Card>
-  <Card v-click icon="✏️" title="Crazy 8s">8 ideeën in 8 minuten.</Card>
+  <Card v-click icon="🤖" title="Vraag het de AI">"Ik hou van tuinieren en kaarten. Geef me 10 ideeën voor een app."</Card>
+  <Card v-click icon="🔁" title="Maak het simpeler">Een app die je al gebruikt, maar dan zoals jij het wil.</Card>
 </div>
 
 <div v-click style="margin-top: 2rem">
