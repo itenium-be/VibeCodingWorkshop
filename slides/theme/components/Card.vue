@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ icon: string, title: string, prompts?: number, hours?: number, href?: string }>()
+defineProps<{ icon: string, title: string, prompts?: number, time?: string, href?: string }>()
 </script>
 
 <template>
@@ -9,7 +9,7 @@ defineProps<{ icon: string, title: string, prompts?: number, hours?: number, hre
     <b>{{ title }}</b>
     <small><slot /></small>
     <div v-if="prompts" class="card-stamp">
-      <span><strong>{{ prompts }}</strong>prompts<br>±{{ hours }} uur</span>
+      <span><strong>{{ prompts }}</strong>prompts<br>±{{ time }}</span>
     </div>
   </div>
 </template>
