@@ -142,6 +142,17 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 
 .card-stamp strong { display: block; font-size: 2rem; line-height: .9; }
 
+.card-words {
+  align-self: flex-start;
+  margin-top: .35rem;
+  padding: .05rem .6rem;
+  background: #fff;
+  border: 2px solid var(--z-ink);
+  border-radius: .6rem;
+  font: 800 .95rem 'Baloo 2', sans-serif;
+  transform: rotate(-2deg);
+}
+
 .step { display: flex; gap: 1.1rem; align-items: center; }
 .step + .step { margin-top: 1rem; }
 

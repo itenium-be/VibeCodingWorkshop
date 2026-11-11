@@ -33,10 +33,10 @@ class: big-cards
 # Zelf gemaakt
 
 <div class="grid-2">
-  <Card v-click icon="🃏" title="Wiezen-scorebord" :prompts="120" time="9 uur" href="https://laoujin.github.io/WiezeScoren/">De punten voor wiezen bijhouden</Card>
-  <Card v-click icon="🎁" title="Secret Santa" :prompts="2" time="30 min" href="https://secret-santa.sangu.be/">Lootjes trekken, met een geheime link per persoon</Card>
-  <Card v-click icon="💌" title="Uitnodigingen" :prompts="50" time="4 uur" href="https://breibeest.github.io/guido-70/31-7/">Een website voor va zijn verjaardag, met QR-code</Card>
-  <Card v-click icon="📄" title="PDF Workbench" :prompts="10" time="1 uur" href="https://dev.itenium.be/PdfMerge/">PDF's samenvoegen, splitsen, pagina's herschikken</Card>
+  <Card v-click icon="🃏" title="Wiezen-scorebord" :prompts="120" :words="2420" time="9 uur" href="https://laoujin.github.io/WiezeScoren/">De punten voor wiezen bijhouden</Card>
+  <Card v-click icon="🎁" title="Secret Santa" :prompts="2" :words="225" time="30 min" href="https://secret-santa.sangu.be/">Lootjes trekken, met een geheime link per persoon</Card>
+  <Card v-click icon="💌" title="Uitnodigingen" :prompts="50" :words="876" time="4 uur" href="https://breibeest.github.io/guido-70/31-7/">Een website voor va zijn verjaardag, met QR-code</Card>
+  <Card v-click icon="📄" title="PDF Workbench" :prompts="10" :words="455" time="1 uur" href="https://dev.itenium.be/PdfMerge/">PDF's samenvoegen, splitsen, pagina's herschikken</Card>
 </div>
 
 ---
