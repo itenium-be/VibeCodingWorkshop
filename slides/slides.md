@@ -33,10 +33,10 @@ class: big-cards
 # Zelf gemaakt
 
 <div class="grid-2">
-  <Card icon="🃏" title="Wiezen-scorebord">De punten voor kleurenwiezen, met vier spelers</Card>
-  <Card icon="🎁" title="Secret Santa">Lootjes trekken, met een geheime link per persoon</Card>
-  <Card icon="💌" title="Uitnodigingen">Een eigen uitnodiging per familie, met QR-code</Card>
-  <Card icon="🏠" title="Affiche">Een grappige 'te koop'-affiche als verjaardagscadeau</Card>
+  <Card v-click icon="🃏" title="Wiezen-scorebord">De punten voor kleurenwiezen, met vier spelers</Card>
+  <Card v-click icon="🎁" title="Secret Santa">Lootjes trekken, met een geheime link per persoon</Card>
+  <Card v-click icon="💌" title="Uitnodigingen">Een eigen uitnodiging per familie, met QR-code</Card>
+  <Card v-click icon="🏠" title="Affiche">Een grappige 'te koop'-affiche als verjaardagscadeau</Card>
 </div>
 
 ---
@@ -44,12 +44,12 @@ class: big-cards
 # En jij?
 
 <div class="grid-3">
-  <Card icon="🪴" title="Plantenkalender">Wanneer moet welke plant water?</Card>
-  <Card icon="💊" title="Medicatie">Welke pil, wanneer, al genomen?</Card>
-  <Card icon="🧠" title="Familiequiz">Wie kent oma het best?</Card>
-  <Card icon="📖" title="Receptenboek">Al je favorieten op één plek</Card>
-  <Card icon="⏳" title="Aftellen">Nog hoeveel nachtjes tot de vakantie?</Card>
-  <Card icon="🎲" title="Bingokaart">Voor het volgende feest</Card>
+  <Card v-click icon="🪴" title="Plantenkalender">Wanneer moet welke plant water?</Card>
+  <Card v-click icon="💊" title="Medicatie">Welke pil, wanneer, al genomen?</Card>
+  <Card v-click icon="🧠" title="Familiequiz">Wie kent oma het best?</Card>
+  <Card v-click icon="📖" title="Receptenboek">Al je favorieten op één plek</Card>
+  <Card v-click icon="⏳" title="Aftellen">Nog hoeveel nachtjes tot de vakantie?</Card>
+  <Card v-click icon="🎲" title="Bingokaart">Voor het volgende feest</Card>
 </div>
 
 ---
@@ -57,9 +57,9 @@ class: big-cards
 # Wat (nog) niet
 
 <div class="grid-3" style="margin-top: 2rem">
-  <Card icon="🔐" title="Echte geheimen">Wachtwoorden, pincodes, bankgegevens</Card>
-  <Card icon="💳" title="Betalingen">Geld ontvangen of betalen via je app</Card>
-  <Card icon="🙈" title="Gegevens van anderen">Adressen, telefoonnummers, medische info</Card>
+  <Card v-click icon="🔐" title="Echte geheimen">Wachtwoorden, pincodes, bankgegevens</Card>
+  <Card v-click icon="💳" title="Betalingen">Geld ontvangen of betalen via je app</Card>
+  <Card v-click icon="🙈" title="Gegevens van anderen">Adressen, telefoonnummers, medische info</Card>
 </div>
 
 <p v-click style="margin-top: 2.5rem">Je app is een <b>verzegelde envelop</b>, geen kluis. Prima voor familie en vrienden.</p>
@@ -89,9 +89,9 @@ Maak een Secret Santa-app. De organisator vult de naam van het feest, de datum, 
 # Ideeën vinden
 
 <div class="grid-3" style="margin-top: 1.5rem">
-  <Card icon="😤" title="Ergernissenlijst">Wat doe je nu op papier, in Excel, of vergeet je steeds?</Card>
-  <Card icon="🫶" title="Voor één persoon">Voor je kleinkind, je club, je tuin. Niet voor iedereen.</Card>
-  <Card icon="✏️" title="Crazy 8s">8 ideeën in 8 minuten, op een blad dat je in 8 vouwt.</Card>
+  <Card v-click icon="😤" title="Ergernissenlijst">Wat doe je nu op papier, in Excel, of vergeet je steeds?</Card>
+  <Card v-click icon="🫶" title="Voor één persoon">Voor je kleinkind, je club, je tuin. Niet voor iedereen.</Card>
+  <Card v-click icon="✏️" title="Crazy 8s">8 ideeën in 8 minuten, op een blad dat je in 8 vouwt.</Card>
 </div>
 
 <p v-click style="margin-top: 2.5rem"><span class="pill">Oefening: 8 minuten, 8 ideeën. Kies er dan één.</span></p>
@@ -111,9 +111,9 @@ Maak een Secret Santa-app. De organisator vult de naam van het feest, de datum, 
 # Vastgelopen?
 
 <div class="grid-3" style="margin-top: 1.5rem">
-  <Card icon="📸" title="Plak een screenshot">Windows + Shift + S, daarna Ctrl + V in de chat</Card>
-  <Card icon="🗣️" title="Zeg wat je ziet">"Als ik op Opslaan klik, gebeurt er niets"</Card>
-  <Card icon="⏪" title="Ga terug">Klik bij een eerder bericht op Restore</Card>
+  <Card v-click icon="📸" title="Plak een screenshot">Windows + Shift + S, daarna Ctrl + V in de chat</Card>
+  <Card v-click icon="🗣️" title="Zeg wat je ziet">"Als ik op Opslaan klik, gebeurt er niets"</Card>
+  <Card v-click icon="⏪" title="Ga terug">Klik bij een eerder bericht op Restore</Card>
 </div>
 
 <p style="margin-top: 2.5rem">En anders: steek je hand op! 🙋</p>
