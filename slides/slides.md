@@ -46,9 +46,10 @@ class: big-cards
 <div class="grid-3">
   <Card v-click icon="🪴" title="Plantenkalender">Wanneer moet welke plant water?</Card>
   <Card v-click icon="🧠" title="Familiequiz">Wie kent oma het best?</Card>
-  <Card v-click icon="🍸" title="Sangu Cocktails">Je favoriete cocktailrecepten, zonder reclame</Card>
+  <Card v-click icon="🍸" title="Cocktails">Je favoriete cocktailrecepten</Card>
   <Card v-click icon="⏳" title="Aftellen">Nog hoeveel nachtjes tot de vakantie?</Card>
-  <Card v-click icon="🎲" title="Bingokaart">Voor het volgende feest</Card>
+  <Card v-click icon="📚" title="Leesclub">Wat lezen we, wanneer komen we samen, wie brengt koffie?</Card>
+  <Card v-click icon="🧳" title="Reisdagboek">Foto's en verhaaltjes van je reis, per dag</Card>
 </div>
 
 ---
