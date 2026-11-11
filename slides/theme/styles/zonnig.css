@@ -349,6 +349,7 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 }
 
 .card-stepped { position: relative; padding-left: 1.6rem; }
+.card-stepped .card-hint { margin-left: -1.6rem; padding-left: 1.6rem; }
 
 .card-step {
   position: absolute;
