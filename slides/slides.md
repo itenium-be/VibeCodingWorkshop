@@ -53,17 +53,25 @@ class: big-cards
 </div>
 
 ---
+class: rules
+---
 
 # Bezin voor je begint
 
-<div class="grid-3" style="margin-top: 2rem">
-  <Card v-click icon="🔐" title="Geheimen">Wachtwoorden, pincodes, bankgegevens</Card>
-  <Card v-click icon="💳" title="Betalingen">Geld ontvangen of betalen via je app</Card>
-  <Card v-click icon="🙈" title="Gegevens van anderen">Adressen, telefoonnummers, medische info</Card>
+<div class="grid-3">
+  <div class="col">
+    <Card v-click icon="🔐" title="Geheimen">Wachtwoorden, pincodes, bankgegevens</Card>
+    <div v-click class="rule"><Squiggle /><div class="note stop">Deel nooit geheimen met de AI</div></div>
+  </div>
+  <div class="col">
+    <Card v-click icon="💳" title="Betalingen">Geld ontvangen of betalen via je app</Card>
+    <div v-click class="rule"><Squiggle flip /><div class="note stop">Dit gaan we niet doen</div></div>
+  </div>
+  <div class="col">
+    <Card v-click icon="🙈" title="Gegevens van anderen">Adressen, telefoonnummers</Card>
+    <div v-click class="rule"><Squiggle /><div class="note ask">Niet zonder inloggen: vraag de lesgever</div></div>
+  </div>
 </div>
-
-<p v-click style="margin-top: 2.5rem">Je app is een <b>verzegelde envelop</b>, geen kluis. Prima voor familie en vrienden.</p>
-
 ---
 
 # Ideeën vinden
