@@ -1,0 +1,17 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+---
+
+<StarlightPage
+	frontmatter={{
+		title: 'Pagina niet gevonden',
+		template: 'splash',
+		editUrl: false,
+		pagefind: false,
+		hero: {
+			title: 'Oeps, deze pagina bestaat niet',
+			tagline: 'Misschien is de link verkeerd overgetypt.',
+			actions: [{ text: 'Naar de startpagina', link: '/VibeCodingWorkshop/', variant: 'primary' }],
+		},
+	}}
+/>

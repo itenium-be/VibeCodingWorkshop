@@ -1,0 +1,31 @@
+---
+interface Props {
+	text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div class="stamp" aria-hidden="true"><span>{text}</span></div>
+
+<style>
+	.stamp {
+		float: inline-end;
+		margin: 0 0 1rem 1.5rem;
+		width: 7.5rem;
+		aspect-ratio: 1;
+		display: grid;
+		place-items: center;
+		border: 4px solid var(--z-rose);
+		border-radius: 50%;
+		outline: 2px solid var(--z-rose);
+		outline-offset: 4px;
+		transform: rotate(-14deg);
+		color: var(--z-rose);
+		font-family: var(--z-font-heading);
+		font-weight: 800;
+		font-size: 1.1rem;
+		line-height: 1.1;
+		text-align: center;
+	}
+</style>
