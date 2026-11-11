@@ -78,8 +78,17 @@ class: rules
 
 <div class="grid-3" style="margin-top: 1.5rem">
   <Card v-click icon="😤" title="Ergernissenlijst">Wat doe je nu op papier, in Excel, of vergeet je steeds?</Card>
-  <Card v-click icon="🫶" title="Voor één persoon">Voor je kleinkind, je club, je tuin. Niet voor iedereen.</Card>
+  <Card v-click icon="🫶" title="Voor één persoon">Voor je (klein)kind, je club, je tuin of gewoon jezelf.</Card>
   <Card v-click icon="✏️" title="Crazy 8s">8 ideeën in 8 minuten.</Card>
+</div>
+
+<div v-click style="margin-top: 2rem">
+
+**Voor iedereen?** Iedereen met de link kan je app openen, tenzij:
+
+- het alleen op je eigen computer draait
+- je er een aanmeldscherm op zet
+
 </div>
 
 ---
