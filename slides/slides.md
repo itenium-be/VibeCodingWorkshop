@@ -2,7 +2,7 @@
 theme: ./theme
 title: Vibe coding
 lang: nl
-siteUrl: https://itenium-be.github.io/VibeCodingWorkshop/
+siteUrl: https://dev.itenium.be/VibeCodingWorkshop/
 layout: cover
 ---
 
@@ -107,7 +107,7 @@ class: rules
   <Card v-click icon="💬" :step="1" title="Brainstormen">Bespreek je idee met ChatGPT: "Stel me vragen tot mijn idee duidelijk is."</Card>
   <Card v-click icon="✍️" :step="2" title="Laat je bericht schrijven">"Schrijf nu één bericht dat ik in Lovable kan plakken."</Card>
   <Card v-click icon="🎨" :step="3" title="Vraag ontwerpen" hint="combineer de beste delen">In Lovable: "Maak 3 verschillende ontwerpen, dan kies ik er één."</Card>
-  <Card v-click icon="🖼️" title="Tekeningen nodig?" hint="vraag een Midjourney-prompt">Steek je hand op: de lesgever helpt.</Card>
+  <Card v-click icon="🖼️" title="Tekeningen nodig?" hint="veel tekeningen nodig? Vraag de lesgever">Vraag het Lovable: "Zet een tekening van een vrolijke cactus bovenaan."</Card>
 </div>
 
 ---
@@ -126,23 +126,46 @@ class: big-cards
 
 ---
 
-# Aan de slag
+# Aan de slag!
 
-<Step n="1">Ga naar <b>lovable.dev</b></Step>
-<Step n="2">Log in met je <b>Google</b>-account</Step>
-<Step n="3">Typ je eerste bericht: het recept!</Step>
+<svg class="road" viewBox="0 0 980 416">
+  <g v-click="2" class="road-seg">
+    <mask id="road-1"><path class="road-draw" pathLength="1" d="M140 250 C 260 60, 380 60, 490 200" /></mask>
+    <path class="road-dots" mask="url(#road-1)" d="M140 250 C 260 60, 380 60, 490 200" />
+  </g>
+  <g v-click="3" class="road-seg">
+    <mask id="road-2"><path class="road-draw" pathLength="1" d="M490 200 C 600 340, 720 360, 840 160" /></mask>
+    <path class="road-dots" mask="url(#road-2)" d="M490 200 C 600 340, 720 360, 840 160" />
+  </g>
+</svg>
 
-<p v-click style="margin-top: 2rem">🪙 <b>Credits</b> zijn je beltegoed: elk bericht kost er ongeveer één.<br>Denk even na voor je op verzenden drukt.</p>
+<div v-click="1" class="station station-hinted" style="left: 2.5rem; top: 15rem; background: var(--z-sky)">
+  <span class="station-tag">Beginnen</span>
+  <div class="station-icon">🔑</div>
+  <h3>Inloggen</h3>
+  <span class="pill">lovable.dev</span>
+  <span class="card-hint">💡 Hint: Google-adres nog niet doorgegeven? Geef het aan de lesgever.</span>
+</div>
 
----
+<div v-click="2" class="station after-road" style="left: 23.4rem; top: 8.4rem; background: var(--z-mint)">
+  <span class="station-tag">Bouwen</span>
+  <div class="station-icon">🛠️</div>
+  <h3>Zoals besproken</h3>
+  <p>Brainstormen → 1 bericht</p>
+  <p>3 ontwerpen</p>
+  <p>1 wijziging per keer</p>
+</div>
 
-# Mee naar huis
-
-<Step n="1">Klik rechtsboven op <b>Publish</b></Step>
-<Step n="2">Je krijgt een link: <b>jouwnaam.lovable.app</b></Step>
-<Step n="3">Deel die link met wie je wil</Step>
-
-<p v-click style="margin-top: 2rem"><span class="pill">Meer nodig? Spreek de lesgever aan.</span></p>
+<div v-click="3" class="station after-road" style="right: 2.5rem; top: 15rem; background: var(--z-pink)">
+  <span class="station-tag">Mee naar huis</span>
+  <div class="station-icon">🏠</div>
+  <h3>Publish &amp; delen</h3>
+  <div class="publish-flow">
+    <LovableButton icon="globe">Publish</LovableButton>
+    <Squiggle />
+    <span class="pill">jouwnaam.lovable.app</span>
+  </div>
+</div>
 
 ---
 layout: center
