@@ -37,6 +37,10 @@ describe('sidebar', () => {
 	test('links the handout and the slides', () => {
 		expect(hrefs(nav(html('')))).toEqual(expect.arrayContaining(BUILT_ELSEWHERE));
 	});
+
+	test.each(BUILT_ELSEWHERE)('opens %s in a new tab', href => {
+		expect(nav(html(''))).toMatch(new RegExp(`href="${href}"[^>]*target="_blank"`));
+	});
 });
 
 describe('pager', () => {
