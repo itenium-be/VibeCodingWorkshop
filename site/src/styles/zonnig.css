@@ -146,3 +146,21 @@ main { padding: 2.5rem 2rem 1.5rem; }
 .minis { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; margin-top: 1.2rem; }
 .mini { display: flex; align-items: center; gap: .8rem; padding: .7rem .9rem; border: 3px solid var(--z-ink); border-radius: 1rem; background: var(--z-sky); box-shadow: 3px 3px 0 var(--z-ink); }
 .mini + .mini { background: var(--z-peach); }
+
+/* one-shot prompt modal */
+.oneshot { align-self: flex-start; margin-top: .8rem; padding: .25rem .9rem; border: 2px solid var(--z-ink); border-radius: 999px; background: #fff; box-shadow: 3px 3px 0 var(--z-ink); color: inherit; font: 800 1rem Nunito, sans-serif; cursor: pointer; }
+.oneshot:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--z-ink); }
+.prompt-modal { width: min(46rem, calc(100% - 2rem)); max-height: 85vh; padding: 0; border: 3px solid var(--z-ink); border-radius: 1.4rem; background: var(--z-paper); color: var(--z-ink); box-shadow: 8px 8px 0 var(--z-ink); }
+.prompt-modal::backdrop { background: #2b214099; }
+.prompt-modal .close { position: absolute; top: .7rem; right: .7rem; width: 2.2rem; height: 2.2rem; border: 2px solid var(--z-ink); border-radius: 50%; background: #fff; color: inherit; font: 800 1.1rem Nunito, sans-serif; cursor: pointer; }
+.prompt-head { display: flex; align-items: center; gap: .8rem; padding: 1.2rem 3.5rem 1rem 1.4rem; background: var(--z-sun); border-bottom: 3px solid var(--z-ink); }
+.prompt-head h3 { margin: 0; }
+.prompt-head small { font-size: .9rem; font-weight: 700; color: var(--z-ink-soft); }
+.prompt-body { padding: 1.6rem 1.4rem 1.3rem; }
+.prompt-text { position: relative; padding: 1.1rem 1.2rem; border: 3px dashed var(--z-ink); border-radius: 1rem; background: #fff; font-size: 1.05rem; }
+.prompt-text p + p { margin-top: .7rem; }
+.prompt-text .copy { position: absolute; top: -.95rem; right: 1rem; padding: .2rem .8rem; border: 2px solid var(--z-ink); border-radius: 999px; background: #fff; color: inherit; font: 800 .9rem Nunito, sans-serif; cursor: pointer; }
+.prompt-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.3rem; }
+.prompt-meta { display: flex; flex-wrap: wrap; gap: .4rem; }
+.prompt-meta .pill { font-size: .9rem; }
+.open-app { padding: .6rem 1.3rem; border: 3px solid var(--z-ink); border-radius: 1rem; background: var(--z-sun); box-shadow: 4px 4px 0 var(--z-ink); font: 800 1.15rem var(--z-heading); text-decoration: none; }

@@ -1,4 +1,6 @@
 ---
+import PromptModal from './PromptModal.astro';
+
 interface Props {
 	icon: string;
 	title: string;
@@ -8,9 +10,12 @@ interface Props {
 	time?: string;
 	words?: number;
 	href?: string;
+	oneShot?: boolean;
+	buildTime?: string;
 }
 
-const { icon, title, step, hint, prompts, time, words, href } = Astro.props;
+const { icon, title, step, hint, prompts, time, words, href, oneShot, buildTime } = Astro.props;
+const modalId = `prompt-${title.toLowerCase().replace(/[^a-z]+/g, '-')}`;
 ---
 
 <div class:list={['card', { 'card-stamped': prompts }]}>
@@ -21,6 +26,8 @@ const { icon, title, step, hint, prompts, time, words, href } = Astro.props;
 	<slot name="extra" />
 	{words && <span class="card-words">✍️ {words.toLocaleString('nl-BE')} woorden getypt</span>}
 	{hint && <span class="card-hint">💡 {hint}</span>}
-	{href && <a class="visit" href={href} target="_blank" rel="noopener">Nu bezoeken ↗</a>}
+	{oneShot && <button class="oneshot" popovertarget={modalId}>✨ One-shot prompt</button>}
+	{oneShot && <PromptModal id={modalId} icon={icon} title={title} href={href} time={buildTime} />}
+	{href && !oneShot && <a class="visit" href={href} target="_blank" rel="noopener">Nu bezoeken ↗</a>}
 	{prompts && <div class="card-stamp"><span><strong>{prompts}</strong>prompts<br />±{time}</span></div>}
 </div>

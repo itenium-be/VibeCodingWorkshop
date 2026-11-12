@@ -91,3 +91,28 @@ describe('zelf gemaakt', () => {
 		expect(page()).toContain(idea);
 	});
 });
+
+describe('one-shot prompts', () => {
+	const page = () => html('zelf-gemaakt');
+	const popover = (id: string) => page().match(new RegExp(`<dialog[^>]*id="${id}"[\\s\\S]*?</dialog>`))?.[0] ?? '';
+	const targets = () => [...page().matchAll(/class="oneshot"[^>]*popovertarget="([^"]+)"/g)].map(m => m[1]);
+
+	test.each(['Woordzoeker-maker', 'Familiequiz', 'Aftellen', 'Leesclub', 'Reisdagboek', 'Planten water geven', 'Bingokaarten'])('%s has a one-shot prompt button', idea => {
+		expect(targets()).toContain(`prompt-${idea.toLowerCase().replace(/[^a-z]+/g, '-')}`);
+	});
+
+	test('the button opens a popover holding the prompt', () => {
+		const p = popover('prompt-woordzoeker-maker');
+		expect(p).toContain('Maak een woordzoeker-maker in het Vlaams');
+		expect(p).toContain('1 prompt');
+		expect(p).toContain('class="copy"');
+	});
+
+	test('shows how long the build took', () => {
+		expect(popover('prompt-planten-water-geven')).toContain('⏱️ 4 min');
+	});
+
+	test('an idea without an app has no open link', () => {
+		expect(popover('prompt-leesclub')).not.toContain('Open de app');
+	});
+});

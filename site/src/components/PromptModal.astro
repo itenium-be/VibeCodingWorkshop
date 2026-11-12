@@ -1,0 +1,49 @@
+---
+import md from '../../../APP-PROMPTS.md?raw';
+import { parsePrompts } from '../prompts';
+
+interface Props {
+	id: string;
+	icon: string;
+	title: string;
+	href?: string;
+	time?: string;
+}
+
+const { id, icon, title, href, time } = Astro.props;
+const { paragraphs, tool } = parsePrompts(md)[title];
+const words = paragraphs.join(' ').split(/\s+/).length;
+---
+
+<dialog popover id={id} class="prompt-modal">
+	<button class="close" popovertarget={id} popovertargetaction="hide" aria-label="Sluiten">✕</button>
+	<div class="prompt-head">
+		<span class="card-icon">{icon}</span>
+		<div><h3>{title}</h3><small>Eén prompt, geen bijsturing.</small></div>
+	</div>
+	<div class="prompt-body">
+		<div class="prompt-text">
+			<button class="copy">📋 Kopieer</button>
+			{paragraphs.map(p => <p>{p}</p>)}
+		</div>
+		<div class="prompt-foot">
+			<div class="prompt-meta">
+				<span class="pill">💬 1 prompt</span>
+				{time && <span class="pill">⏱️ {time}</span>}
+				<span class="pill">✍️ {words} woorden</span>
+				<span class="pill">🛠️ {tool}</span>
+			</div>
+			{href && <a class="open-app" href={href} target="_blank" rel="noopener">Open de app ↗</a>}
+		</div>
+	</div>
+</dialog>
+
+<script>
+	for (const btn of document.querySelectorAll<HTMLButtonElement>('.prompt-modal .copy')) {
+		btn.addEventListener('click', async () => {
+			const text = [...btn.parentElement!.querySelectorAll('p')].map(p => p.textContent).join('\n\n');
+			await navigator.clipboard.writeText(text);
+			btn.textContent = '✅ Gekopieerd';
+		});
+	}
+</script>
