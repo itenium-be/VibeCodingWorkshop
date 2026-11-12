@@ -408,3 +408,10 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .station h3 { font: 800 1.6rem/1.05 'Baloo 2', sans-serif; margin: .25rem 0 .4rem; }
 .station p { font-size: 1rem; line-height: 1.35; color: var(--z-ink-soft); }
 .station p + p { margin-top: .4rem; }
+
+/* each road segment draws itself (masked dash sweep), then the next station pops in */
+.road-dots { fill: none; stroke: currentColor; stroke-width: 5; stroke-dasharray: 4 14; stroke-linecap: round; }
+.road-draw { fill: none; stroke: #fff; stroke-width: 14; stroke-dasharray: 1; stroke-dashoffset: 0; transition: stroke-dashoffset .7s ease-in-out; }
+.road-seg.slidev-vclick-hidden { opacity: 1 !important; }
+.road-seg.slidev-vclick-hidden .road-draw { stroke-dashoffset: 1; }
+.after-road:not(.slidev-vclick-hidden) { transition-delay: .6s; }

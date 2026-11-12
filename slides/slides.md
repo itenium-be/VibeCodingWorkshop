@@ -128,9 +128,18 @@ class: big-cards
 
 # Aan de slag!
 
-<svg class="road" viewBox="0 0 980 416"><path d="M140 250 C 260 60, 380 60, 490 200 S 720 360, 840 160" fill="none" stroke="currentColor" stroke-width="5" stroke-dasharray="4 14" stroke-linecap="round" /></svg>
+<svg class="road" viewBox="0 0 980 416">
+  <g v-click="2" class="road-seg">
+    <mask id="road-1"><path class="road-draw" pathLength="1" d="M140 250 C 260 60, 380 60, 490 200" /></mask>
+    <path class="road-dots" mask="url(#road-1)" d="M140 250 C 260 60, 380 60, 490 200" />
+  </g>
+  <g v-click="3" class="road-seg">
+    <mask id="road-2"><path class="road-draw" pathLength="1" d="M490 200 C 600 340, 720 360, 840 160" /></mask>
+    <path class="road-dots" mask="url(#road-2)" d="M490 200 C 600 340, 720 360, 840 160" />
+  </g>
+</svg>
 
-<div v-click class="station" style="left: 2.5rem; top: 15rem; background: var(--z-sky)">
+<div v-click="1" class="station" style="left: 2.5rem; top: 15rem; background: var(--z-sky)">
   <span class="station-tag">Voorbereiding</span>
   <div class="station-icon">🔑</div>
   <h3>Inloggen</h3>
@@ -138,14 +147,14 @@ class: big-cards
   <p>Google-adres nog niet doorgegeven? Geef het aan de lesgever.</p>
 </div>
 
-<div v-click class="station" style="left: 23.4rem; top: 8.4rem; background: var(--z-mint)">
+<div v-click="2" class="station after-road" style="left: 23.4rem; top: 8.4rem; background: var(--z-mint)">
   <span class="station-tag">Bouwen</span>
   <div class="station-icon">🛠️</div>
   <h3>Zoals besproken</h3>
   <p>Brainstormen, één bericht laten schrijven, en daarna één wijziging per keer.</p>
 </div>
 
-<div v-click class="station" style="right: 2.5rem; top: 15rem; background: var(--z-pink)">
+<div v-click="3" class="station after-road" style="right: 2.5rem; top: 15rem; background: var(--z-pink)">
   <span class="station-tag">Mee naar huis</span>
   <div class="station-icon">🏠</div>
   <h3>Publish &amp; delen</h3>
