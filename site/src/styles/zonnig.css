@@ -150,7 +150,7 @@ main { padding: 2.5rem 2rem 1.5rem; }
 /* one-shot prompt modal */
 .oneshot { align-self: flex-start; margin-top: .8rem; padding: .25rem .9rem; border: 2px solid var(--z-ink); border-radius: 999px; background: #fff; box-shadow: 3px 3px 0 var(--z-ink); color: inherit; font: 800 1rem Nunito, sans-serif; cursor: pointer; }
 .oneshot:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--z-ink); }
-.prompt-modal { width: min(46rem, calc(100% - 2rem)); max-height: 85vh; padding: 0; border: 3px solid var(--z-ink); border-radius: 1.4rem; background: var(--z-paper); color: var(--z-ink); box-shadow: 8px 8px 0 var(--z-ink); }
+.prompt-modal { margin: auto; width: min(46rem, calc(100% - 2rem)); max-height: 85vh; padding: 0; border: 3px solid var(--z-ink); border-radius: 1.4rem; background: var(--z-paper); color: var(--z-ink); box-shadow: 8px 8px 0 var(--z-ink); }
 .prompt-modal::backdrop { background: #2b214099; }
 .prompt-modal .close { position: absolute; top: .7rem; right: .7rem; width: 2.2rem; height: 2.2rem; border: 2px solid var(--z-ink); border-radius: 50%; background: #fff; color: inherit; font: 800 1.1rem Nunito, sans-serif; cursor: pointer; }
 .prompt-head { display: flex; align-items: center; gap: .8rem; padding: 1.2rem 3.5rem 1rem 1.4rem; background: var(--z-sun); border-bottom: 3px solid var(--z-ink); }
