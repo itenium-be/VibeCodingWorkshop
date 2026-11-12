@@ -1,0 +1,8 @@
+---
+const { icon, title } = Astro.props as { icon: string; title: string };
+---
+
+<li>
+	<h3>{icon} {title}</h3>
+	<slot />
+</li>

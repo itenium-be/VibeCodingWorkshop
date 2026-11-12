@@ -1,0 +1,17 @@
+---
+interface Props {
+	path: string[];
+	look?: 'lovable' | 'github';
+}
+
+const { path, look = 'lovable' } = Astro.props;
+---
+
+<div class="clicks">
+	{path.map((label, i) => (
+		<Fragment>
+			{i > 0 && <span class="arrow">→</span>}
+			<span class={`${look}-btn`}>{label}</span>
+		</Fragment>
+	))}
+</div>

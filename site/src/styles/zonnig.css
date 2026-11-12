@@ -165,3 +165,17 @@ main { padding: 2.5rem 2rem 1.5rem; }
 .prompt-meta { display: flex; flex-wrap: wrap; gap: .4rem; }
 .prompt-meta .pill { font-size: .9rem; }
 .open-app { padding: .6rem 1.3rem; border: 3px solid var(--z-ink); border-radius: 1rem; background: var(--z-sun); box-shadow: 4px 4px 0 var(--z-ink); font: 800 1.15rem var(--z-heading); text-decoration: none; }
+
+/* runbook timeline */
+.steps { list-style: none; max-width: 46rem; padding: 0; counter-reset: st; }
+.steps li { position: relative; padding: 0 0 2rem 4.2rem; }
+.steps li::before { counter-increment: st; content: counter(st); position: absolute; left: 0; top: 0; width: 3rem; height: 3rem; display: grid; place-items: center; border: 3px solid var(--z-ink); border-radius: 50%; background: var(--z-sun); box-shadow: 3px 3px 0 var(--z-ink); font: 800 1.6rem var(--z-heading); }
+.steps li::after { content: ''; position: absolute; left: 1.4rem; top: 3.3rem; bottom: .3rem; border-left: 4px dotted var(--z-ink); }
+.steps li:last-child::after { display: none; }
+.steps h3 { margin: .5rem 0 .4rem; }
+.steps p + p, .clicks + p { margin-top: .5rem; }
+.clicks { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; margin-top: .5rem; padding: .6rem .8rem; border: 3px dashed var(--z-ink); border-radius: .9rem; background: #fff; }
+.clicks .arrow { font-weight: 800; }
+.steps-start { max-width: 46rem; margin-bottom: 2rem; }
+.steps-end { max-width: 46rem; }
+.github-btn { display: inline-flex; align-items: center; padding: .3rem .7rem; border-radius: .4rem; background: #1f883d; color: #fff; font: 600 .85rem/1 system-ui, sans-serif; white-space: nowrap; }
