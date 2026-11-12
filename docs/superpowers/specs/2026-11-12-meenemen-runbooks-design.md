@@ -44,9 +44,8 @@ Components in `site/src/components/`:
 
 1. **🌐 Ga naar GitHub**: link to [github.com/signup](https://github.com/signup), opening in a new tab.
 2. **✍️ Vul je gegevens in**: title only.
-3. **🧩 Bewijs dat je geen robot bent**: title only.
-4. **📧 Code uit je mail**: GitHub sends a code to your email; type it in.
-5. **✅ Klaar**: log in. You may skip the questions that follow.
+3. **📧 Code uit je mail**: GitHub sends a code to your email; type it in.
+4. **✅ Klaar**: log in. You may skip the questions that follow.
 
 
 ### Lovable koppelen
@@ -64,7 +63,8 @@ The page opens with a `note ask` at the top: "Eerst nodig: een GitHub-account �
 - Add both slugs to `PAGES`. The existing "is built", sidebar order, current marker, pager and internal-link tests then cover them.
 - `github-account` links `https://github.com/signup` in a new tab.
 - `lovable-koppelen` links back to `github-account/`.
-- Each page renders an `ol.steps` with 5 `li`.
+- Each page renders an `ol.steps` with 4 (`github-account`) and 5 (`lovable-koppelen`) `li`.
+- Both pages carry the subtitle "Blijf eigenaar van je app, ook na de workshop".
 
 ## Out of scope
 

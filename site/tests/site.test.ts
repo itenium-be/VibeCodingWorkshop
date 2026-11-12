@@ -132,13 +132,13 @@ describe('one-shot prompts', () => {
 });
 
 describe('meenemen', () => {
-	test.each(['github-account', 'lovable-koppelen'])('%s walks through 5 steps', slug => {
+	test.each([['github-account', 4], ['lovable-koppelen', 5]] as const)('%s walks through %d steps', (slug, count) => {
 		const steps = html(slug).match(/<ol class="steps"[\s\S]*?<\/ol>/)?.[0] ?? '';
-		expect(steps.match(/<li/g)).toHaveLength(5);
+		expect(steps.match(/<li/g)).toHaveLength(count);
 	});
 
-	test('github-account has a subtitle under its heading', () => {
-		expect(html('github-account')).toMatch(/<\/h2>\s*<p class="subtitle"[^>]*>Blijf eigenaar van je app, ook na de workshop<\/p>/);
+	test.each(['github-account', 'lovable-koppelen'])('%s has a subtitle under its heading', slug => {
+		expect(html(slug)).toMatch(/<\/h2>\s*<p class="subtitle"[^>]*>Blijf eigenaar van je app, ook na de workshop<\/p>/);
 	});
 
 	test('github-account opens the GitHub signup in a new tab', () => {
