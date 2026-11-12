@@ -6,7 +6,7 @@ const BASE = '/VibeCodingWorkshop/';
 const DIST = join(import.meta.dir, '..', 'dist');
 // produced by later CI steps, so absent from a local site build
 const BUILT_ELSEWHERE = [`${BASE}handout.pdf`, `${BASE}slides/`];
-const APPS_BUILT_ELSEWHERE = [`${BASE}aftellen/`, `${BASE}familiequiz/`, `${BASE}bingokaarten/`];
+const APPS_BUILT_ELSEWHERE = [`${BASE}aftellen/`, `${BASE}familiequiz/`, `${BASE}bingokaarten/`, `${BASE}planten-water-geven/`];
 
 const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'bezin', 'slim-beginnen', 'vastgelopen', 'aan-de-slag'];
 
@@ -121,7 +121,7 @@ describe('one-shot prompts', () => {
 		expect(popover('prompt-planten-water-geven')).toContain('⏱️ 4 min');
 	});
 
-	test.each(['woordzoeker', 'familiequiz', 'aftellen', 'bingokaarten'])('links the %s app in a new tab', app => {
+	test.each(['woordzoeker', 'familiequiz', 'aftellen', 'bingokaarten', 'planten-water-geven'])('links the %s app in a new tab', app => {
 		expect(page()).toMatch(new RegExp(`<a class="open-app" href="${BASE}${app}/" target="_blank"`));
 	});
 
