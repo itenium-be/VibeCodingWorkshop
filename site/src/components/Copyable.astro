@@ -1,0 +1,17 @@
+---
+const { text } = Astro.props as { text: string };
+---
+
+<div class="prompt-text copyable">
+	<button class="copy">📋 Kopieer</button>
+	<pre>{text}</pre>
+</div>
+
+<script>
+	for (const btn of document.querySelectorAll<HTMLButtonElement>('.copyable .copy')) {
+		btn.addEventListener('click', async () => {
+			await navigator.clipboard.writeText(btn.nextElementSibling!.textContent!);
+			btn.textContent = '✅ Gekopieerd';
+		});
+	}
+</script>

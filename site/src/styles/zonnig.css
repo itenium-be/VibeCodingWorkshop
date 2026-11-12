@@ -163,6 +163,8 @@ main { padding: 2.5rem 2rem 1.5rem; }
 .prompt-text { position: relative; padding: 1.1rem 1.2rem; border: 3px dashed var(--z-ink); border-radius: 1rem; background: #fff; font-size: 1.05rem; }
 .prompt-text p + p { margin-top: .7rem; }
 .prompt-text .copy { position: absolute; top: -.95rem; right: 1rem; padding: .2rem .8rem; border: 2px solid var(--z-ink); border-radius: 999px; background: #fff; color: inherit; font: 800 .9rem Nunito, sans-serif; cursor: pointer; }
+.copyable { margin-top: 1.4rem; }
+.copyable pre { overflow-x: auto; font-size: .85rem; white-space: pre; }
 .prompt-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.3rem; }
 .prompt-meta { display: flex; flex-wrap: wrap; gap: .4rem; }
 .prompt-meta .pill { font-size: .9rem; }

@@ -8,7 +8,7 @@ const DIST = join(import.meta.dir, '..', 'dist');
 const BUILT_ELSEWHERE = [`${BASE}handout.pdf`, `${BASE}slides/`];
 const APPS_BUILT_ELSEWHERE = [`${BASE}aftellen/`, `${BASE}familiequiz/`, `${BASE}bingokaarten/`, `${BASE}planten-water-geven/`, `${BASE}leesclub/`, `${BASE}reisdagboek/`];
 
-const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'bezin', 'slim-beginnen', 'vastgelopen', 'aan-de-slag', 'github-account', 'lovable-koppelen'];
+const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'bezin', 'slim-beginnen', 'vastgelopen', 'aan-de-slag', 'github-account', 'lovable-koppelen', 'github-pages'];
 
 const html = (slug: string) => readFileSync(join(DIST, slug, 'index.html'), 'utf8');
 const hrefs = (page: string) => [...page.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
@@ -147,5 +147,22 @@ describe('meenemen', () => {
 
 	test('lovable-koppelen points back to the GitHub account page', () => {
 		expect(hrefs(html('lovable-koppelen'))).toContain(`${BASE}github-account/`);
+	});
+
+	test('github-pages walks through 7 steps', () => {
+		const steps = html('github-pages').match(/<ol class="steps"[\s\S]*?<\/ol>/)?.[0] ?? '';
+		expect(steps.match(/<li/g)).toHaveLength(7);
+	});
+
+	test('github-pages points back to the Lovable link page', () => {
+		expect(hrefs(html('github-pages'))).toContain(`${BASE}lovable-koppelen/`);
+	});
+
+	test('github-pages has a copyable router prompt and workflow', () => {
+		const copies = html('github-pages').match(/class="copy"/g);
+		expect(copies).toHaveLength(2);
+		expect(html('github-pages')).toContain('basename={import.meta.env.BASE_URL}');
+		expect(html('github-pages')).toContain('--base=/${{ github.event.repository.name }}/');
+		expect(html('github-pages')).toContain('actions/deploy-pages@v4');
 	});
 });

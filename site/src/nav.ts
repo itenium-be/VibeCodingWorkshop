@@ -31,6 +31,7 @@ export const GROUPS: { label: string; pages: Page[] }[] = [
 		pages: [
 			{ slug: 'github-account', title: 'GitHub-account', icon: '🐙' },
 			{ slug: 'lovable-koppelen', title: 'Lovable koppelen', icon: '🔗' },
+			{ slug: 'github-pages', title: 'Online zetten', icon: '🌍' },
 		],
 	},
 ];
