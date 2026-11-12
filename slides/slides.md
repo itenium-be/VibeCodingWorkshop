@@ -15,6 +15,10 @@ Jij beschrijft, de AI bouwt.
 
 <Stamp v-click>zelf gemaakt</Stamp>
 
+<div style="position: absolute; bottom: 2rem; left: 3.5rem; font-size: 1.1rem">
+📶 Wifi: <strong>Lede-Mobile</strong> · Wachtwoord: <strong><code>Eindelijk.Wifi2024</code></strong>
+</div>
+
 ---
 class: big-cards
 ---
