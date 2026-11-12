@@ -46,13 +46,13 @@ main { padding: 2.5rem 2rem 1.5rem; }
 	.burger { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: .7rem; padding: .7rem 1rem; background: var(--z-sun); border-bottom: 3px solid var(--z-ink); font: 800 1.2rem var(--z-heading); cursor: pointer; }
 	.burger-btn { padding: .1rem .6rem; border: 3px solid var(--z-ink); border-radius: .7rem; background: #fff; font-size: 1.4rem; }
 	main { padding: 1.5rem 1.25rem 1rem; }
-	.pager { position: static; }
 }
 
 /* pager: small, pinned to the bottom of the screen */
 .pager { position: sticky; bottom: .8rem; display: flex; justify-content: space-between; gap: .6rem; margin-top: 2.5rem; pointer-events: none; }
 .pager a { pointer-events: auto; padding: .3rem .9rem; border: 2px solid var(--z-ink); border-radius: 999px; background: #fff; box-shadow: 3px 3px 0 var(--z-ink); font-size: .95rem; font-weight: 700; text-decoration: none; }
 .pager a.next { margin-left: auto; background: var(--z-sun); }
+@media (max-width: 52rem) { .pager { position: static; } }
 
 /* hero */
 @keyframes floaty { 50% { transform: translateY(-10px); } }
