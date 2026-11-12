@@ -107,6 +107,10 @@ main { padding: 2.5rem 2rem 1.5rem; }
 .card-stamp { position: absolute; right: .7rem; top: 50%; width: 5.6rem; height: 5.6rem; margin-top: -2.8rem; display: grid; place-items: center; border: 4px double var(--z-rose); border-radius: 50%; background: #fff8; color: var(--z-rose); font: 800 .75rem/1 var(--z-heading); text-align: center; text-transform: uppercase; letter-spacing: .04em; transform: rotate(-12deg); }
 .card-stamp strong { display: block; font-size: 1.8rem; line-height: .9; }
 .card-words { align-self: flex-start; margin-top: .35rem; padding: .05rem .6rem; border: 2px solid var(--z-ink); border-radius: .6rem; background: #fff; font: 800 .9rem var(--z-heading); transform: rotate(-2deg); }
+.card small { flex: 1; }
+.visit { align-self: flex-start; margin-top: .8rem; padding: .25rem .9rem; border: 2px solid var(--z-ink); border-radius: 999px; background: var(--z-sun); box-shadow: 3px 3px 0 var(--z-ink); font-weight: 800; text-decoration: none; }
+.visit:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--z-ink); }
+.ideas { margin-top: 2.5rem; }
 .centered { display: block; text-align: center; margin-top: .3rem; }
 
 .road { counter-reset: st; }

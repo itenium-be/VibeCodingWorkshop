@@ -73,3 +73,21 @@ test('internal links resolve', () => {
 test.each(['', ...PAGES])('%s has no double-escaped entities', slug => {
 	expect(html(slug)).not.toContain('&amp;amp;');
 });
+
+describe('zelf gemaakt', () => {
+	const page = () => html('zelf-gemaakt');
+	const visits = () => [...page().matchAll(/<a class="visit"[^>]*>/g)].map(m => m[0]);
+
+	test('every website gets a "Nu bezoeken" button opening in a new tab', () => {
+		expect(visits()).toHaveLength(5);
+		for (const a of visits()) expect(a).toContain('target="_blank"');
+	});
+
+	test('icons are no longer links', () => {
+		expect(page()).not.toMatch(/<a class="card-icon"/);
+	});
+
+	test.each(['Woordzoeker-maker', 'Familiequiz', 'Cocktails', 'Aftellen', 'Leesclub', 'Reisdagboek'])('shows the idea %s', idea => {
+		expect(page()).toContain(idea);
+	});
+});

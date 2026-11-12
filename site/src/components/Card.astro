@@ -15,11 +15,12 @@ const { icon, title, step, hint, prompts, time, words, href } = Astro.props;
 
 <div class:list={['card', { 'card-stamped': prompts }]}>
 	{step && <span class="card-step">stap {step}</span>}
-	{href ? <a class="card-icon" href={href} target="_blank" rel="noopener">{icon}</a> : <span class="card-icon">{icon}</span>}
+	<span class="card-icon">{icon}</span>
 	<b>{title}</b>
 	<small><slot /></small>
 	<slot name="extra" />
 	{words && <span class="card-words">✍️ {words.toLocaleString('nl-BE')} woorden getypt</span>}
 	{hint && <span class="card-hint">💡 {hint}</span>}
+	{href && <a class="visit" href={href} target="_blank" rel="noopener">Nu bezoeken ↗</a>}
 	{prompts && <div class="card-stamp"><span><strong>{prompts}</strong>prompts<br />±{time}</span></div>}
 </div>
