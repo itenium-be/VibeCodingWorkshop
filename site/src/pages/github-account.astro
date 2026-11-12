@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Steps from '../components/Steps.astro';
+import Step from '../components/Step.astro';
+import Clicks from '../components/Clicks.astro';
+---
+
+<Layout>
+	<Steps>
+		<Step icon="🌐" title="Ga naar GitHub">
+			<p><a class="pill" href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a></p>
+		</Step>
+		<Step icon="✍️" title="Vul je gegevens in">
+			<p>E-mailadres, wachtwoord, gebruikersnaam en land. Je gebruikersnaam komt later in je webadres.</p>
+			<Clicks look="github" path={['Continue']} />
+		</Step>
+		<Step icon="🧩" title="Bewijs dat je geen robot bent">
+			<p>Los het puzzeltje op.</p>
+		</Step>
+		<Step icon="📧" title="Code uit je mail">
+			<p>GitHub stuurt een code naar je e-mail. Typ die over.</p>
+		</Step>
+		<Step icon="✅" title="Klaar">
+			<p>Log in. De vragen daarna mag je overslaan.</p>
+		</Step>
+	</Steps>
+	<div class="ribbon steps-end">🙋 Vast? Steek je hand op!</div>
+</Layout>

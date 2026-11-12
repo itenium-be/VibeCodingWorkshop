@@ -26,6 +26,13 @@ export const GROUPS: { label: string; pages: Page[] }[] = [
 			{ slug: 'aan-de-slag', title: 'Aan de slag!', icon: '🚀' },
 		],
 	},
+	{
+		label: '🎒 Meenemen',
+		pages: [
+			{ slug: 'github-account', title: 'GitHub-account maken', icon: '🐙' },
+			{ slug: 'lovable-koppelen', title: 'Lovable koppelen', icon: '🔗' },
+		],
+	},
 ];
 
 export const PAGES = GROUPS.flatMap(g => g.pages);

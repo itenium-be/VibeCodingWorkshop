@@ -8,7 +8,7 @@ const DIST = join(import.meta.dir, '..', 'dist');
 const BUILT_ELSEWHERE = [`${BASE}handout.pdf`, `${BASE}slides/`];
 const APPS_BUILT_ELSEWHERE = [`${BASE}aftellen/`, `${BASE}familiequiz/`, `${BASE}bingokaarten/`, `${BASE}planten-water-geven/`, `${BASE}leesclub/`, `${BASE}reisdagboek/`];
 
-const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'bezin', 'slim-beginnen', 'vastgelopen', 'aan-de-slag'];
+const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'bezin', 'slim-beginnen', 'vastgelopen', 'aan-de-slag', 'github-account', 'lovable-koppelen'];
 
 const html = (slug: string) => readFileSync(join(DIST, slug, 'index.html'), 'utf8');
 const hrefs = (page: string) => [...page.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
@@ -128,5 +128,20 @@ describe('one-shot prompts', () => {
 
 	test.each(['woordzoeker', 'familiequiz', 'aftellen', 'bingokaarten', 'planten-water-geven', 'leesclub', 'reisdagboek'])('links the %s app in a new tab', app => {
 		expect(page()).toMatch(new RegExp(`<a class="open-app" href="${BASE}${app}/" target="_blank"`));
+	});
+});
+
+describe('meenemen', () => {
+	test.each(['github-account', 'lovable-koppelen'])('%s walks through 5 steps', slug => {
+		const steps = html(slug).match(/<ol class="steps"[\s\S]*?<\/ol>/)?.[0] ?? '';
+		expect(steps.match(/<li/g)).toHaveLength(5);
+	});
+
+	test('github-account opens the GitHub signup in a new tab', () => {
+		expect(html('github-account')).toMatch(/<a[^>]*href="https:\/\/github\.com\/signup"[^>]*target="_blank"/);
+	});
+
+	test('lovable-koppelen points back to the GitHub account page', () => {
+		expect(hrefs(html('lovable-koppelen'))).toContain(`${BASE}github-account/`);
 	});
 });

@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Steps from '../components/Steps.astro';
+import Step from '../components/Step.astro';
+import Clicks from '../components/Clicks.astro';
+import { url } from '../nav';
+---
+
+<Layout>
+	<div class="note ask steps-start">Eerst nodig: een <a href={url('github-account/')}>GitHub-account</a> ✔️</div>
+	<Steps>
+		<Step icon="📦" title="Neem je project mee naar je eigen account">
+			<p>Open je project in Lovable en klik:</p>
+			<Clicks path={['⋯', 'Remix project']} />
+			<p>Kies bij <b>Target workspace</b> je eigen naam. Zet <b>Include project history</b> aan. Klik <span class="lovable-btn">Remix</span>.</p>
+		</Step>
+		<Step icon="⚙️" title="Open de GitHub-instellingen">
+			<p>In de nieuwe kopie:</p>
+			<Clicks path={['Project settings', 'Git', 'GitHub', 'Add connection', 'Add account']} />
+		</Step>
+		<Step icon="🐙" title="Geef GitHub toestemming">
+			<p>Er opent een GitHub-venster. Kies je account, dan:</p>
+			<Clicks look="github" path={['All repositories', 'Install & Authorize']} />
+		</Step>
+		<Step icon="🔗" title="Koppel je project">
+			<Clicks path={['Connect']} />
+			<p>Lovable maakt nu een privé-map op GitHub met al je code.</p>
+		</Step>
+		<Step icon="✅" title="Controleer">
+			<p>Ga naar <a class="pill" href="https://github.com" target="_blank" rel="noopener">github.com</a>. Zie je je project? Klaar!</p>
+		</Step>
+	</Steps>
+	<div class="ribbon steps-end">🙋 Vast? Steek je hand op!</div>
+</Layout>
