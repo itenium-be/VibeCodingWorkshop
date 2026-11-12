@@ -244,20 +244,10 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .page li + li { margin-top: .25rem; }
 .page .qr-code { width: 10rem; box-shadow: 4px 4px 0 var(--z-ink); }
 .page .qr-url { font-size: .85rem; }
+.page .card small { font-size: .95rem; }
 
-.write-lines div { height: 2.4rem; border-bottom: 2px dotted var(--z-ink-soft); }
-
-.crazy8 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 10.5rem);
-  border: 3px solid var(--z-ink);
-  border-radius: .9rem;
-  overflow: hidden;
-  background: #fff;
-}
-
-.crazy8 div { border: 1px dashed var(--z-ink-soft); padding: .3rem .45rem; font: 800 .9rem 'Baloo 2', sans-serif; color: var(--z-ink-soft); }
+.handout-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; }
+.handout-head .pill { font-size: 1.4rem; }
 
 .ribbon {
   position: absolute;
