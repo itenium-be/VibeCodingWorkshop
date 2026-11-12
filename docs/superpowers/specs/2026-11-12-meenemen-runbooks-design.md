@@ -12,12 +12,12 @@ Step-by-step pages that help participants take their app home after the workshop
 ## Navigation
 
 - New `GROUPS` entry in `site/src/nav.ts`, `🎒 Meenemen`, after `🛠️ Zelf doen`.
-- The pager runs on: `Aan de slag!` → `GitHub-account maken` → `Lovable koppelen`.
+- The pager runs on: `Aan de slag!` → `GitHub-account` → `Lovable koppelen`.
 
 | Slug               | Title                | Icon |
-|--------------------|----------------------|------|
-| `github-account`   | GitHub-account maken | 🐙   |
-| `lovable-koppelen` | Lovable koppelen     | 🔗   |
+|--------------------|------------------|------|
+| `github-account`   | GitHub-account   | 🐙   |
+| `lovable-koppelen` | Lovable koppelen | 🔗   |
 
 ## Layout: timeline (mockup B)
 
@@ -40,15 +40,14 @@ Components in `site/src/components/`:
 
 ## Content
 
-### GitHub-account maken
+### GitHub-account
 
 1. **🌐 Ga naar GitHub**: link to [github.com/signup](https://github.com/signup), opening in a new tab.
-2. **✍️ Vul je gegevens in**: email, password, username (this becomes part of your web address), country. Clicks: `Continue` (github).
-3. **🧩 Bewijs dat je geen robot bent**: solve the puzzle.
+2. **✍️ Vul je gegevens in**: title only.
+3. **🧩 Bewijs dat je geen robot bent**: title only.
 4. **📧 Code uit je mail**: GitHub sends a code to your email; type it in.
 5. **✅ Klaar**: log in. You may skip the questions that follow.
 
-The step 2 and 4 labels come from GitHub's signup flow as remembered, not checked. The instructor verifies them.
 
 ### Lovable koppelen
 
