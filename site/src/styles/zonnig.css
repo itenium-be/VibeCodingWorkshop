@@ -91,6 +91,7 @@ main { padding: 2.5rem 2rem 1.5rem; }
 .grid-2, .grid-3, .road { display: grid; gap: 1.1rem; }
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); }
 .grid-3, .road { grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+@media (min-width: 52rem) { .grid-2.half { grid-template-columns: repeat(2, 1fr); } }
 
 .card { position: relative; display: flex; flex-direction: column; gap: .15rem; padding: 1rem 1.1rem; border: 3px solid var(--z-ink); border-radius: 1.1rem; background: var(--z-mint); box-shadow: var(--z-shadow); }
 :nth-child(6n+2) > .card, .card:nth-child(6n+2) { background: var(--z-pink); }
