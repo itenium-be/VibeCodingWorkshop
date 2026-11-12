@@ -3,9 +3,9 @@ name: Site
 on:
   push:
     branches: [main]
-    paths: [site/**, slides/**, handout/**, .github/workflows/site.yml]
+    paths: [site/**, slides/**, handout/**, apps/**, .github/workflows/site.yml]
   pull_request:
-    paths: [site/**, slides/**, handout/**, .github/workflows/site.yml]
+    paths: [site/**, slides/**, handout/**, apps/**, .github/workflows/site.yml]
   workflow_dispatch:
 
 permissions:
@@ -36,6 +36,8 @@ jobs:
         working-directory: slides
       - run: bunx slidev build slides.md --base /VibeCodingWorkshop/slides/ --out ../site/dist/slides
         working-directory: slides
+      - run: bun install --frozen-lockfile && bun run check && cp -r dist ../../site/dist/aftellen
+        working-directory: apps/aftellen
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site/dist
