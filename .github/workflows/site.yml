@@ -3,9 +3,9 @@ name: Site
 on:
   push:
     branches: [main]
-    paths: [site/**, .github/workflows/site.yml]
+    paths: [site/**, slides/**, handout/**, .github/workflows/site.yml]
   pull_request:
-    paths: [site/**, .github/workflows/site.yml]
+    paths: [site/**, slides/**, handout/**, .github/workflows/site.yml]
   workflow_dispatch:
 
 permissions:
@@ -28,6 +28,12 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
       - run: bun run check
+      - run: bun install --frozen-lockfile
+        working-directory: slides
+      - run: bunx playwright install --with-deps chromium
+        working-directory: slides
+      - run: bunx slidev export ../handout/handout.md --output ../site/dist/handout.pdf
+        working-directory: slides
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site/dist
