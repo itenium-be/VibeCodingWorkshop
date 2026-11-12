@@ -2,6 +2,7 @@
 theme: ./theme
 title: Vibe coding
 lang: nl
+routerMode: hash
 siteUrl: https://dev.itenium.be/VibeCodingWorkshop/
 layout: cover
 ---
