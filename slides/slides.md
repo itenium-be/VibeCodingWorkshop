@@ -140,7 +140,7 @@ class: big-cards
 </svg>
 
 <div v-click="1" class="station station-hinted" style="left: 2.5rem; top: 15rem; background: var(--z-sky)">
-  <span class="station-tag">Voorbereiding</span>
+  <span class="station-tag">Beginnen</span>
   <div class="station-icon">🔑</div>
   <h3>Inloggen</h3>
   <span class="pill">lovable.dev</span>
@@ -151,7 +151,9 @@ class: big-cards
   <span class="station-tag">Bouwen</span>
   <div class="station-icon">🛠️</div>
   <h3>Zoals besproken</h3>
-  <p>Brainstormen, één bericht laten schrijven, en daarna één wijziging per keer.</p>
+  <p>Brainstormen → 1 bericht</p>
+  <p>3 ontwerpen</p>
+  <p>1 wijziging per keer</p>
 </div>
 
 <div v-click="3" class="station after-road" style="right: 2.5rem; top: 15rem; background: var(--z-pink)">
