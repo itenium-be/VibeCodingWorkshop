@@ -48,8 +48,8 @@ describe('pager', () => {
 		expect(hrefs(pager(html(PAGES[2])))).toEqual([`${BASE}${PAGES[1]}/`, `${BASE}${PAGES[3]}/`]);
 	});
 
-	test('last page ends on the handout', () => {
-		expect(hrefs(pager(html(PAGES.at(-1)!)))).toEqual([`${BASE}${PAGES.at(-2)}/`, `${BASE}handout.pdf`]);
+	test('last page only links back', () => {
+		expect(hrefs(pager(html(PAGES.at(-1)!)))).toEqual([`${BASE}${PAGES.at(-2)}/`]);
 	});
 
 	test('intro has no pager', () => {

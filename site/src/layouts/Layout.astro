@@ -54,7 +54,7 @@ const title = Astro.props.title ?? page?.title;
 							<slot />
 							<nav class="pager">
 								{prev ? <a href={pageUrl(prev)}>← {prev.title}</a> : <a href={url()}>← Welkom</a>}
-								{next ? <a class="next" href={pageUrl(next)}>{next.title} →</a> : <a class="next" href={url('handout.pdf')}>📄 Handout →</a>}
+								{next && <a class="next" href={pageUrl(next)}>{next.title} →</a>}
 							</nav>
 						</div>
 					) : <slot />}
