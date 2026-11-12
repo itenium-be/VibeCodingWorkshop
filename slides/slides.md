@@ -129,20 +129,8 @@ class: big-cards
 # Aan de slag
 
 <Step n="1">Ga naar <b>lovable.dev</b></Step>
-<Step n="2">Log in met je <b>Google</b>-account</Step>
-<Step n="3">Typ je eerste bericht: het recept!</Step>
-
-<p v-click style="margin-top: 2rem">🪙 <b>Credits</b> zijn je beltegoed: elk bericht kost er ongeveer één.<br>Denk even na voor je op verzenden drukt.</p>
-
----
-
-# Mee naar huis
-
-<Step n="1">Klik rechtsboven op <b>Publish</b></Step>
-<Step n="2">Je krijgt een link: <b>jouwnaam.lovable.app</b></Step>
-<Step n="3">Deel die link met wie je wil</Step>
-
-<p v-click style="margin-top: 2rem"><span class="pill">Meer nodig? Spreek de lesgever aan.</span></p>
+<Step n="2">Log in met je <b>Google</b>-account<small>Nog niet doorgegeven? Geef je Google-adres aan de lesgever.</small></Step>
+<Step n="3"><b>Publish</b> &amp; delen<small>Je krijgt een link, zoals jouwnaam.lovable.app, die je met iedereen kan delen.</small></Step>
 
 ---
 layout: center
