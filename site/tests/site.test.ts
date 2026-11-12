@@ -69,3 +69,7 @@ test('internal links resolve', () => {
 			.map(h => `${slug || 'intro'} → ${h}`));
 	expect(broken).toEqual([]);
 });
+
+test.each(['', ...PAGES])('%s has no double-escaped entities', slug => {
+	expect(html(slug)).not.toContain('&amp;amp;');
+});
