@@ -230,7 +230,7 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .qr-url { font-weight: 700; font-size: 1.1rem; }
 
 /* A4 handout page (canvasWidth 794 = A4 width at 96 dpi) */
-.slidev-layout.page { padding: 2.4rem 2.6rem; font-size: 1.08rem; line-height: 1.4; }
+.slidev-layout.page { background: #fff; padding: 2.4rem 2.6rem; font-size: 1.08rem; line-height: 1.4; }
 .page h1 { font-size: 2.6rem; margin-bottom: .6rem; }
 .page h2 { font-size: 1.45rem; margin: 1.4rem 0 .55rem; }
 .page .step-n { width: 2.2rem; height: 2.2rem; font-size: 1.15rem; border-radius: .7rem; box-shadow: 3px 3px 0 var(--z-ink); }
