@@ -355,3 +355,22 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
   box-shadow: 3px 3px 0 var(--z-ink);
   font: 800 1.4rem 'Baloo 2', sans-serif;
 }
+
+.lovable-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .3rem .7rem;
+  background: #1c1c1c;
+  color: #fff;
+  border-radius: .45rem;
+  font: 600 .85rem/1 Inter, system-ui, sans-serif;
+  white-space: nowrap;
+}
+
+.lovable-btn svg { width: .95rem; height: .95rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.page .mini { display: flex; align-items: center; gap: .7rem; padding: .5rem .8rem; border: 2px solid var(--z-ink); border-radius: .9rem; box-shadow: 3px 3px 0 var(--z-ink); background: var(--z-sky); font-size: .95rem; }
+.page .mini + .mini { background: var(--z-peach); }
+
+.page .qr-corner { position: absolute; right: 2.6rem; bottom: 2.4rem; }
