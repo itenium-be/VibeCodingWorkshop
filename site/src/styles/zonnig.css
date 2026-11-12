@@ -78,6 +78,7 @@ main { padding: 2.5rem 2rem 1.5rem; }
 
 /* intro stickers */
 .grp-title { display: inline-block; margin: 3.2rem 0 .5rem; padding: .1rem .9rem; border: 3px solid var(--z-ink); border-radius: 999px; background: #fff; font: 800 1.3rem var(--z-heading); transform: rotate(-2deg); }
+.col > .grp-title:first-child { margin-top: 0; }
 .stickers { display: flex; flex-wrap: wrap; gap: 1.4rem; }
 .stickers a { flex: 0 1 15rem; text-decoration: none; }
 .stickers .card { transition: transform .15s; }
