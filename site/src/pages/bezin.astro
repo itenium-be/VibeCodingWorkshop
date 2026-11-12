@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout>
+	<h3>Wat hoort er niet in je app?</h3>
+	<div class="grid-3">
+		<Card icon="🔐" title="Geheimen">Wachtwoorden, pincodes, bankgegevens<div slot="extra" class="note stop">Deel nooit geheimen met de AI</div></Card>
+		<Card icon="💳" title="Betalingen">Geld ontvangen of betalen via je app<div slot="extra" class="note stop">Dit gaan we niet doen</div></Card>
+		<Card icon="🙈" title="Gegevens van anderen">Adressen, telefoonnummers<div slot="extra" class="note ask">Niet zonder inloggen: vraag de lesgever</div></Card>
+	</div>
+
+	<div class="divider" aria-hidden="true"><span>🔗</span></div>
+
+	<div class="narrow">
+		<h3>Wie kan je app zien?</h3>
+		<div class="chat">
+			<div class="chat-row"><span class="chat-who">🙋</span><div class="bubble ask">Kan iedereen mijn app zien?</div></div>
+			<div class="chat-row right"><div class="bubble">Ja: iedereen met de link kan je app openen 🔗</div><span class="chat-who">🤖</span></div>
+		</div>
+		<div class="postits">
+			<div class="postit"><b>💻 Tenzij…</b>het alleen op je eigen computer draait</div>
+			<div class="postit"><b>🔒 Tenzij…</b>je er een aanmeldscherm op zet</div>
+		</div>
+	</div>
+</Layout>

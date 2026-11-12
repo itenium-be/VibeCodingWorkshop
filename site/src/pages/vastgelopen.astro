@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import LovableButton from '../components/LovableButton.astro';
+---
+
+<Layout>
+	<div class="grid-3">
+		<Card icon="📸" title="Plak een screenshot">Windows + Shift + S, daarna Ctrl + V in de chat</Card>
+		<Card icon="🗣️" title="Zeg wat fout is en hoe het moet">"Als ik op Opslaan klik, gebeurt er niets. De plant moet bewaard worden en in de lijst verschijnen."</Card>
+		<Card icon="⏪" title="Ga terug">Klik bij een eerder bericht op Restore</Card>
+	</div>
+	<div class="minis">
+		<div class="mini"><LovableButton icon="wrench">Try to fix</LovableButton><span><b>Foutmelding?</b><br />Lovable lost het zelf op.</span></div>
+		<div class="mini"><LovableButton icon="restore">Restore</LovableButton><span><b>Slechter geworden?</b><br />Terug naar een vorige versie.</span></div>
+	</div>
+	<div class="ribbon">🙋 En anders: steek je hand op!</div>
+</Layout>

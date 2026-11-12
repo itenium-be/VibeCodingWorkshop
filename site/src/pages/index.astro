@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { GROUPS, pageUrl } from '../nav';
+---
+
+<Layout>
+	<header class="hero">
+		<span class="sun-rays" aria-hidden="true"></span>
+		<span class="sun-face" aria-hidden="true">🌞</span>
+		<span class="kicker">Bibliotheek Lede · 12 november</span>
+		<h1>Vibe Coding</h1>
+		<p>Jij beschrijft, de AI bouwt.</p>
+		<div class="hero-actions">
+			<a class="lov" href="https://lovable.dev" target="_blank" rel="noopener">💜 Open lovable.dev</a>
+			<div class="note ask">🙋 Hulp nodig?<span>Steek je hand op, de lesgever komt langs.</span></div>
+		</div>
+	</header>
+	<div class="col">
+		{GROUPS.map(g => (
+			<Fragment>
+				<div class="grp-title">{g.label}</div>
+				<div class="stickers">
+					{g.pages.map(p => (
+						<a href={pageUrl(p)}>
+							<div class="card"><span class="card-icon"><Icon icon={p.icon} /></span><b>{p.title}</b></div>
+						</a>
+					))}
+				</div>
+			</Fragment>
+		))}
+	</div>
+</Layout>

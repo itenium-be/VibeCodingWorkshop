@@ -1,17 +1,12 @@
 ---
-import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import Layout from '../layouts/Layout.astro';
+import { url } from '../nav';
 ---
 
-<StarlightPage
-	frontmatter={{
-		title: 'Pagina niet gevonden',
-		template: 'splash',
-		editUrl: false,
-		pagefind: false,
-		hero: {
-			title: 'Oeps, deze pagina bestaat niet',
-			tagline: 'Misschien is de link verkeerd overgetypt.',
-			actions: [{ text: 'Naar de startpagina', link: '/VibeCodingWorkshop/', variant: 'primary' }],
-		},
-	}}
-/>
+<Layout title="Pagina niet gevonden">
+	<div class="col">
+		<h2>Oeps, deze pagina bestaat niet</h2>
+		<p>Misschien is de link verkeerd overgetypt.</p>
+		<p><a class="lov" href={url()}>🏠 Naar de startpagina</a></p>
+	</div>
+</Layout>

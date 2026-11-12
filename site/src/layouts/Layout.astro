@@ -1,0 +1,65 @@
+---
+import '../styles/zonnig.css';
+import Icon from '../components/Icon.astro';
+import { GROUPS, PAGES, pageUrl, url } from '../nav';
+
+interface Props {
+	title?: string;
+}
+
+const i = PAGES.findIndex(p => pageUrl(p) === Astro.url.pathname);
+const page = PAGES[i];
+const prev = PAGES[i - 1];
+const next = PAGES[i + 1];
+const title = Astro.props.title ?? page?.title;
+---
+
+<!doctype html>
+<html lang="nl">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title ? `${title} · Vibe Coding` : 'Vibe Coding'}</title>
+		<link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700&display=swap" />
+	</head>
+	<body>
+		<input type="checkbox" id="menu" hidden />
+		<div class="layout">
+			<aside>
+				<a class="brand" href={url()}><h1>Vibe Coding</h1></a>
+				<nav>
+					<a href={url()} aria-current={i < 0 && !Astro.props.title ? 'page' : undefined}>🏠 Welkom</a>
+					{GROUPS.map(g => (
+						<Fragment>
+							<div class="grp">{g.label}</div>
+							{g.pages.map(p => <a href={pageUrl(p)} aria-current={p === page ? 'page' : undefined}><Icon icon={p.icon} /> {p.title}</a>)}
+						</Fragment>
+					))}
+				</nav>
+				<div class="extra">
+					<div class="grp">📚 Om na te lezen</div>
+					<a href={url('handout.pdf')}>📄 Handout <small>PDF</small></a>
+					<a href={url('slides/')}>🎞️ Slides <small>web</small></a>
+				</div>
+			</aside>
+			<div>
+				<label class="burger" for="menu"><span class="burger-btn">☰</span>{page ? <span><Icon icon={page.icon} /> {page.title}</span> : <span>🏠 Welkom</span>}</label>
+				<main>
+					{page ? (
+						<div class="col">
+							<h2><Icon icon={page.icon} /> {page.title}</h2>
+							<slot />
+							<nav class="pager">
+								{prev ? <a href={pageUrl(prev)}>← {prev.title}</a> : <a href={url()}>← Welkom</a>}
+								{next ? <a class="next" href={pageUrl(next)}>{next.title} →</a> : <a class="next" href={url('handout.pdf')}>📄 Handout →</a>}
+							</nav>
+						</div>
+					) : <slot />}
+				</main>
+			</div>
+		</div>
+	</body>
+</html>
