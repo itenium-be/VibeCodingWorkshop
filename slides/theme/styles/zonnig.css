@@ -374,3 +374,5 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .page .mini + .mini { background: var(--z-peach); }
 
 .page .qr-corner { position: absolute; right: 2.6rem; bottom: 2.4rem; }
+.page .note-corner { position: absolute; left: 2.6rem; bottom: 2.4rem; width: 24rem; font-size: 1.3rem; text-align: left; }
+.page .note-corner span { font: 700 1rem/1.35 Nunito, sans-serif; }

@@ -35,16 +35,11 @@ transition: none
   <div class="mini"><LovableButton icon="restore">Restore</LovableButton><span>Slechter geworden? Terug naar een vorige versie.</span></div>
 </div>
 
-<div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 1.4rem; align-items: center; margin-right: 12rem">
-<div>
-
 ## Mee naar huis
 
 <Step n="1">Klik op <b>Publish</b><small>Je krijgt een link om te delen.</small></Step>
 <Step n="2"><b>Meer nodig?</b><small>Eigen webadres, app op je computer: spreek de lesgever aan.</small></Step>
 
-</div>
-<div class="note stop" style="font-size: 1.1rem">🚫 Liever niet<br><span style="font: 700 .95rem/1.35 Nunito, sans-serif">Geen wachtwoorden, betalingen of privégegevens van anderen in je app.</span></div>
-</div>
+<div class="note stop note-corner">🚫 Liever niet<br><span>Geen wachtwoorden, betalingen of privégegevens van anderen in je app.</span></div>
 
 <QrCode class="qr-corner" />
