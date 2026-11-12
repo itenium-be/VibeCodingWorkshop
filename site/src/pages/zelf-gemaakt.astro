@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import { url } from '../nav';
 ---
 
 <Layout>
@@ -13,13 +14,13 @@ import Card from '../components/Card.astro';
 
 	<h3 class="ideas">💡 En jij?</h3>
 	<div class="grid-3">
-		<Card icon="🔤" title="Woordzoeker-maker" oneShot>Puzzels voor de (klein)kinderen, met hun eigen woorden</Card>
-		<Card icon="🧠" title="Familiequiz" oneShot>Wie kent oma het best?</Card>
+		<Card icon="🔤" title="Woordzoeker-maker" oneShot buildTime="6 min" href={url('woordzoeker/')}>Puzzels voor de (klein)kinderen, met hun eigen woorden</Card>
+		<Card icon="🧠" title="Familiequiz" oneShot buildTime="7 min" href={url('familiequiz/')}>Wie kent oma het best?</Card>
 		<Card icon="🍸" title="Cocktails" href="https://sangu.be/Sanguine-Spirits/">Je favoriete cocktailrecepten</Card>
-		<Card icon="⏳" title="Aftellen" oneShot>Nog hoeveel nachtjes tot de vakantie?</Card>
+		<Card icon="⏳" title="Aftellen" oneShot buildTime="6 min" href={url('aftellen/')}>Nog hoeveel nachtjes tot de vakantie?</Card>
 		<Card icon="📚" title="Leesclub" oneShot>Wat lezen we, wanneer komen we samen, wie brengt koffie?</Card>
 		<Card icon="🧳" title="Reisdagboek" oneShot>Foto's en verhaaltjes van je reis, per dag</Card>
 		<Card icon="🌱" title="Planten water geven" oneShot buildTime="4 min">Welke plant heeft vandaag water nodig?</Card>
-		<Card icon="🎱" title="Bingokaarten" oneShot buildTime="5 min">Bingokaarten voor een feest of de klas</Card>
+		<Card icon="🎱" title="Bingokaarten" oneShot buildTime="6 min" href={url('bingokaarten/')}>Bingokaarten voor een feest of de klas</Card>
 	</div>
 </Layout>

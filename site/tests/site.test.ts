@@ -6,6 +6,7 @@ const BASE = '/VibeCodingWorkshop/';
 const DIST = join(import.meta.dir, '..', 'dist');
 // produced by later CI steps, so absent from a local site build
 const BUILT_ELSEWHERE = [`${BASE}handout.pdf`, `${BASE}slides/`];
+const APPS_BUILT_ELSEWHERE = [`${BASE}aftellen/`, `${BASE}familiequiz/`, `${BASE}bingokaarten/`];
 
 const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'bezin', 'slim-beginnen', 'vastgelopen', 'aan-de-slag'];
 
@@ -72,7 +73,7 @@ test.each(['', 'aan-de-slag'])('%s opens lovable.dev in a new tab', slug => {
 test('internal links resolve', () => {
 	const broken = ['', ...PAGES].flatMap(slug =>
 		hrefs(html(slug))
-			.filter(h => h.startsWith(BASE) && !BUILT_ELSEWHERE.includes(h))
+			.filter(h => h.startsWith(BASE) && ![...BUILT_ELSEWHERE, ...APPS_BUILT_ELSEWHERE].includes(h))
 			.filter(h => !existsSync(join(DIST, h.slice(BASE.length), h.endsWith('/') ? 'index.html' : '')))
 			.map(h => `${slug || 'intro'} → ${h}`));
 	expect(broken).toEqual([]);
@@ -118,6 +119,10 @@ describe('one-shot prompts', () => {
 
 	test('shows how long the build took', () => {
 		expect(popover('prompt-planten-water-geven')).toContain('⏱️ 4 min');
+	});
+
+	test.each(['woordzoeker', 'familiequiz', 'aftellen', 'bingokaarten'])('links the %s app in a new tab', app => {
+		expect(page()).toMatch(new RegExp(`<a class="open-app" href="${BASE}${app}/" target="_blank"`));
 	});
 
 	test('an idea without an app has no open link', () => {
