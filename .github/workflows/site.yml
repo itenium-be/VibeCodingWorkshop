@@ -34,6 +34,8 @@ jobs:
         working-directory: slides
       - run: bunx slidev export ../handout/handout.md --output ../site/dist/handout.pdf
         working-directory: slides
+      - run: bunx slidev build slides.md --base /VibeCodingWorkshop/slides/ --out ../site/dist/slides
+        working-directory: slides
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site/dist
