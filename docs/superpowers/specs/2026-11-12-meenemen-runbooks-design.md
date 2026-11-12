@@ -12,12 +12,13 @@ Step-by-step pages that help participants take their app home after the workshop
 ## Navigation
 
 - New `GROUPS` entry in `site/src/nav.ts`, `🎒 Meenemen`, after `🛠️ Zelf doen`.
-- The pager runs on: `Aan de slag!` → `GitHub-account` → `Lovable koppelen`.
+- The pager runs on: `Aan de slag!` → `GitHub-account` → `Lovable koppelen` → `Lesgever toegang geven`.
 
-| Slug               | Title            | Icon |
-|--------------------|------------------|------|
-| `github-account`   | GitHub-account   | 🐙   |
-| `lovable-koppelen` | Lovable koppelen | 🔗   |
+| Slug               | Title                  | Icon |
+|--------------------|------------------------|------|
+| `github-account`   | GitHub-account         | 🐙   |
+| `lovable-koppelen` | Lovable koppelen       | 🔗   |
+| `lesgever-toegang` | Lesgever toegang geven | 🤝   |
 
 ## Layout: timeline (mockup B)
 
@@ -58,13 +59,23 @@ The page opens with a `note ask` at the top: "Eerst nodig: een GitHub-account �
 4. **🔗 Koppel je project**: Clicks: `Connect`. Lovable creates a private folder on GitHub with all your code.
 5. **✅ Controleer**: go to github.com. Your project is there.
 
+### Lesgever toegang geven
+
+Subtitle: "Zodat de lesgever je verder kan helpen". Adds the instructor's GitHub account `Laoujin` as a collaborator on the repo.
+
+1. **🐙 Open je project op GitHub**: github.com → click the project.
+2. **⚙️ Ga naar de medewerkers**: Clicks (github): `Settings` → `Collaborators` → `Add people`. GitHub may ask for the password again.
+3. **🔎 Zoek de lesgever**: type `Laoujin`, pick it. Clicks (github): `Add Laoujin to this repository`.
+4. **✅ Klaar**: the instructor gets an email and can then work on the app.
+
 ## Tests (`site/tests/site.test.ts`)
 
 - Add both slugs to `PAGES`. The existing "is built", sidebar order, current marker, pager and internal-link tests then cover them.
 - `github-account` links `https://github.com/signup` in a new tab.
 - `lovable-koppelen` links back to `github-account/`.
 - Each page renders an `ol.steps` with 4 (`github-account`) and 5 (`lovable-koppelen`) `li`.
-- Both pages carry the subtitle "Blijf eigenaar van je app, ook na de workshop".
+- `lesgever-toegang` renders 4 `li` and mentions `Laoujin`.
+- `github-account` and `lovable-koppelen` carry the subtitle "Blijf eigenaar van je app, ook na de workshop".
 
 ## Out of scope
 

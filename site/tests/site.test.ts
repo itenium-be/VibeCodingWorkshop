@@ -8,7 +8,7 @@ const DIST = join(import.meta.dir, '..', 'dist');
 const BUILT_ELSEWHERE = [`${BASE}handout.pdf`, `${BASE}slides/`];
 const APPS_BUILT_ELSEWHERE = [`${BASE}aftellen/`, `${BASE}familiequiz/`, `${BASE}bingokaarten/`, `${BASE}planten-water-geven/`, `${BASE}leesclub/`, `${BASE}reisdagboek/`];
 
-const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'bezin', 'slim-beginnen', 'vastgelopen', 'aan-de-slag', 'github-account', 'lovable-koppelen'];
+const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'bezin', 'slim-beginnen', 'vastgelopen', 'aan-de-slag', 'github-account', 'lovable-koppelen', 'lesgever-toegang'];
 
 const html = (slug: string) => readFileSync(join(DIST, slug, 'index.html'), 'utf8');
 const hrefs = (page: string) => [...page.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
@@ -143,6 +143,12 @@ describe('meenemen', () => {
 
 	test('github-account opens the GitHub signup in a new tab', () => {
 		expect(html('github-account')).toMatch(/<a[^>]*href="https:\/\/github\.com\/signup"[^>]*target="_blank"/);
+	});
+
+	test('lesgever-toegang walks through 4 steps and names the instructor', () => {
+		const steps = html('lesgever-toegang').match(/<ol class="steps"[\s\S]*?<\/ol>/)?.[0] ?? '';
+		expect(steps.match(/<li/g)).toHaveLength(4);
+		expect(steps).toContain('Laoujin');
 	});
 
 	test('lovable-koppelen points back to the GitHub account page', () => {

@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Steps from '../components/Steps.astro';
+import Step from '../components/Step.astro';
+import Clicks from '../components/Clicks.astro';
+---
+
+<Layout subtitle="Zodat de lesgever je verder kan helpen">
+	<Steps>
+		<Step icon="🐙" title="Open je project op GitHub">
+			<p>Ga naar <a class="pill" href="https://github.com" target="_blank" rel="noopener">github.com</a> en klik op je project.</p>
+		</Step>
+		<Step icon="⚙️" title="Ga naar de medewerkers">
+			<Clicks look="github" path={['Settings', 'Collaborators', 'Add people']} />
+			<p>Vraagt GitHub je wachtwoord? Typ het opnieuw.</p>
+		</Step>
+		<Step icon="🔎" title="Zoek de lesgever">
+			<p>Typ <span class="pill">Laoujin</span> en kies hem uit de lijst.</p>
+			<Clicks look="github" path={['Add Laoujin to this repository']} />
+		</Step>
+		<Step icon="✅" title="Klaar">
+			<p>De lesgever krijgt een mail en kan daarna aan je app werken.</p>
+		</Step>
+	</Steps>
+	<div class="ribbon steps-end">🙋 Vast? Steek je hand op!</div>
+</Layout>
