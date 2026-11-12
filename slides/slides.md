@@ -107,7 +107,7 @@ class: rules
   <Card v-click icon="💬" :step="1" title="Brainstormen">Bespreek je idee met ChatGPT: "Stel me vragen tot mijn idee duidelijk is."</Card>
   <Card v-click icon="✍️" :step="2" title="Laat je bericht schrijven">"Schrijf nu één bericht dat ik in Lovable kan plakken."</Card>
   <Card v-click icon="🎨" :step="3" title="Vraag ontwerpen" hint="combineer de beste delen">In Lovable: "Maak 3 verschillende ontwerpen, dan kies ik er één."</Card>
-  <Card v-click icon="🖼️" title="Tekeningen nodig?" hint="vraag een Midjourney-prompt">Steek je hand op: de lesgever helpt.</Card>
+  <Card v-click icon="🖼️" title="Tekeningen nodig?" hint="veel tekeningen nodig? Vraag de lesgever">Vraag het Lovable: "Zet een tekening van een vrolijke cactus bovenaan."</Card>
 </div>
 
 ---
