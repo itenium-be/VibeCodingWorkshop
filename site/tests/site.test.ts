@@ -92,6 +92,11 @@ describe('zelf gemaakt', () => {
 		for (const a of visits()) expect(a).toContain('target="_blank"');
 	});
 
+	test('shows how this workshop itself was made', () => {
+		expect(page()).toContain('En dit?');
+		expect(page()).toMatch(/<strong>136<\/strong>prompts/);
+	});
+
 	test('icons are no longer links', () => {
 		expect(page()).not.toMatch(/<a class="card-icon"/);
 	});
