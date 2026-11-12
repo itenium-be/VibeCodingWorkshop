@@ -126,11 +126,31 @@ class: big-cards
 
 ---
 
-# Aan de slag
+# Aan de slag!
 
-<Step n="1">Ga naar <b>lovable.dev</b></Step>
-<Step n="2">Log in met je <b>Google</b>-account<small>Nog niet doorgegeven? Geef je Google-adres aan de lesgever.</small></Step>
-<Step n="3"><b>Publish</b> &amp; delen<small>Je krijgt een link, zoals jouwnaam.lovable.app, die je met iedereen kan delen.</small></Step>
+<svg class="road" viewBox="0 0 980 416"><path d="M140 250 C 260 60, 380 60, 490 200 S 720 360, 840 160" fill="none" stroke="currentColor" stroke-width="5" stroke-dasharray="4 14" stroke-linecap="round" /></svg>
+
+<div v-click class="station" style="left: 2.5rem; top: 15rem; background: var(--z-sky)">
+  <span class="station-tag">Voorbereiding</span>
+  <div class="station-icon">🔑</div>
+  <h3>Inloggen</h3>
+  <p>Ga naar <b>lovable.dev</b> en log in met <b>Google</b>.</p>
+  <p>Google-adres nog niet doorgegeven? Geef het aan de lesgever.</p>
+</div>
+
+<div v-click class="station" style="left: 23.4rem; top: 8.4rem; background: var(--z-mint)">
+  <span class="station-tag">Bouwen</span>
+  <div class="station-icon">🛠️</div>
+  <h3>Zoals besproken</h3>
+  <p>Brainstormen, één bericht laten schrijven, en daarna één wijziging per keer.</p>
+</div>
+
+<div v-click class="station" style="right: 2.5rem; top: 15rem; background: var(--z-pink)">
+  <span class="station-tag">Mee naar huis</span>
+  <div class="station-icon">🏠</div>
+  <h3>Publish &amp; delen</h3>
+  <p>Klik op <LovableButton icon="globe">Publish</LovableButton> en deel je link: <b>jouwnaam.lovable.app</b></p>
+</div>
 
 ---
 layout: center
