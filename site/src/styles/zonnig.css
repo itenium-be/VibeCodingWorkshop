@@ -19,6 +19,8 @@ body { background: var(--z-paper); color: var(--z-ink); font: 1.15rem/1.5 Nunito
 h1, h2, h3 { font-family: var(--z-heading); font-weight: 800; line-height: 1.05; }
 h2 { font-size: 2.2rem; margin-bottom: 1rem; }
 h3 { font-size: 1.5rem; margin-bottom: .8rem; }
+h2:has(+ .subtitle) { margin-bottom: .2rem; }
+.subtitle { margin-bottom: 1.6rem; color: var(--z-ink-soft); font-size: 1.3rem; font-weight: 700; }
 a { color: inherit; }
 
 .sparkle { width: 1.1em; height: 1.1em; vertical-align: -.15em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }

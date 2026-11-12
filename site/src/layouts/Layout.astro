@@ -5,6 +5,7 @@ import { GROUPS, PAGES, pageUrl, url } from '../nav';
 
 interface Props {
 	title?: string;
+	subtitle?: string;
 }
 
 const i = PAGES.findIndex(p => pageUrl(p) === Astro.url.pathname);
@@ -54,6 +55,7 @@ const title = Astro.props.title ?? page?.title;
 					{page ? (
 						<div class="col">
 							<h2><Icon icon={page.icon} /> {page.title}</h2>
+							{Astro.props.subtitle && <p class="subtitle">{Astro.props.subtitle}</p>}
 							<slot />
 							<nav class="pager">
 								{prev ? <a href={pageUrl(prev)}>← {prev.title}</a> : <a href={url()}>← Welkom</a>}
