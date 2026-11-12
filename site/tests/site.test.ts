@@ -94,7 +94,7 @@ describe('zelf gemaakt', () => {
 
 	test('shows how this workshop itself was made', () => {
 		expect(page()).toContain('En dit?');
-		expect(page()).toMatch(/<strong>136<\/strong>prompts/);
+		expect(page()).toMatch(/<strong>126<\/strong>prompts/);
 	});
 
 	test('icons are no longer links', () => {
