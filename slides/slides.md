@@ -160,7 +160,11 @@ class: big-cards
   <span class="station-tag">Mee naar huis</span>
   <div class="station-icon">🏠</div>
   <h3>Publish &amp; delen</h3>
-  <p>Klik op <LovableButton icon="globe">Publish</LovableButton> en deel je link: <b>jouwnaam.lovable.app</b></p>
+  <div class="publish-flow">
+    <LovableButton icon="globe">Publish</LovableButton>
+    <Squiggle />
+    <span class="pill">jouwnaam.lovable.app</span>
+  </div>
 </div>
 
 ---
