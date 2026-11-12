@@ -38,6 +38,8 @@ jobs:
         working-directory: slides
       - run: bun install --frozen-lockfile && bun run check && cp -r dist ../../site/dist/aftellen
         working-directory: apps/aftellen
+      - run: bun install --frozen-lockfile && bun run check && cp -r dist ../../site/dist/leesclub
+        working-directory: apps/leesclub
       - run: for app in familiequiz bingokaarten planten-water-geven; do mkdir -p site/dist/$app && cp apps/$app/index.html site/dist/$app/; done
         working-directory: .
       - uses: actions/upload-pages-artifact@v3
