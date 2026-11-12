@@ -31,13 +31,13 @@ transition: none
 </div>
 
 <div class="grid-2" style="margin-top: .9rem">
-  <div class="mini"><LovableButton icon="wrench">Try to fix</LovableButton><span>Foutmelding? Lovable lost het zelf op.</span></div>
-  <div class="mini"><LovableButton icon="restore">Restore</LovableButton><span>Slechter geworden? Terug naar een vorige versie.</span></div>
+  <div class="mini"><LovableButton icon="wrench">Try to fix</LovableButton><span>Foutmelding?<br>Lovable lost het zelf op.</span></div>
+  <div class="mini"><LovableButton icon="restore">Restore</LovableButton><span>Slechter geworden?<br>Terug naar een vorige versie.</span></div>
 </div>
 
 ## Mee naar huis
 
-<Step n="1">Klik op <b>Publish</b><small>Je krijgt een link om te delen.</small></Step>
+<Step n="1">Klik op <LovableButton icon="globe">Publish</LovableButton><small>Je krijgt een link om te delen.</small></Step>
 <Step n="2"><b>Meer nodig?</b><small>Eigen webadres, app op je computer: spreek de lesgever aan.</small></Step>
 
 <div class="note stop note-corner">🚫 Liever niet<br><span>Geen wachtwoorden, betalingen of privégegevens van anderen in je app.</span></div>
