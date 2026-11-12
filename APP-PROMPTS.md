@@ -1,120 +1,120 @@
-# App prompts
+# App-prompts
 
-One-shot prompts for the ideas on the "En jij?" slide that have no `href` yet, plus the remaining demo seeds from `IDEAS.md`. UI in Flemish Dutch, prompt in English (same as the Secret Santa prompt).
+Eenmalige prompts voor de ideeën op de "En jij?"-slide die nog geen `href` hebben, plus de overige demo-ideeën uit `IDEAS.md`. Alles in het Vlaams: zowel de prompt als de app.
 
-| App                 | Data                       | Best tool                     |
-|---------------------|----------------------------|-------------------------------|
-| Woordzoeker-maker   | none                       | Claude or Lovable             |
-| Familiequiz         | in the browser             | Claude or Lovable             |
-| Aftellen            | in the link                | Claude or Lovable             |
-| Leesclub            | shared, multi-user         | Lovable (needs a database)    |
-| Reisdagboek         | shared, photos             | Lovable (database + storage)  |
-| Planten water geven | in the browser             | Claude or Lovable             |
-| Receptenboek        | shared, photos             | Lovable (database + storage)  |
-| Bingokaarten        | none                       | Claude or Lovable             |
+| App                 | Gegevens                     | Beste tool                         |
+|---------------------|------------------------------|------------------------------------|
+| Woordzoeker-maker   | geen                         | Claude of Lovable                  |
+| Familiequiz         | in de browser                | Claude of Lovable                  |
+| Aftellen            | in de link                   | Claude of Lovable                  |
+| Leesclub            | gedeeld, meerdere gebruikers | Lovable (heeft een database nodig) |
+| Reisdagboek         | gedeeld, foto's              | Lovable (database + opslag)        |
+| Planten water geven | in de browser                | Claude of Lovable                  |
+| Receptenboek        | gedeeld, foto's              | Lovable (database + opslag)        |
+| Bingokaarten        | geen                         | Claude of Lovable                  |
 
-"In the browser" means `localStorage`: survives a reload, but not another device. In Claude, "save in the browser" may be ignored in artifacts; Lovable handles it.
+"In de browser" betekent `localStorage`: blijft bewaard na herladen, maar niet op een ander toestel. In Claude kan "bewaar in de browser" genegeerd worden in artifacts; Lovable kan het wel.
 
-Follow-ups go one per message, as in the slides.
+Vervolgvragen: één per bericht, zoals in de slides.
 
 ## 🔤 Woordzoeker-maker
 
-> Make a word search puzzle maker in Flemish Dutch, for grandparents making puzzles for their grandchildren.
+> Maak een woordzoeker-maker in het Vlaams, voor grootouders die puzzels maken voor hun kleinkinderen.
 >
-> On the left, a simple form: a title (e.g. "Lotte's dierenpuzzel"), a list of words (one per line, 5 to 20 words), a grid size (small 10×10, medium 12×12, large 15×15) and a difficulty: "Makkelijk" (words only left-to-right and top-to-bottom), "Gemiddeld" (also diagonal) and "Moeilijk" (also backwards). Accept accented letters but place them without accents, in capitals. Warn kindly if a word is too long for the grid.
+> Links een eenvoudig formulier: een titel (bv. "Lotte's dierenpuzzel"), een lijst woorden (één per regel, 5 tot 20 woorden), een rastergrootte (klein 10×10, middel 12×12, groot 15×15) en een moeilijkheid: "Makkelijk" (woorden enkel van links naar rechts en van boven naar onder), "Gemiddeld" (ook diagonaal) en "Moeilijk" (ook achterstevoren). Aanvaard letters met accenten, maar plaats ze zonder accenten, in hoofdletters. Waarschuw vriendelijk als een woord te lang is voor het raster.
 >
-> On the right, a live preview of the puzzle: the title, the letter grid in a clear rounded font with even spacing, and the word list underneath in two columns. A "Nieuwe puzzel" button reshuffles the same words. A "Toon oplossing" toggle highlights each word with a soft coloured marker band. A "Afdrukken" button prints only the puzzle on one A4 page (no form, no buttons), with an option to print the solution on a second page.
+> Rechts een live voorbeeld van de puzzel: de titel, het letterraster in een duidelijk, afgerond lettertype met gelijke tussenruimte, en de woordenlijst eronder in twee kolommen. Een knop "Nieuwe puzzel" schudt dezelfde woorden opnieuw door elkaar. Een schakelaar "Toon oplossing" markeert elk woord met een zachte gekleurde markeerstift-band. Een knop "Afdrukken" drukt enkel de puzzel af op één A4-pagina (geen formulier, geen knoppen), met de optie om de oplossing op een tweede pagina af te drukken.
 >
-> Pre-fill an example with 10 animal words so the page is never empty. Playful but tidy look: cream background, one cheerful accent colour, large touch-friendly buttons, works on a tablet.
+> Vul vooraf een voorbeeld in met 10 dierennamen, zodat de pagina nooit leeg is. Speels maar netjes: crèmekleurige achtergrond, één vrolijke accentkleur, grote knoppen die makkelijk aan te tikken zijn, werkt op een tablet.
 
-Follow-ups: a theme picture above the puzzle · a "Kies een thema" button with ready word lists (dieren, fruit, beroepen) · a timer for playing on screen.
+Vervolgvragen: een themaprent boven de puzzel · een knop "Kies een thema" met kant-en-klare woordenlijsten (dieren, fruit, beroepen) · een timer om op het scherm te spelen.
 
 ## 🧠 Familiequiz
 
-> Make a quiz app in Flemish Dutch for a family party, called "Wie kent oma het best?". It is played on one laptop connected to a TV, so everything must be readable from across the room.
+> Maak een quiz-app in het Vlaams voor een familiefeest, met de naam "Wie kent oma het best?". Hij wordt gespeeld op één laptop die aan een tv hangt, dus alles moet leesbaar zijn van aan de andere kant van de kamer.
 >
-> There are two parts. In "Quiz maken", I add questions: the question text, 4 answers, which one is right, and optionally a photo. I can reorder, edit and delete questions. Save everything in the browser so it survives a reload.
+> Er zijn twee delen. In "Quiz maken" voeg ik vragen toe: de vraag, 4 antwoorden, welk antwoord juist is, en eventueel een foto. Ik kan vragen herschikken, aanpassen en verwijderen. Bewaar alles in de browser, zodat het een herlaadbeurt overleeft.
 >
-> In "Spelen", I first enter the players or teams (2 to 6 names, each gets its own colour). Then each question appears full screen, big and centred, with the 4 answers as large coloured tiles labelled A, B, C, D. For each team I tap which answer they chose; then "Toon antwoord" reveals the right one with a short celebration animation, and the scores update. Between questions, a small scoreboard bar. At the end, a podium with first, second and third place, confetti, and a "Opnieuw spelen" button.
+> In "Spelen" geef ik eerst de spelers of ploegen in (2 tot 6 namen, elk met een eigen kleur). Daarna verschijnt elke vraag schermvullend, groot en gecentreerd, met de 4 antwoorden als grote gekleurde tegels met de letters A, B, C, D. Per ploeg tik ik aan welk antwoord ze kozen; daarna toont "Toon antwoord" het juiste antwoord met een korte feestelijke animatie, en worden de scores bijgewerkt. Tussen de vragen een kleine scorebalk. Op het einde een podium met de eerste, tweede en derde plaats, confetti, en een knop "Opnieuw spelen".
 >
-> Start with 5 example questions about a fictional oma (favourite flower, birth town, first job, …) so I can try it immediately. Festive look: warm colours, rounded shapes, big friendly typography, no clutter.
+> Begin met 5 voorbeeldvragen over een verzonnen oma (lievelingsbloem, geboortedorp, eerste job, …) zodat ik het meteen kan uitproberen. Feestelijke look: warme kleuren, afgeronde vormen, grote vriendelijke letters, niets overbodigs.
 
-Follow-ups: a 20-second countdown per question · a sound when the answer is revealed · export and import the questions as a file so another family member can play them.
+Vervolgvragen: een aftelling van 20 seconden per vraag · een geluidje als het antwoord getoond wordt · de vragen exporteren en importeren als bestand, zodat een ander familielid ze kan spelen.
 
 ## ⏳ Aftellen
 
-> Make a countdown app in Flemish Dutch, called "Nog hoeveel nachtjes?", for children waiting for something fun.
+> Maak een aftel-app in het Vlaams, met de naam "Nog hoeveel nachtjes?", voor kinderen die wachten op iets leuks.
 >
-> I enter what we are counting down to (e.g. "Vakantie naar Italië"), the date, and pick an emoji or one of 8 themes (zee, bergen, Sinterklaas, Kerstmis, verjaardag, Pasen, kamp, logeren). The main screen then shows, very large, the number of nights to go ("Nog 12 nachtjes slapen!"), and smaller underneath the days, hours, minutes and seconds ticking down. Below that, a row of little moons, one per night left, that fade one by one; if there are more than 60, show a progress bar instead.
+> Ik geef in waarnaar we aftellen (bv. "Vakantie naar Italië"), de datum, en kies een emoji of een van 8 thema's (zee, bergen, Sinterklaas, Kerstmis, verjaardag, Pasen, kamp, logeren). Het hoofdscherm toont dan heel groot het aantal nachtjes dat nog rest ("Nog 12 nachtjes slapen!"), en kleiner daaronder de dagen, uren, minuten en seconden die aftellen. Daaronder een rij maantjes, één per resterend nachtje, die één voor één vervagen; zijn het er meer dan 60, toon dan een voortgangsbalk.
 >
-> I can keep several countdowns; they appear as cards on a home screen, soonest first. When the day arrives, the screen celebrates with confetti and "Het is zover!". Each countdown has a "Deel" button that copies a link containing the title, date and theme, so the grandparents open exactly the same countdown on their own phone without an account.
+> Ik kan meerdere aftellingen bijhouden; ze verschijnen als kaarten op een startscherm, de eerstvolgende bovenaan. Als de dag aanbreekt, viert het scherm feest met confetti en "Het is zover!". Elke aftelling heeft een knop "Deel" die een link kopieert met de titel, datum en het thema, zodat de grootouders precies dezelfde aftelling openen op hun eigen gsm, zonder account.
 >
-> Look: a full-screen illustrated background matching the theme, soft gradients, a big rounded playful font, works well on a phone held upright.
+> Look: een schermvullende geïllustreerde achtergrond die bij het thema past, zachte kleurverlopen, een groot afgerond speels lettertype, werkt goed op een rechtop gehouden gsm.
 
-Follow-ups: a "Wat gaan we doen?" checklist per countdown · a daily surprise fact revealed each morning · show it as a big clock for a TV in the living room.
+Vervolgvragen: een checklist "Wat gaan we doen?" per aftelling · elke ochtend een verrassend weetje · toon het als grote klok op een tv in de woonkamer.
 
 ## 📚 Leesclub
 
-> Make an app in Flemish Dutch for our book club of about 10 people, "Leesclub De Bladwijzer". Members log in with their email (magic link, no password).
+> Maak een app in het Vlaams voor onze leesclub van een tiental mensen, "Leesclub De Bladwijzer". Leden melden zich aan met hun e-mailadres (magische link, geen wachtwoord).
 >
-> The home page shows the next meeting prominently: date, time, address, the book (title, author, cover image), and who is hosting. Underneath, buttons to say "Ik kom", "Ik kom niet" or "Misschien", and a short list of who is coming. Each meeting has a "Wie brengt wat?" list (koffie, taart, koekjes, …) where members tick what they bring, so nothing is brought twice.
+> De startpagina toont de volgende bijeenkomst prominent: datum, uur, adres, het boek (titel, auteur, kaft) en wie de gastheer of gastvrouw is. Daaronder knoppen om te zeggen "Ik kom", "Ik kom niet" of "Misschien", en een korte lijst van wie er komt. Elke bijeenkomst heeft een lijst "Wie brengt wat?" (koffie, taart, koekjes, …) waar leden aanvinken wat ze meebrengen, zodat niets dubbel meegebracht wordt.
 >
-> A "Boekenkast" page lists all books we have read, newest first, with the cover, the meeting date, and each member's score out of 5 stars plus a one-line opinion; show the average score. A "Voorstellen" page lets members suggest books for later and vote on them with a thumbs up; the most popular suggestions rise to the top.
+> Een pagina "Boekenkast" toont alle boeken die we gelezen hebben, de nieuwste eerst, met de kaft, de datum van de bijeenkomst, en per lid een score op 5 sterren plus een mening van één regel; toon de gemiddelde score. Een pagina "Voorstellen" laat leden boeken voorstellen voor later en erop stemmen met een duimpje; de populairste voorstellen komen bovenaan.
 >
-> One member is the organiser: only they can create and edit meetings and mark a suggestion as "volgende boek". Everyone else can only manage their own attendance, contributions, scores and suggestions.
+> Eén lid is de organisator: enkel die kan bijeenkomsten aanmaken en aanpassen, en een voorstel markeren als "volgende boek". Alle anderen kunnen enkel hun eigen aanwezigheid, bijdragen, scores en voorstellen beheren.
 >
-> Fill in two past meetings and one upcoming one with real well-known books, so it never looks empty. Calm, bookish look: off-white paper background, a serif heading font, deep green accent, plenty of whitespace, comfortable on a phone.
+> Vul twee voorbije bijeenkomsten en één komende in, met echte bekende boeken, zodat het nooit leeg oogt. Rustige, boekachtige look: gebroken witte papierachtergrond, een schreeflettertype voor de titels, diepgroene accentkleur, veel witruimte, aangenaam op een gsm.
 
-Follow-ups: a reminder email two days before the meeting · discussion questions per book · an "add to calendar" button.
+Vervolgvragen: een herinneringsmail twee dagen voor de bijeenkomst · gespreksvragen per boek · een knop "toevoegen aan agenda".
 
 ## 🧳 Reisdagboek
 
-> Make a travel diary app in Flemish Dutch where I keep a day-by-day story of a trip and share it with family. I log in with my email (magic link, no password); visitors don't need to log in.
+> Maak een reisdagboek-app in het Vlaams waarin ik dag per dag het verhaal van een reis bijhoud en deel met de familie. Ik meld me aan met mijn e-mailadres (magische link, geen wachtwoord); bezoekers moeten zich niet aanmelden.
 >
-> I create a trip with a title, a country or region, start and end date, and a cover photo. The app automatically creates one page per day. Per day I can add a short title, a story (a few paragraphs, simple formatting), up to 10 photos, the place where we were, and a mood emoji. Photos are shrunk on upload so they load quickly.
+> Ik maak een reis aan met een titel, een land of streek, begin- en einddatum, en een omslagfoto. De app maakt automatisch één pagina per dag. Per dag kan ik een korte titel toevoegen, een verhaal (een paar alinea's, eenvoudige opmaak), tot 10 foto's, de plaats waar we waren, en een stemmings-emoji. Foto's worden bij het uploaden verkleind, zodat ze snel laden.
 >
-> The trip page shows the cover photo large with the title, then a vertical timeline of the days: each day a card with its first photo, date, title and the first lines of the story. Clicking a day opens it with the full story and a photo gallery that opens photos full screen and lets you swipe through them. A small map at the top shows a pin for each day's place, connected by a dotted line in date order.
+> De reispagina toont de omslagfoto groot met de titel, daarna een verticale tijdlijn van de dagen: elke dag een kaart met de eerste foto, datum, titel en de eerste regels van het verhaal. Een klik op een dag opent die met het volledige verhaal en een fotogalerij die foto's schermvullend opent en waarin je kan swipen. Een kleine kaart bovenaan toont een speld voor de plaats van elke dag, verbonden met een stippellijn in volgorde van datum.
 >
-> Every trip has a "Deel" button that copies a read-only link for the family; visitors can leave a short reaction with their name under each day. Only I can add or edit content.
+> Elke reis heeft een knop "Deel" die een alleen-lezen-link kopieert voor de familie; bezoekers kunnen onder elke dag een korte reactie met hun naam achterlaten. Enkel ik kan inhoud toevoegen of aanpassen.
 >
-> Fill in an example trip of 4 days through Tuscany with placeholder photos, so the design is visible straight away. Look: like a nice paper scrapbook, warm cream background, photos with a slight white border and gentle rotation, a handwritten-style font for day titles and a clean readable font for the stories.
+> Vul een voorbeeldreis in van 4 dagen door Toscane, met voorbeeldfoto's, zodat het ontwerp meteen zichtbaar is. Look: zoals een mooi papieren plakboek, warme crèmekleurige achtergrond, foto's met een smal wit randje en een lichte draaiing, een handgeschreven lettertype voor de dagtitels en een strak, leesbaar lettertype voor de verhalen.
 
-Follow-ups: download the whole trip as a PDF photo book · a "vandaag" quick-add button on the phone · several trips on a home page.
+Vervolgvragen: de hele reis downloaden als PDF-fotoboek · een snelknop "vandaag" op de gsm · meerdere reizen op een startpagina.
 
 ## 🌱 Planten water geven
 
-> Make a plant watering app in Flemish Dutch, for someone with about 15 house plants who keeps forgetting which one needs water.
+> Maak een app in het Vlaams om planten water te geven, voor iemand met een vijftiental kamerplanten die steeds vergeet welke water nodig heeft.
 >
-> Per plant: a name, an optional photo, the room it stands in, and every how many days it needs water. The home screen has three groups: "Vandaag water geven" at the top (highlighted), "Te laat" (in a soft warning colour, with how many days late), and "Binnenkort" with the days remaining. Each plant card has a big "Water gegeven 💧" button that resets its timer with a small splash animation; an undo appears for a few seconds.
+> Per plant: een naam, een optionele foto, de kamer waar hij staat, en om de hoeveel dagen hij water nodig heeft. Het startscherm heeft drie groepen: "Vandaag water geven" bovenaan (in de kijker), "Te laat" (in een zachte waarschuwingskleur, met hoeveel dagen te laat), en "Binnenkort" met het aantal resterende dagen. Elke plantenkaart heeft een grote knop "Water gegeven 💧" die de teller herstart met een kleine plons-animatie; een paar seconden lang verschijnt een knop om dat ongedaan te maken.
 >
-> A second tab lists all plants grouped by room, where I can add, edit or delete plants. A small history per plant shows the last 10 times it got water. Save everything in the browser.
+> Een tweede tabblad toont alle planten gegroepeerd per kamer, waar ik planten kan toevoegen, aanpassen of verwijderen. Een kleine geschiedenis per plant toont de laatste 10 keer dat hij water kreeg. Bewaar alles in de browser.
 >
-> Start with 6 common house plants (monstera, cactus, pothos, …) with realistic watering intervals, some due today. Calm green look, rounded cards, large text and buttons, works well on a phone.
+> Begin met 6 gewone kamerplanten (monstera, cactus, pothos, …) met realistische intervallen, waarvan enkele vandaag water nodig hebben. Rustige groene look, afgeronde kaarten, grote tekst en knoppen, werkt goed op een gsm.
 
-Follow-ups: fertiliser reminders on a separate schedule · "op vakantie" mode that shows what to tell the neighbour · a weekly overview calendar.
+Vervolgvragen: herinneringen voor plantenvoeding met een apart schema · een modus "op vakantie" die toont wat je aan de buren moet zeggen · een weekoverzicht als kalender.
 
 ## 🍲 Receptenboek
 
-> Make a family recipe book in Flemish Dutch, to collect oma's recipes and share them with the whole family. Family members log in with their email (magic link, no password).
+> Maak een familiereceptenboek in het Vlaams, om oma's recepten te verzamelen en te delen met de hele familie. Familieleden melden zich aan met hun e-mailadres (magische link, geen wachtwoord).
 >
-> Per recipe: a name, a photo, a category (soep, hoofdgerecht, dessert, gebak, …), the number of people, preparation time, ingredients (one per line) and the steps (numbered). Optionally: who the recipe comes from ("van oma Jeanne") and a short story or memory.
+> Per recept: een naam, een foto, een categorie (soep, hoofdgerecht, dessert, gebak, …), het aantal personen, de bereidingstijd, de ingrediënten (één per regel) en de stappen (genummerd). Optioneel: van wie het recept komt ("van oma Jeanne") en een kort verhaal of herinnering.
 >
-> The home page shows recipe cards with the photo, name and time, with a search box that searches names and ingredients, and category filters. A recipe page shows the photo large, the ingredients on the left with tick boxes for shopping or cooking, and the steps on the right in large text. A "Porties" control recalculates the ingredient amounts. A "Kookmodus" button shows one step at a time in huge text and keeps the screen awake. "Afdrukken" prints the recipe neatly on one page.
+> De startpagina toont receptkaarten met de foto, naam en tijd, met een zoekvak dat zoekt in namen en ingrediënten, en filters per categorie. Een receptpagina toont de foto groot, de ingrediënten links met vinkjes voor het winkelen of koken, en de stappen rechts in grote letters. Een knop "Porties" herberekent de hoeveelheden. Een knop "Kookmodus" toont één stap tegelijk in heel grote letters en houdt het scherm aan. "Afdrukken" drukt het recept netjes af op één pagina.
 >
-> Every family member can add recipes and mark recipes as favourites; only the author can edit their own recipe.
+> Elk familielid kan recepten toevoegen en recepten als favoriet markeren; enkel de auteur kan zijn of haar eigen recept aanpassen.
 >
-> Fill in 6 classic Flemish recipes (stoofvlees, vol-au-vent, rijstpap, wafels, …) with placeholder photos. Warm, old-fashioned kitchen look: cream and terracotta, a serif font for headings, like a well-used family cookbook.
+> Vul 6 klassieke Vlaamse recepten in (stoofvlees, vol-au-vent, rijstpap, wafels, …) met voorbeeldfoto's. Warme, ouderwetse keukenlook: crème en terracotta, een schreeflettertype voor de titels, zoals een veelgebruikt familiekookboek.
 
-Follow-ups: a shopping list combining several recipes · upload a photo of a handwritten recipe card next to the typed version.
+Vervolgvragen: een boodschappenlijst die meerdere recepten combineert · een foto van een handgeschreven receptkaart uploaden naast de getypte versie.
 
 ## 🎱 Bingokaarten
 
-> Make a bingo card generator in Flemish Dutch for a party or a class.
+> Maak een generator voor bingokaarten in het Vlaams, voor een feest of een klas.
 >
-> I choose between "Getallen" (classic 1–75) and "Woorden" (I enter at least 24 words or short phrases, one per line, e.g. names of family members or things that will surely happen at the party). I choose a grid of 3×3, 4×4 or 5×5, whether the centre square is a free "★" square, a title for the card, and how many different cards to make (1 to 40).
+> Ik kies tussen "Getallen" (klassiek 1–75) en "Woorden" (ik geef minstens 24 woorden of korte zinnetjes in, één per regel, bv. namen van familieleden of dingen die zeker gaan gebeuren op het feest). Ik kies een raster van 3×3, 4×4 of 5×5, of het middelste vakje een gratis "★"-vakje is, een titel voor de kaart, en hoeveel verschillende kaarten er gemaakt moeten worden (1 tot 40).
 >
-> The app shows a preview of the cards and makes sure no two cards are the same. "Afdrukken" prints them two per A4 page, with crisp lines, the title on top and nothing else on the page. There is also a "Spelleider" screen for the host: a big button "Volgende" draws a random number or word, shows it huge on screen, and keeps a list of everything already drawn, so it can be shown on a TV.
+> De app toont een voorbeeld van de kaarten en zorgt dat geen twee kaarten hetzelfde zijn. "Afdrukken" drukt ze af met twee per A4-pagina, met scherpe lijnen, de titel bovenaan en verder niets op de pagina. Er is ook een scherm "Spelleider" voor de presentator: een grote knop "Volgende" trekt een willekeurig getal of woord, toont het heel groot op het scherm, en houdt een lijst bij van alles wat al getrokken is, zodat het op een tv getoond kan worden.
 >
-> Start with an example word list for a family Christmas party. Cheerful look: bright but not childish colours, a clear bold font, large buttons.
+> Begin met een voorbeeldlijst woorden voor een familiekerstfeest. Vrolijke look: felle maar niet kinderachtige kleuren, een duidelijk vet lettertype, grote knoppen.
 
-Follow-ups: let players tick squares on their phone and shout "Bingo!" automatically · a theme picture in the free square.
+Vervolgvragen: spelers vakjes laten aanvinken op hun gsm en automatisch "Bingo!" laten roepen · een themaprent in het gratis vakje.
