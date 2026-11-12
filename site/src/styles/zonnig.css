@@ -77,9 +77,9 @@ main { padding: 2.5rem 2rem 1.5rem; }
 @media (max-width: 52rem) { .hero { margin: -1.5rem -1.25rem 1.5rem; padding: 2rem 1.25rem 3rem; } }
 
 /* intro stickers */
-.grp-title { display: inline-block; margin: 2rem 0 .9rem; padding: .1rem .9rem; border: 3px solid var(--z-ink); border-radius: 999px; background: #fff; font: 800 1.3rem var(--z-heading); transform: rotate(-2deg); }
+.grp-title { display: inline-block; margin: 3.2rem 0 .5rem; padding: .1rem .9rem; border: 3px solid var(--z-ink); border-radius: 999px; background: #fff; font: 800 1.3rem var(--z-heading); transform: rotate(-2deg); }
 .stickers { display: flex; flex-wrap: wrap; gap: 1.4rem; }
-.stickers a { flex: 1 1 13rem; text-decoration: none; }
+.stickers a { flex: 0 1 15rem; text-decoration: none; }
 .stickers .card { transition: transform .15s; }
 .stickers a:nth-child(odd) .card { transform: rotate(-2.5deg); }
 .stickers a:nth-child(even) .card { transform: rotate(2deg); }
