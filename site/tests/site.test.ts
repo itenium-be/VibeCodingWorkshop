@@ -22,6 +22,10 @@ describe('pages', () => {
 	test('404 is built', () => {
 		expect(existsSync(join(DIST, '404.html'))).toBe(true);
 	});
+
+	test('woordzoeker app is built', () => {
+		expect(html('woordzoeker')).toContain('<title>Woordzoeker-maker</title>');
+	});
 });
 
 describe('sidebar', () => {
