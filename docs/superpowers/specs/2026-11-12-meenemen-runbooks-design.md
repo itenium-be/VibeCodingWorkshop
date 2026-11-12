@@ -14,7 +14,7 @@ Step-by-step pages that help participants take their app home after the workshop
 - New `GROUPS` entry in `site/src/nav.ts`, `🎒 Meenemen`, after `🛠️ Zelf doen`.
 - The pager runs on: `Aan de slag!` → `GitHub-account` → `Lovable koppelen`.
 
-| Slug               | Title                | Icon |
+| Slug               | Title            | Icon |
 |--------------------|------------------|------|
 | `github-account`   | GitHub-account   | 🐙   |
 | `lovable-koppelen` | Lovable koppelen | 🔗   |
