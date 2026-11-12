@@ -20,6 +20,9 @@ export default defineConfig({
 				ThemeSelect: './src/components/ThemeSelect.astro',
 			},
 			head: [
+				{ tag: 'link', attrs: { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/VibeCodingWorkshop/favicon-32.png' } },
+				{ tag: 'link', attrs: { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/VibeCodingWorkshop/favicon-192.png' } },
+				{ tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/VibeCodingWorkshop/apple-touch-icon.png' } },
 				{ tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
 				{ tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true } },
 				{
