@@ -46,6 +46,7 @@ main { padding: 2.5rem 2rem 1.5rem; }
 	.burger { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: .7rem; padding: .7rem 1rem; background: var(--z-sun); border-bottom: 3px solid var(--z-ink); font: 800 1.2rem var(--z-heading); cursor: pointer; }
 	.burger-btn { padding: .1rem .6rem; border: 3px solid var(--z-ink); border-radius: .7rem; background: #fff; font-size: 1.4rem; }
 	main { padding: 1.5rem 1.25rem 1rem; }
+	.pager { position: static; }
 }
 
 /* pager: small, pinned to the bottom of the screen */
