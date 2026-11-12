@@ -1,0 +1,255 @@
+---
+import { url } from '../nav';
+
+const animals = ['Olifant', 'Giraf', 'Leeuw', 'Zebra', 'Egel', 'Konijn', 'Vlinder', 'Schildpad', 'Pinguïn', 'Kangoeroe'];
+---
+
+<!doctype html>
+<html lang="nl-BE">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Woordzoeker-maker</title>
+		<link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700;800&display=swap" />
+	</head>
+	<body>
+		<main class="app">
+			<form class="maker" autocomplete="off">
+				<h1>🔤 Woordzoeker-maker</h1>
+
+				<label class="field">
+					<span>Titel</span>
+					<input name="title" value="Lotte's dierenpuzzel" />
+				</label>
+
+				<label class="field">
+					<span>Woorden <small>één per regel, 5 tot 20</small></span>
+					<textarea name="words" rows="10">{animals.join('\n')}</textarea>
+				</label>
+
+				<fieldset class="field">
+					<legend>Grootte</legend>
+					<div class="choices">
+						<label><input type="radio" name="size" value="10" /><span>Klein<small>10×10</small></span></label>
+						<label><input type="radio" name="size" value="12" checked /><span>Middel<small>12×12</small></span></label>
+						<label><input type="radio" name="size" value="15" /><span>Groot<small>15×15</small></span></label>
+					</div>
+				</fieldset>
+
+				<fieldset class="field">
+					<legend>Moeilijkheid</legend>
+					<div class="choices">
+						<label><input type="radio" name="difficulty" value="makkelijk" checked /><span>Makkelijk<small>→ ↓</small></span></label>
+						<label><input type="radio" name="difficulty" value="gemiddeld" /><span>Gemiddeld<small>→ ↓ ↘ ↗</small></span></label>
+						<label><input type="radio" name="difficulty" value="moeilijk" /><span>Moeilijk<small>ook achterstevoren</small></span></label>
+					</div>
+				</fieldset>
+
+				<ul class="notes" aria-live="polite"></ul>
+			</form>
+
+			<section class="preview">
+				<div class="toolbar">
+					<button type="button" id="shuffle">🔀 Nieuwe puzzel</button>
+					<button type="button" id="solution" aria-pressed="false">🖍️ Toon oplossing</button>
+					<button type="button" id="print" class="primary">🖨️ Afdrukken</button>
+					<label class="check"><input type="checkbox" id="printSolution" /> Oplossing op een tweede blad</label>
+				</div>
+				<article class="sheet" id="puzzleSheet"></article>
+				<article class="sheet solution-sheet" id="solutionSheet"></article>
+			</section>
+		</main>
+	</body>
+</html>
+
+<script>
+	import { generate, parseWords, type Difficulty, type Puzzle } from '../woordzoeker/puzzle';
+
+	const MIN = 5;
+	const MAX = 20;
+	const MARKERS = ['#ffd56b', '#9fe3b4', '#ffb8cf', '#a9c8ff', '#ffbfa6', '#d2c0ff', '#9fe0e0', '#f3d98a'];
+	const SVG = 'http://www.w3.org/2000/svg';
+
+	const form = document.querySelector<HTMLFormElement>('.maker')!;
+	const notes = document.querySelector<HTMLUListElement>('.notes')!;
+	const puzzleSheet = document.getElementById('puzzleSheet')!;
+	const solutionSheet = document.getElementById('solutionSheet')!;
+	const solutionBtn = document.getElementById('solution')!;
+	const printSolution = document.getElementById('printSolution') as HTMLInputElement;
+
+	let puzzle: Puzzle;
+
+	const value = (name: string) => (form.elements.namedItem(name) as HTMLInputElement | RadioNodeList).value;
+	const el = <K extends keyof HTMLElementTagNameMap>(tag: K, className: string, text = '') => {
+		const e = document.createElement(tag);
+		e.className = className;
+		e.textContent = text;
+		return e;
+	};
+
+	function words() {
+		return parseWords(value('words')).slice(0, MAX);
+	}
+
+	function warnings() {
+		const all = parseWords(value('words'));
+		const list: string[] = [];
+		if (all.length < MIN) list.push(`Nog ${MIN - all.length} ${MIN - all.length === 1 ? 'woord' : 'woorden'} erbij, dan wordt het pas echt zoeken!`);
+		if (all.length > MAX) list.push(`Maximaal ${MAX} woorden: de laatste ${all.length - MAX} laten we deze keer weg.`);
+		for (const w of puzzle.tooLong) list.push(`„${w}” is te lang voor dit rooster. Kies een groter rooster of een korter woord.`);
+		for (const w of puzzle.unplaced) list.push(`„${w}” paste er niet meer bij. Probeer „Nieuwe puzzel” of een groter rooster.`);
+		notes.replaceChildren(...list.map(t => el('li', '', `💛 ${t}`)));
+	}
+
+	function board(withSolution: boolean) {
+		const n = puzzle.grid.length;
+		const wrap = el('div', 'board');
+		wrap.style.setProperty('--n', String(n));
+
+		const marks = document.createElementNS(SVG, 'svg');
+		marks.setAttribute('class', withSolution ? 'marks' : 'marks toggle');
+		marks.setAttribute('viewBox', `0 0 ${n} ${n}`);
+		marks.setAttribute('aria-hidden', 'true');
+		puzzle.placed.forEach((p, i) => {
+			const last = p.word.length - 1;
+			const line = document.createElementNS(SVG, 'line');
+			line.setAttribute('x1', String(p.col + 0.5));
+			line.setAttribute('y1', String(p.row + 0.5));
+			line.setAttribute('x2', String(p.col + last * p.dc + 0.5));
+			line.setAttribute('y2', String(p.row + last * p.dr + 0.5));
+			line.setAttribute('stroke', MARKERS[i % MARKERS.length]);
+			marks.append(line);
+		});
+
+		const letters = el('div', 'letters');
+		for (const row of puzzle.grid) for (const ch of row) letters.append(el('span', '', ch));
+
+		wrap.append(marks, letters);
+		return wrap;
+	}
+
+	function sheet(target: HTMLElement, withSolution: boolean) {
+		const title = el('h2', 'sheet-title', value('title').trim() || 'Woordzoeker');
+		if (withSolution) title.append(el('small', '', ' — oplossing'));
+		const list = el('ul', 'wordlist');
+		for (const p of [...puzzle.placed].sort((a, b) => a.display.localeCompare(b.display, 'nl')))
+			list.append(el('li', '', p.display));
+		target.replaceChildren(title, board(withSolution), list);
+	}
+
+	function render() {
+		sheet(puzzleSheet, false);
+		sheet(solutionSheet, true);
+		warnings();
+	}
+
+	function reshuffle() {
+		puzzle = generate(words(), Number(value('size')), value('difficulty') as Difficulty);
+		render();
+	}
+
+	form.addEventListener('submit', e => e.preventDefault());
+	form.addEventListener('input', e => ((e.target as HTMLInputElement).name === 'title' ? render() : reshuffle()));
+	document.getElementById('shuffle')!.addEventListener('click', reshuffle);
+	solutionBtn.addEventListener('click', () => {
+		const on = solutionBtn.getAttribute('aria-pressed') !== 'true';
+		solutionBtn.setAttribute('aria-pressed', String(on));
+		solutionBtn.textContent = on ? '🖍️ Verberg oplossing' : '🖍️ Toon oplossing';
+		puzzleSheet.classList.toggle('show-solution', on);
+	});
+	printSolution.addEventListener('change', () => document.body.classList.toggle('print-solution', printSolution.checked));
+	document.getElementById('print')!.addEventListener('click', () => window.print());
+
+	reshuffle();
+</script>
+
+<style is:global>
+	:root {
+		--cream: #fdf6e7;
+		--paper: #fffdf8;
+		--ink: #33293f;
+		--soft: #7a6f86;
+		--accent: #f26b4f;
+		--accent-soft: #fde1d9;
+		--line: #ecdcc6;
+		--radius: 1.1rem;
+	}
+
+	* { box-sizing: border-box; margin: 0; }
+	body { background: var(--cream); color: var(--ink); font: 1.1rem/1.45 Nunito, sans-serif; }
+	h1, h2 { font-family: 'Baloo 2', sans-serif; font-weight: 800; line-height: 1.1; }
+
+	.app { display: grid; grid-template-columns: minmax(18rem, 24rem) 1fr; gap: 2rem; max-width: 76rem; margin: 0 auto; padding: 1.5rem; align-items: start; }
+
+	/* form */
+	.maker { display: flex; flex-direction: column; gap: 1.1rem; position: sticky; top: 1.5rem; }
+	.maker h1 { font-size: 2rem; color: var(--accent); }
+	.field { display: flex; flex-direction: column; gap: .35rem; border: 0; padding: 0; }
+	.field > span, legend { font-weight: 800; padding: 0; margin-bottom: .35rem; }
+	.field small { font-weight: 400; color: var(--soft); }
+	input:not([type]), textarea { font: inherit; color: inherit; background: var(--paper); border: 2px solid var(--line); border-radius: var(--radius); padding: .7rem .9rem; }
+	textarea { resize: vertical; min-height: 12rem; }
+	input:focus-visible, textarea:focus-visible, button:focus-visible, .choices input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+	.choices { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+	.choices label { cursor: pointer; }
+	.choices input { position: absolute; opacity: 0; pointer-events: none; }
+	.choices span { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 4rem; padding: .5rem .3rem; text-align: center; font-weight: 800; background: var(--paper); border: 2px solid var(--line); border-radius: var(--radius); transition: background .15s, border-color .15s; }
+	.choices small { font-size: .8rem; line-height: 1.2; }
+	.choices input:checked + span { background: var(--accent-soft); border-color: var(--accent); }
+
+	.notes { list-style: none; padding: 0; display: flex; flex-direction: column; gap: .5rem; }
+	.notes li { background: #fff4d1; border-radius: var(--radius); padding: .7rem .9rem; font-size: 1rem; }
+
+	/* toolbar */
+	.toolbar { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-bottom: 1rem; }
+	button { font: inherit; font-weight: 800; color: var(--ink); background: var(--paper); border: 2px solid var(--line); border-radius: 999px; min-height: 3.2rem; padding: .5rem 1.3rem; cursor: pointer; transition: transform .1s, background .15s; }
+	button:active { transform: scale(.97); }
+	button[aria-pressed='true'] { background: var(--accent-soft); border-color: var(--accent); }
+	button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+	.check { display: flex; align-items: center; gap: .5rem; min-height: 3.2rem; cursor: pointer; font-size: 1rem; }
+	.check input { width: 1.4rem; height: 1.4rem; accent-color: var(--accent); }
+
+	/* puzzle sheet */
+	.sheet { background: var(--paper); border-radius: 1.5rem; box-shadow: 0 .4rem 1.5rem #33293f14; padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+	.sheet-title { font-size: 2.2rem; text-align: center; }
+	.sheet-title small { font-size: 1.2rem; color: var(--soft); }
+	.solution-sheet { display: none; }
+
+	.board { position: relative; width: min(100%, 38rem); aspect-ratio: 1; container-type: inline-size; border: 3px solid var(--ink); border-radius: 1rem; }
+	.marks, .letters { position: absolute; inset: 3%; }
+	.marks { width: 94%; height: 94%; }
+	.marks line { stroke-width: .72; stroke-linecap: round; opacity: .85; }
+	.marks.toggle { visibility: hidden; }
+	.show-solution .marks.toggle { visibility: visible; }
+	.letters { display: grid; grid-template-columns: repeat(var(--n), 1fr); grid-auto-rows: 1fr; }
+	.letters span { display: grid; place-items: center; font-family: Nunito, sans-serif; font-weight: 800; font-size: calc(94cqi / var(--n) * .58); }
+
+	.wordlist { list-style: none; padding: 0; columns: 2; column-gap: 3rem; width: min(100%, 30rem); }
+	.wordlist li { font-weight: 700; font-size: 1.3rem; text-transform: uppercase; letter-spacing: .05em; padding: .15rem 0 .15rem 1.6rem; position: relative; break-inside: avoid; }
+	.wordlist li::before { content: ''; position: absolute; left: 0; top: .55rem; width: .9rem; height: .9rem; border: 2px solid var(--soft); border-radius: .3rem; }
+
+	@media (max-width: 52rem) {
+		.app { grid-template-columns: 1fr; padding: 1rem; }
+		.maker { position: static; }
+		.sheet { padding: 1.2rem; }
+	}
+
+	@media print {
+		@page { size: A4; margin: 14mm; }
+		body { background: #fff; }
+		.app { display: block; padding: 0; max-width: none; }
+		.maker, .toolbar { display: none; }
+		.sheet { box-shadow: none; padding: 0; border-radius: 0; gap: 8mm; }
+		.sheet + .sheet { break-before: page; }
+		.board { width: 155mm; }
+		.marks.toggle { visibility: hidden !important; }
+		.print-solution .solution-sheet { display: flex; }
+		.marks line { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+		.wordlist { width: 150mm; }
+		.wordlist li { font-size: 13pt; padding-block: 0; }
+	}
+</style>
