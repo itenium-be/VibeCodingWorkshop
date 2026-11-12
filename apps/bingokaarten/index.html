@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bingokaarten</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@500;700;800&display=swap">
+<style>
+/* Layout: settings column left, paper cards right; Spelleider is one full screen for the TV. */
+:root {
+  --bg: #eef2f8;
+  --surface: #ffffff;
+  --fg: #1b2140;
+  --muted: #5b6382;
+  --line: #d5dbea;
+  --coral: #f2543d;
+  --sun: #ffbf2e;
+  --teal: #0f9a8a;
+  --berry: #c2306a;
+  --on-accent: #ffffff;
+  --paper: #ffffff;
+  --ink: #111111;
+  --display: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121729; --surface: #1d2340; --fg: #f1f3fb; --muted: #a3abc9; --line: #323a5e;
+    --coral: #ff6b55; --sun: #ffc94a; --teal: #2bc0ad; --berry: #e45591;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121729; --surface: #1d2340; --fg: #f1f3fb; --muted: #a3abc9; --line: #323a5e;
+  --coral: #ff6b55; --sun: #ffc94a; --teal: #2bc0ad; --berry: #e45591;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 500 17px/1.45 var(--body);
+}
+button, input, textarea, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+
+.topbar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px;
+  padding: 14px max(16px, env(safe-area-inset-left, 0px)) 14px max(16px, env(safe-area-inset-right, 0px));
+}
+.brand { font: 800 30px/1 var(--display); letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; margin: 0; }
+.balls { display: inline-flex; gap: 3px; }
+.balls i { width: 14px; height: 14px; border-radius: 50%; display: block; }
+.balls i:nth-child(1) { background: var(--coral); }
+.balls i:nth-child(2) { background: var(--sun); }
+.balls i:nth-child(3) { background: var(--teal); }
+.balls i:nth-child(4) { background: var(--berry); }
+.tabs { display: flex; gap: 6px; background: var(--surface); padding: 5px; border-radius: 999px; border: 1px solid var(--line); }
+.tabs a {
+  text-decoration: none; font-weight: 800; padding: 10px 20px; border-radius: 999px; color: var(--muted);
+}
+.tabs a[aria-current="page"] { background: var(--fg); color: var(--bg); }
+
+main { padding: 0 max(16px, env(safe-area-inset-left, 0px)) 32px max(16px, env(safe-area-inset-right, 0px)); }
+
+/* ---------- Kaarten maken ---------- */
+.maker { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 24px; align-items: start; }
+@media (max-width: 820px) { .maker { grid-template-columns: 1fr; } }
+
+.panel {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+  padding: 20px; display: grid; gap: 18px; position: sticky; top: 12px;
+}
+@media (max-width: 820px) { .panel { position: static; } }
+.field { display: grid; gap: 8px; min-width: 0; }
+.label { font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.hint { font-size: 14px; color: var(--muted); }
+
+.seg { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 6px; }
+.seg input { position: absolute; opacity: 0; pointer-events: none; }
+.seg label {
+  text-align: center; padding: 12px 8px; border-radius: 12px; border: 2px solid var(--line);
+  font-weight: 800; cursor: pointer; user-select: none;
+}
+.seg input:checked + label { background: var(--teal); border-color: var(--teal); color: var(--on-accent); }
+.seg input:focus-visible + label { outline: 3px solid var(--sun); outline-offset: 2px; }
+
+input[type="text"], input[type="number"], textarea {
+  width: 100%; border: 2px solid var(--line); background: var(--bg); border-radius: 12px; padding: 10px 12px;
+}
+textarea { min-height: 220px; resize: vertical; line-height: 1.4; }
+input:focus, textarea:focus { border-color: var(--teal); outline: none; }
+
+.check { display: flex; gap: 12px; align-items: center; font-weight: 700; cursor: pointer; }
+.check input { width: 24px; height: 24px; accent-color: var(--teal); }
+.check:has(input:disabled) { opacity: 0.55; cursor: not-allowed; }
+
+.stepper { display: grid; grid-template-columns: 52px 1fr 52px; gap: 6px; }
+.stepper input { text-align: center; font-weight: 800; font-size: 20px; }
+.stepper button { border-radius: 12px; border: 2px solid var(--line); background: var(--surface); font-size: 24px; font-weight: 800; cursor: pointer; }
+
+.btn {
+  border: 0; border-radius: 14px; padding: 15px 22px; font-weight: 800; font-size: 18px; cursor: pointer;
+  background: var(--fg); color: var(--bg);
+}
+.btn.primary { background: var(--coral); color: var(--on-accent); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.error {
+  background: var(--surface); border: 2px dashed var(--coral); border-radius: 18px; padding: 28px;
+  font-weight: 700; font-size: 19px;
+}
+.preview-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.preview-head h2 { font: 800 24px/1.1 var(--display); margin: 0; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 18px; }
+.sheet { display: contents; }
+
+/* ---------- One card (screen + print) ---------- */
+.card {
+  container-type: inline-size;
+  background: var(--paper); color: var(--ink); border-radius: 6px; padding: 14px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.12), 0 8px 24px -12px rgb(0 0 0 / 0.35);
+}
+.card h3 {
+  font: 800 6.5cqi/1.1 var(--display); text-align: center; margin: 0 0 3cqi; text-wrap: balance; overflow-wrap: anywhere;
+}
+.grid { display: grid; grid-template-columns: repeat(var(--n), 1fr); border: 0.7cqi solid var(--ink); }
+.grid > div {
+  aspect-ratio: 1; display: grid; place-items: center; text-align: center; padding: 1cqi;
+  border-right: 0.35cqi solid var(--ink); border-bottom: 0.35cqi solid var(--ink);
+  font: 700 calc(15cqi / var(--n))/1.12 var(--body); overflow-wrap: anywhere; hyphens: auto; overflow: hidden;
+}
+.grid > div:nth-child(var(--n)n) { border-right: 0; }
+.grid > .long { font-size: calc(12.5cqi / var(--n)); }
+.grid > .num { font: 800 calc(38cqi / var(--n))/1 var(--display); font-variant-numeric: tabular-nums; }
+.grid > .free { font-size: calc(45cqi / var(--n)); color: var(--ink); }
+.grid > .hd { aspect-ratio: auto; padding: 1.5cqi 0; font: 800 calc(30cqi / var(--n))/1 var(--display); background: var(--ink); color: var(--paper); border-color: var(--paper); }
+
+/* ---------- Spelleider ---------- */
+.caller { display: grid; gap: 22px; min-height: calc(100vh - 110px); grid-template-rows: auto 1fr auto; }
+.caller-top { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; }
+.caller-top h2 { font: 800 clamp(24px, 3vw, 40px)/1.1 var(--display); margin: 0; }
+.counter { font-weight: 800; color: var(--muted); font-size: 20px; font-variant-numeric: tabular-nums; }
+.stage {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 28px;
+  display: grid; place-items: center; text-align: center; padding: 24px; min-height: 40vh;
+}
+.current { display: grid; justify-items: center; gap: 8px; }
+.current .letter { font: 800 clamp(40px, 7vw, 110px)/1 var(--display); color: var(--coral); }
+.current .value { font: 800 clamp(90px, 22vw, 340px)/0.95 var(--display); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.current .value.word { font-size: clamp(44px, 8vw, 140px); line-height: 1.05; text-wrap: balance; overflow-wrap: anywhere; max-width: 18ch; }
+.current .idle { font: 800 clamp(28px, 4vw, 56px)/1.15 var(--display); color: var(--muted); }
+.current.pop { animation: pop 380ms cubic-bezier(.2, 1.4, .4, 1); }
+@keyframes pop { from { transform: scale(0.6); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .current.pop { animation: none; } }
+.caller-controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; }
+.btn.next { font: 800 clamp(28px, 4vw, 48px)/1 var(--display); padding: 22px 64px; border-radius: 22px; background: var(--coral); color: var(--on-accent); }
+.btn.quiet { background: var(--surface); color: var(--fg); border: 2px solid var(--line); }
+.btn.quiet.armed { border-color: var(--coral); color: var(--coral); }
+
+.board { display: grid; gap: 6px; }
+.board-row { display: grid; grid-template-columns: 48px repeat(15, 1fr); gap: 6px; align-items: center; }
+.board-row b { font: 800 26px/1 var(--display); text-align: center; }
+@media (max-width: 600px) {
+  .board, .board-row { gap: 3px; }
+  .board-row { grid-template-columns: 22px repeat(15, minmax(0, 1fr)); }
+  .board-row b { font-size: 18px; }
+  .board span { font-size: 10px; }
+}
+.board span {
+  display: grid; place-items: center; aspect-ratio: 1; border-radius: 50%; font-weight: 800; font-variant-numeric: tabular-nums;
+  font-size: clamp(11px, 1.4vw, 20px); background: var(--bg); color: var(--muted); border: 1px solid var(--line);
+}
+.board span.on { background: var(--teal); color: var(--on-accent); border-color: var(--teal); }
+.board span.last { background: var(--coral); border-color: var(--coral); }
+.board-row:nth-child(1) b { color: var(--coral); }
+.board-row:nth-child(2) b { color: var(--sun); }
+.board-row:nth-child(3) b { color: var(--teal); }
+.board-row:nth-child(4) b { color: var(--berry); }
+.drawn-words { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.drawn-words li { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-weight: 700; }
+.drawn-words li:first-child { background: var(--coral); border-color: var(--coral); color: var(--on-accent); }
+.drawn-title { font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-size: 15px; margin: 0 0 10px; }
+
+/* ---------- Print: two cards per A4, nothing else ---------- */
+@page { size: A4 portrait; margin: 10mm; }
+@media print {
+  body { background: #fff; }
+  .topbar, .panel, .preview-head, #caller-view, .error { display: none !important; }
+  main { padding: 0; }
+  .maker { display: block; }
+  .cards { display: block; }
+  .sheet {
+    display: flex; flex-direction: column; justify-content: space-around; align-items: center;
+    height: 277mm; break-after: page; page-break-after: always;
+  }
+  .sheet:last-child { break-after: auto; page-break-after: auto; }
+  .card { width: 108mm; box-shadow: none; border-radius: 0; padding: 0; --ink: #000; --paper: #fff; }
+  .card.hashead { width: 98mm; }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <h1 class="brand"><span class="balls" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Bingokaarten</h1>
+  <nav class="tabs" aria-label="Scherm">
+    <a href="#kaarten" id="tab-kaarten">Kaarten maken</a>
+    <a href="#spelleider" id="tab-spelleider">Spelleider</a>
+  </nav>
+</header>
+
+<main>
+  <section id="maker-view" class="maker">
+    <form class="panel" id="settings" autocomplete="off">
+      <div class="field">
+        <span class="label">Soort bingo</span>
+        <div class="seg">
+          <input type="radio" name="mode" id="mode-getallen" value="getallen"><label for="mode-getallen">Getallen 1–75</label>
+          <input type="radio" name="mode" id="mode-woorden" value="woorden" checked><label for="mode-woorden">Woorden</label>
+        </div>
+      </div>
+
+      <div class="field" id="words-field">
+        <label class="label" for="words">Woorden</label>
+        <textarea id="words" spellcheck="false"></textarea>
+        <span class="hint" id="words-hint"></span>
+      </div>
+
+      <div class="field">
+        <span class="label">Rooster</span>
+        <div class="seg">
+          <input type="radio" name="size" id="size-3" value="3"><label for="size-3">3×3</label>
+          <input type="radio" name="size" id="size-4" value="4"><label for="size-4">4×4</label>
+          <input type="radio" name="size" id="size-5" value="5" checked><label for="size-5">5×5</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="check"><input type="checkbox" id="free" checked> Gratis ★ in het middenvak</label>
+        <span class="hint" id="free-hint" hidden>Een 4×4 heeft geen middenvak.</span>
+      </div>
+
+      <div class="field">
+        <label class="label" for="title">Titel op de kaart</label>
+        <input type="text" id="title" value="Kerstbingo bij bomma en bompa" maxlength="60">
+      </div>
+
+      <div class="field">
+        <label class="label" for="count">Aantal kaarten</label>
+        <div class="stepper">
+          <button type="button" id="count-down" aria-label="Eén kaart minder">−</button>
+          <input type="number" id="count" min="1" max="40" value="8" inputmode="numeric">
+          <button type="button" id="count-up" aria-label="Eén kaart meer">+</button>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn" id="shuffle">Nieuwe kaarten</button>
+        <button type="button" class="btn primary" id="print">Afdrukken</button>
+      </div>
+    </form>
+
+    <section aria-live="polite">
+      <div class="preview-head">
+        <h2 id="preview-title">Voorbeeld</h2>
+        <span class="hint">Afdrukken zet 2 kaarten op elk A4-blad.</span>
+      </div>
+      <div class="cards" id="cards"></div>
+      <div class="error" id="error" hidden></div>
+    </section>
+  </section>
+
+  <section id="caller-view" class="caller" hidden>
+    <div class="caller-top">
+      <h2 id="caller-title"></h2>
+      <span class="counter" id="counter"></span>
+    </div>
+    <div class="stage">
+      <div class="current" id="current"></div>
+    </div>
+    <div class="caller-controls">
+      <button type="button" class="btn next" id="next">Volgende</button>
+      <button type="button" class="btn quiet" id="fullscreen">Volledig scherm</button>
+      <button type="button" class="btn quiet" id="reset">Nieuw spel</button>
+    </div>
+    <div>
+      <p class="drawn-title">Al getrokken</p>
+      <div id="drawn"></div>
+    </div>
+  </section>
+</main>
+
+<script id="bingo-logic">
+const Bingo = (() => {
+  const FREE = "★";
+  const MIN_WORDS = 24;
+
+  function parseWords(text) {
+    const seen = new Set();
+    const out = [];
+    for (const raw of text.split("\n")) {
+      const w = raw.trim();
+      const key = w.toLocaleLowerCase("nl-BE");
+      if (w && !seen.has(key)) { seen.add(key); out.push(w); }
+    }
+    return out;
+  }
+
+  const hasFree = (size, free) => free && size % 2 === 1;
+  const cellCount = (size, free) => size * size - (hasFree(size, free) ? 1 : 0);
+
+  function validate({ mode, words, size, free, count }) {
+    if (!Number.isInteger(count) || count < 1 || count > 40) return "Kies tussen 1 en 40 kaarten.";
+    if (mode === "woorden") {
+      const need = Math.max(MIN_WORDS, cellCount(size, free));
+      if (words.length < need) return `Geef minstens ${need} verschillende woorden in, één per regel. Nu zijn het er ${words.length}.`;
+    }
+    return null;
+  }
+
+  function columnRanges(size) {
+    const base = Math.floor(75 / size), extra = 75 % size;
+    const ranges = [];
+    let start = 1;
+    for (let c = 0; c < size; c++) {
+      const len = base + (c < extra ? 1 : 0);
+      ranges.push([start, start + len - 1]);
+      start += len;
+    }
+    return ranges;
+  }
+
+  function sample(items, k, rng) {
+    const a = items.slice();
+    for (let i = 0; i < k; i++) {
+      const j = i + Math.floor(rng() * (a.length - i));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a.slice(0, k);
+  }
+
+  const range = (lo, hi) => Array.from({ length: hi - lo + 1 }, (_, i) => lo + i);
+
+  function makeCard({ mode, words, size, free }, rng) {
+    const centre = hasFree(size, free) ? (size * size - 1) / 2 : -1;
+    const card = new Array(size * size);
+    if (centre >= 0) card[centre] = FREE;
+    if (mode === "getallen") {
+      columnRanges(size).forEach(([lo, hi], col) => {
+        const rows = range(0, size - 1).filter((r) => r * size + col !== centre);
+        const nums = sample(range(lo, hi), rows.length, rng).sort((a, b) => a - b);
+        rows.forEach((r, i) => { card[r * size + col] = nums[i]; });
+      });
+    } else {
+      const picked = sample(words, cellCount(size, free), rng);
+      let i = 0;
+      for (let p = 0; p < card.length; p++) if (p !== centre) card[p] = picked[i++];
+    }
+    return card;
+  }
+
+  // By layout, not by set: with exactly 24 words every 5×5 card holds the same words.
+  const cardKey = (card) => card.join("\u0000");
+
+  function makeCards(opts, rng = Math.random) {
+    const cards = [];
+    const keys = new Set();
+    let attempts = 0;
+    while (cards.length < opts.count) {
+      if (++attempts > opts.count * 500) throw new Error("Te weinig woorden om zoveel verschillende kaarten te maken.");
+      const card = makeCard(opts, rng);
+      const key = cardKey(card);
+      if (!keys.has(key)) { keys.add(key); cards.push(card); }
+    }
+    return cards;
+  }
+
+  const pool = ({ mode, words }) => (mode === "getallen" ? range(1, 75) : words.slice());
+
+  function nextDraw(items, drawn, rng = Math.random) {
+    const done = new Set(drawn);
+    const left = items.filter((x) => !done.has(x));
+    return left.length ? left[Math.floor(rng() * left.length)] : null;
+  }
+
+  const callLabel = (n) => "BINGO"[Math.floor((n - 1) / 15)];
+
+  return { FREE, parseWords, cellCount, validate, columnRanges, makeCards, pool, nextDraw, callLabel };
+})();
+</script>
+
+<script>
+const EXAMPLE = [
+  "Bompa valt in slaap in de zetel",
+  "Iemand morst saus op het tafelkleed",
+  "Nonkel vertelt dezelfde mop als vorig jaar",
+  "Kersttrui met lichtjes",
+  "Iemand zingt Last Christmas mee",
+  "Bomma zegt: eet nog wat!",
+  "Een glas wordt omgestoten",
+  "Iemand komt te laat",
+  "Er wordt over het weer gepraat",
+  "De hond krijgt iets van tafel",
+  "Iemand krijgt sokken",
+  "Papieren kroontje op",
+  "Er wordt een toespraak gegeven",
+  "Een kind schudt aan elk pakje",
+  "Iemand zoekt de flesopener",
+  "Groepsfoto mislukt",
+  "Iemand belt met videochat",
+  "Er is te veel dessert",
+  "Tweede portie ijstaart",
+  "Iemand vraagt: hoe is 't op 't werk?",
+  "Een kaars gaat uit",
+  "Er wordt gekaart",
+  "Kalkoen of kalkoen?",
+  "Iemand ruimt al af voor het dessert",
+  "Iemand doet een dutje",
+  "Vroeger was het allemaal beter",
+  "Iemand draagt een kerstmuts",
+  "Wie heeft de afstandsbediening?",
+];
+
+const $ = (id) => document.getElementById(id);
+const el = (tag, cls, text) => {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text != null) e.textContent = text;
+  return e;
+};
+
+$("words").value = EXAMPLE.join("\n");
+
+let cards = [];
+
+function settings() {
+  return {
+    mode: document.querySelector('input[name="mode"]:checked').value,
+    words: Bingo.parseWords($("words").value),
+    size: Number(document.querySelector('input[name="size"]:checked').value),
+    free: $("free").checked,
+    count: Number($("count").value),
+    title: $("title").value.trim(),
+  };
+}
+
+function syncControls(s) {
+  $("words-field").hidden = s.mode !== "woorden";
+  $("words-hint").textContent = `${s.words.length} ${s.words.length === 1 ? "woord" : "woorden"} · minstens 24 nodig`;
+  $("free").disabled = s.size === 4;
+  $("free-hint").hidden = s.size !== 4;
+}
+
+function regenerate() {
+  const s = settings();
+  syncControls(s);
+  let problem = Bingo.validate(s);
+  if (!problem) {
+    try { cards = Bingo.makeCards(s); } catch (e) { problem = e.message; }
+  }
+  $("error").hidden = !problem;
+  $("error").textContent = problem || "";
+  $("print").disabled = !!problem;
+  if (problem) { cards = []; $("cards").replaceChildren(); $("preview-title").textContent = "Voorbeeld"; return; }
+  render(s);
+  resetCallerIfPoolChanged(s);
+}
+
+function render(s) {
+  const showHead = s.mode === "getallen" && s.size === 5;
+  const sheets = [];
+  cards.forEach((card, i) => {
+    if (i % 2 === 0) sheets.push(el("div", "sheet"));
+    const c = el("article", "card" + (showHead ? " hashead" : ""));
+    c.style.setProperty("--n", s.size);
+    if (s.title) c.append(el("h3", null, s.title));
+    const grid = el("div", "grid");
+    if (showHead) for (const L of "BINGO") grid.append(el("div", "hd", L));
+    for (const v of card) {
+      const cls = v === Bingo.FREE ? "free" : typeof v === "number" ? "num" : String(v).length > 22 ? "long" : "";
+      grid.append(el("div", cls, String(v)));
+    }
+    c.append(grid);
+    sheets.at(-1).append(c);
+  });
+  $("cards").replaceChildren(...sheets);
+  const pages = Math.ceil(cards.length / 2);
+  $("preview-title").textContent = `${cards.length} ${cards.length === 1 ? "kaart" : "kaarten"} · ${pages} ${pages === 1 ? "blad" : "bladen"}`;
+}
+
+let timer;
+$("settings").addEventListener("input", (e) => {
+  clearTimeout(timer);
+  timer = setTimeout(regenerate, e.target.id === "words" || e.target.id === "title" ? 250 : 0);
+});
+$("settings").addEventListener("submit", (e) => e.preventDefault());
+$("shuffle").addEventListener("click", regenerate);
+$("print").addEventListener("click", () => window.print());
+function stepCount(d) {
+  $("count").value = Math.min(40, Math.max(1, (Number($("count").value) || 0) + d));
+  regenerate();
+}
+$("count-down").addEventListener("click", () => stepCount(-1));
+$("count-up").addEventListener("click", () => stepCount(1));
+
+/* ---------- Spelleider ---------- */
+let game = { sig: "", pool: [], drawn: [], letters: false };
+
+function resetCallerIfPoolChanged(s) {
+  const pool = Bingo.pool(s);
+  const sig = s.mode + "|" + pool.join("\n");
+  if (sig !== game.sig) game = { sig, pool, drawn: [], letters: false };
+  game.letters = s.mode === "getallen" && s.size === 5;
+  game.mode = s.mode;
+  game.title = s.title || "Bingo";
+  if (!$("caller-view").hidden) renderCaller(false);
+}
+
+function renderCaller(animate) {
+  $("caller-title").textContent = game.title;
+  $("counter").textContent = `${game.drawn.length} van ${game.pool.length} getrokken`;
+  const last = game.drawn.at(-1);
+  const cur = $("current");
+  cur.replaceChildren();
+  if (last == null) {
+    cur.append(el("div", "idle", "Klik op Volgende om te beginnen"));
+  } else {
+    if (game.letters) cur.append(el("div", "letter", Bingo.callLabel(last)));
+    cur.append(el("div", "value" + (game.mode === "woorden" ? " word" : ""), String(last)));
+  }
+  cur.classList.remove("pop");
+  if (animate) { void cur.offsetWidth; cur.classList.add("pop"); }
+  const done = game.drawn.length >= game.pool.length;
+  $("next").disabled = done || game.pool.length === 0;
+  $("next").textContent = done ? "Alles getrokken" : "Volgende";
+
+  const drawn = $("drawn");
+  if (game.mode === "getallen") {
+    const on = new Set(game.drawn);
+    const board = el("div", "board");
+    for (let r = 0; r < 5; r++) {
+      const row = el("div", "board-row");
+      row.append(el("b", null, "BINGO"[r]));
+      for (let n = r * 15 + 1; n <= r * 15 + 15; n++) {
+        row.append(el("span", on.has(n) ? (n === last ? "on last" : "on") : "", String(n)));
+      }
+      board.append(row);
+    }
+    drawn.replaceChildren(board);
+  } else {
+    const list = el("ul", "drawn-words");
+    for (const w of game.drawn.slice().reverse()) list.append(el("li", null, w));
+    drawn.replaceChildren(game.drawn.length ? list : el("span", "hint", "Nog niets."));
+  }
+}
+
+function draw() {
+  const v = Bingo.nextDraw(game.pool, game.drawn);
+  if (v == null) return;
+  game.drawn.push(v);
+  renderCaller(true);
+}
+$("next").addEventListener("click", draw);
+document.addEventListener("keydown", (e) => {
+  if ($("caller-view").hidden || e.target.closest("button, input, textarea")) return;
+  if (e.key === " " || e.key === "Enter" || e.key === "ArrowRight") { e.preventDefault(); draw(); }
+});
+
+let armed;
+$("reset").addEventListener("click", () => {
+  const b = $("reset");
+  if (!b.classList.contains("armed")) {
+    b.classList.add("armed");
+    b.textContent = "Zeker? Klik nog eens";
+    armed = setTimeout(() => { b.classList.remove("armed"); b.textContent = "Nieuw spel"; }, 4000);
+    return;
+  }
+  clearTimeout(armed);
+  b.classList.remove("armed");
+  b.textContent = "Nieuw spel";
+  game.drawn = [];
+  renderCaller(false);
+});
+$("fullscreen").addEventListener("click", () => {
+  const p = document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+  p?.catch(() => {});
+});
+
+/* ---------- Routing ---------- */
+function route() {
+  const caller = location.hash === "#spelleider";
+  $("maker-view").hidden = caller;
+  $("caller-view").hidden = !caller;
+  $("tab-kaarten").toggleAttribute("aria-current", !caller);
+  $("tab-spelleider").toggleAttribute("aria-current", caller);
+  if (caller) { $("tab-spelleider").setAttribute("aria-current", "page"); renderCaller(false); }
+  else $("tab-kaarten").setAttribute("aria-current", "page");
+}
+window.addEventListener("hashchange", route);
+
+regenerate();
+route();
+</script>
+</body>
+</html>
