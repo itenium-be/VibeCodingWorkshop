@@ -415,3 +415,6 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .road-seg.slidev-vclick-hidden { opacity: 1 !important; }
 .road-seg.slidev-vclick-hidden .road-draw { stroke-dashoffset: 1; }
 .after-road:not(.slidev-vclick-hidden) { transition-delay: .6s; }
+
+.station-hinted { padding-bottom: 0; }
+.station .card-hint { display: block; margin: 1rem -1.1rem 0; white-space: normal; line-height: 1.3; border-radius: 0 0 1.05rem 1.05rem; }

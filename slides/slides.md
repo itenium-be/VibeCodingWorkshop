@@ -139,12 +139,12 @@ class: big-cards
   </g>
 </svg>
 
-<div v-click="1" class="station" style="left: 2.5rem; top: 15rem; background: var(--z-sky)">
+<div v-click="1" class="station station-hinted" style="left: 2.5rem; top: 15rem; background: var(--z-sky)">
   <span class="station-tag">Voorbereiding</span>
   <div class="station-icon">🔑</div>
   <h3>Inloggen</h3>
-  <p>Ga naar <b>lovable.dev</b> en log in met <b>Google</b>.</p>
-  <p>Google-adres nog niet doorgegeven? Geef het aan de lesgever.</p>
+  <span class="pill">lovable.dev</span>
+  <span class="card-hint">💡 Hint: Google-adres nog niet doorgegeven? Geef het aan de lesgever.</span>
 </div>
 
 <div v-click="2" class="station after-road" style="left: 23.4rem; top: 8.4rem; background: var(--z-mint)">
