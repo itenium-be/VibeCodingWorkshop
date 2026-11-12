@@ -2,7 +2,7 @@
 
 Dutch reference site for workshop participants, linked from the deck/handout QR code.
 
-URL: <https://itenium-be.github.io/VibeCodingWorkshop/>
+URL: <https://dev.itenium.be/VibeCodingWorkshop/>
 
 ## Stack
 

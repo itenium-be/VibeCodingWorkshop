@@ -4,7 +4,7 @@ import starlight from '@astrojs/starlight';
 import starlightLinksValidator from 'starlight-links-validator';
 
 export default defineConfig({
-	site: 'https://itenium-be.github.io',
+	site: 'https://dev.itenium.be',
 	base: '/VibeCodingWorkshop',
 	integrations: [
 		starlight({
