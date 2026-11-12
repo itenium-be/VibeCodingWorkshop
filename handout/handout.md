@@ -12,9 +12,9 @@ transition: none
 <div class="handout-head">
   <div>
 
-# Vibe coding: je eigen app
+# Vibe coding
 
-<p>Bouwen doe je op <span class="pill">lovable.dev</span><br><small>Log in met je Google-account.</small></p>
+<p>Bouwen doe je op <span class="pill">lovable.dev</span></p>
 
   </div>
   <QrCode />
