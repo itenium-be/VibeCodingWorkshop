@@ -40,6 +40,9 @@ transition: none
 <Step n="1">Klik op <LovableButton icon="globe">Publish</LovableButton><small>Je krijgt een link om te delen.</small></Step>
 <Step n="2"><b>Meer nodig?</b><small>Eigen webadres, app op je computer: spreek de lesgever aan.</small></Step>
 
-<div class="note stop note-corner">🚫 Liever niet<br><span>Geen wachtwoorden, betalingen of privégegevens van anderen in je app.</span><div class="card-hint">💡 Hint: hulp nodig? Schakel de lesgever in</div></div>
+<div class="note-corner">
+  <div class="note stop">🚫 Liever niet<br><span>Geen wachtwoorden, betalingen of privégegevens van anderen in je app.</span></div>
+  <div class="note ask">🙋 Hulp nodig?<br><span>Schakel de lesgever in.</span></div>
+</div>
 
 <QrCode class="qr-corner" />
