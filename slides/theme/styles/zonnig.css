@@ -377,3 +377,34 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .page .note-corner { position: absolute; left: 2.6rem; bottom: 2.4rem; width: 24rem; display: flex; flex-direction: column; gap: .9rem; }
 .page .note-corner .note { font-size: 1.3rem; text-align: left; }
 .page .note-corner span { font: 700 1rem/1.35 Nunito, sans-serif; }
+
+/* journey: stations positioned on the 980×552 canvas along the .road path */
+.road { position: absolute; left: 0; top: 7rem; width: 100%; height: 26rem; pointer-events: none; }
+
+.station {
+  position: absolute;
+  width: 15.5rem;
+  padding: 1.1rem 1.1rem 1rem;
+  border: 3px solid var(--z-ink);
+  border-radius: 1.3rem;
+  box-shadow: var(--z-shadow);
+  text-align: center;
+}
+
+.station-tag {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: .15rem .8rem;
+  border-radius: 999px;
+  background: var(--z-ink);
+  color: var(--z-sun);
+  font: 800 .95rem 'Baloo 2', sans-serif;
+  white-space: nowrap;
+}
+
+.station-icon { font-size: 3rem; line-height: 1; }
+.station h3 { font: 800 1.6rem/1.05 'Baloo 2', sans-serif; margin: .25rem 0 .4rem; }
+.station p { font-size: 1rem; line-height: 1.35; color: var(--z-ink-soft); }
+.station p + p { margin-top: .4rem; }
