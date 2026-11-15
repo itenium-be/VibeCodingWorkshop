@@ -1,28 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Steps from '../components/Steps.astro';
-import Step from '../components/Step.astro';
-import Clicks from '../components/Clicks.astro';
-import LovableButton from '../components/LovableButton.astro';
+import Slideshow, { type Slide } from '../components/Slideshow.astro';
+import toolbar from '../assets/mijn-workspace/13-remix.png';
+import settings from '../assets/mijn-workspace/14-remix.png';
+import actions from '../assets/mijn-workspace/15-remix.png';
+import dialog from '../assets/mijn-workspace/16-remix.png';
+
+const open = { n: 1, icon: '⚙️', title: 'Open de instellingen' };
+const copy = { n: 2, icon: '📦', title: 'Maak een kopie' };
+const target = { n: 3, icon: '🏠', title: 'Kies je eigen workspace' };
+
+const slides: Slide[] = [
+	{ ...open, text: 'Open je project in Lovable. Klik bovenaan op dit icoon.', img: toolbar, rings: [{ at: [81, 13, 16, 74], label: 'Klik' }] },
+	{ ...open, text: 'Klik op Settings.', img: settings, rings: [{ at: [2, 15, 94, 70], label: 'Klik' }] },
+	{ ...copy, text: 'Bij Project actions, naast Remix project:', img: actions, rings: [{ at: [88.2, 29.3, 7.3, 9.6], label: 'Klik' }] },
+	{ ...target, text: 'Kies bij Target workspace je eigen naam.', img: dialog, rings: [{ at: [6.3, 58.7, 86.1, 8.1], label: 'Je eigen naam' }] },
+	{ ...target, text: 'Vink de twee schakelaars aan. Klik Remix.', img: dialog, rings: [{ at: [82.8, 69.3, 9.9, 14.2], label: 'Aan' }, { at: [75.8, 85.5, 16.6, 8.2], label: 'Klik' }] },
+];
 ---
 
 <Layout subtitle="Na een Remix werk je thuis gratis verder">
-	<Steps>
-		<Step icon="📂" title="Open je project in Lovable" />
-		<Step icon="⚙️" title="Open de instellingen">
-			<p>Klik bovenaan op <LovableButton icon="layers" />, dan:</p>
-			<Clicks path={['Settings']} />
-		</Step>
-		<Step icon="📦" title="Maak een kopie">
-			<p>Bij <b>Project actions</b>, naast <b>Remix project</b>:</p>
-			<Clicks path={['Remix']} />
-		</Step>
-		<Step icon="🏠" title="Kies je eigen workspace">
-			<p>Kies bij <b>Target workspace</b> je eigen naam. Vink de twee schakelaars aan. Klik <span class="lovable-btn">Remix</span>.</p>
-		</Step>
-		<Step icon="✅" title="Klaar">
-			<p>De kopie staat nu in je eigen workspace. Daar werk je verder.</p>
-		</Step>
-	</Steps>
-	<div class="ribbon steps-end">🙋 Vast? Steek je hand op!</div>
+	<Slideshow slides={slides} />
+	<div class="note ask steps-end">✅ Klaar: de kopie staat nu in je eigen workspace. Daar werk je verder.</div>
+	<div class="ribbon">🙋 Vast? Steek je hand op!</div>
 </Layout>

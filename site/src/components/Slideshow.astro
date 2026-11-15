@@ -25,7 +25,7 @@ const { slides } = Astro.props as { slides: Slide[] };
 		<section class:list={['slide', { on: i === 0 }]}>
 			<div class="slide-hd"><span class="n">{s.n}</span><h3>{s.icon} {s.title}</h3></div>
 			<p>{s.text}</p>
-			<figure class="shot">
+			<figure class="shot" style={`max-width:min(34rem,${s.img.width}px)`}>
 				<Image src={s.img} alt={s.title} />
 				{s.rings.map(({ at: [l, t, w, h], label }) => (
 					<span class="ring" style={`left:${l}%;top:${t}%;width:${w}%;height:${h}%`}><b>{label}</b></span>

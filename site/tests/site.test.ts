@@ -211,7 +211,7 @@ describe('aan de slag', () => {
 });
 
 describe('meenemen', () => {
-	test.each([['mijn-workspace', 5], ['github-account', 4], ['lovable-koppelen', 4]] as const)('%s walks through %d steps', (slug, count) => {
+	test.each([['github-account', 4], ['lovable-koppelen', 4]] as const)('%s walks through %d steps', (slug, count) => {
 		const steps = html(slug).match(/<ol class="steps"[\s\S]*?<\/ol>/)?.[0] ?? '';
 		expect(steps.match(/<li/g)).toHaveLength(count);
 	});
@@ -236,6 +236,13 @@ describe('meenemen', () => {
 
 	test('lovable-koppelen leaves the Remix to Mijn workspace', () => {
 		expect(html('lovable-koppelen')).not.toContain('Remix project');
+	});
+
+	test('mijn-workspace shows 5 screenshots over 3 steps', () => {
+		const slides = [...html('mijn-workspace').matchAll(/<section class="slide[^"]*"[\s\S]*?<\/section>/g)].map(m => m[0]);
+		expect(slides).toHaveLength(5);
+		expect(new Set(slides.map(s => s.match(/class="n">(\d+)</)![1]))).toEqual(new Set(['1', '2', '3']));
+		expect(slides.every(s => s.includes('class="ring"'))).toBe(true);
 	});
 
 	test('mijn-workspace remixes into your own workspace via Settings', () => {

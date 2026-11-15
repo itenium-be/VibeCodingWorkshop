@@ -1,5 +1,5 @@
 ---
-const { icon } = Astro.props as { icon: 'globe' | 'fork' | 'undo' | 'layers' };
+const { icon } = Astro.props as { icon: 'globe' | 'fork' | 'undo' };
 ---
 
 <!-- Approximates Lovable's own UI so participants recognise the button on screen. -->
@@ -7,7 +7,6 @@ const { icon } = Astro.props as { icon: 'globe' | 'fork' | 'undo' | 'layers' };
 	<svg viewBox="0 0 24 24" aria-hidden="true">
 		{icon === 'globe' && <Fragment><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></Fragment>}
 		{icon === 'fork' && <Fragment><circle cx="12" cy="18" r="3" /><circle cx="6" cy="6" r="3" /><circle cx="18" cy="6" r="3" /><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9" /><path d="M12 12v3" /></Fragment>}
-		{icon === 'layers' && <Fragment><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" /><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" /><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" /></Fragment>}
 		{icon === 'undo' && <Fragment><path d="M9 14 4 9l5-5" /><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11" /></Fragment>}
 	</svg>
 	<slot />
