@@ -162,7 +162,7 @@ main { padding: 2.5rem 2rem 1.5rem; }
 .loop-map path { fill: none; stroke: var(--z-rose); stroke-width: 3; stroke-dasharray: 6 5; stroke-linecap: round; }
 .loop-map span { position: absolute; left: 62%; top: 22%; font-size: 1.3rem; }
 .loop-question { gap: .2rem; font-weight: 800; font-size: .95rem; }
-.loop-question span { padding: .1rem .5rem; border: 2px solid var(--z-ink); border-radius: .5rem; font-weight: 700; }
+.loop-question > span { padding: .1rem .5rem; border: 2px solid var(--z-ink); border-radius: .5rem; font-weight: 700; }
 .change-loop[data-done="3"] .loop-question { overflow: visible; }
 .loop-correct { position: relative; transition: background .3s; }
 .change-loop.hit .loop-correct { background: #b2f2bb; }
