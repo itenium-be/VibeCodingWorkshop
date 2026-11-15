@@ -51,7 +51,7 @@ disabled: true
 # Inspiratie
 
 <div class="grid-3">
-  <Card v-click icon="🔤" title="Woordzoeker-maker">Puzzels voor de (klein)kinderen, met hun eigen woorden</Card>
+  <Card v-click icon="🥾" title="Wandelroutes Quiz" stamp="Lede">Een wandeling met quizvragen over de plekken onderweg</Card>
   <Card v-click icon="🧠" title="Familiequiz">Wie kent oma het best?</Card>
   <Card v-click icon="🍸" title="Cocktails" href="https://sangu.be/Sanguine-Spirits/">Je favoriete cocktailrecepten</Card>
   <Card v-click icon="⏳" title="Aftellen">Nog hoeveel nachtjes tot de vakantie?</Card>

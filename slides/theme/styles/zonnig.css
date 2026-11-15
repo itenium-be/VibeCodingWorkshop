@@ -93,7 +93,7 @@
 /* grids */
 .grid-2, .grid-3 { display: grid; gap: 1.1rem; }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
-.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 .card {
   display: flex;

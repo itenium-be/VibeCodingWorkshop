@@ -1,9 +1,9 @@
 <script setup lang="ts">
-defineProps<{ icon: string, title: string, prompts?: number, time?: string, words?: number, href?: string, hint?: string, step?: number, tag?: string }>()
+defineProps<{ icon: string, title: string, prompts?: number, time?: string, words?: number, href?: string, hint?: string, step?: number, tag?: string, stamp?: string }>()
 </script>
 
 <template>
-  <div class="card" :class="{ 'card-stamped': prompts, 'card-hinted': hint, 'card-stepped': step }">
+  <div class="card" :class="{ 'card-stamped': prompts || stamp, 'card-hinted': hint, 'card-stepped': step }">
     <span v-if="step" class="card-step">{{ step }}</span>
     <a v-if="href" class="card-icon" :href="href" target="_blank">{{ icon }}</a>
     <span v-else class="card-icon">{{ icon }}</span>
@@ -12,6 +12,7 @@ defineProps<{ icon: string, title: string, prompts?: number, time?: string, word
     <span v-if="tag" class="card-tag">{{ tag }}</span>
     <span v-if="words" class="card-words">✍️ {{ words.toLocaleString('nl-BE') }} woorden getypt</span>
     <span v-if="hint" class="card-hint">💡 Hint: {{ hint }}</span>
+    <div v-if="stamp" class="card-stamp"><strong>{{ stamp }}</strong></div>
     <div v-if="prompts" class="card-stamp">
       <span><strong>{{ prompts }}</strong>prompts<br>±{{ time }}</span>
     </div>
