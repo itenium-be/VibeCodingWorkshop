@@ -148,6 +148,16 @@ describe('lovable-account', () => {
 	});
 });
 
+describe('aan de slag', () => {
+	test.each(['Chat', 'Build', 'Plan'])('shows the %s mode', mode => {
+		expect(html('aan-de-slag')).toMatch(new RegExp(`<span[^>]*>[^<]*${mode}`));
+	});
+
+	test('takes the app home with Remix and Publish', () => {
+		expect(html('aan-de-slag')).toMatch(/Remix[\s\S]*Publish/);
+	});
+});
+
 describe('meenemen', () => {
 	test.each([['github-account', 4], ['lovable-koppelen', 5]] as const)('%s walks through %d steps', (slug, count) => {
 		const steps = html(slug).match(/<ol class="steps"[\s\S]*?<\/ol>/)?.[0] ?? '';

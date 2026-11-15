@@ -145,6 +145,9 @@ main { padding: 2.5rem 2rem 1.5rem; }
 
 /* Lovable look-alikes */
 .lovable-btn { display: inline-flex; align-items: center; gap: .35rem; padding: .3rem .7rem; border-radius: .45rem; background: #1c1c1c; color: #fff; font: 600 .85rem/1 Inter, system-ui, sans-serif; white-space: nowrap; }
+.mode-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; margin: .3rem 0; }
+.mode-chips > span { padding: .2rem .6rem; background: #fff; border: 2px solid var(--z-ink); border-radius: 1rem; font: 800 .95rem var(--z-heading); }
+.free-badge { margin-left: .2rem; padding: 0 .35rem; background: #2463eb; color: #fff; border-radius: .6rem; font: 800 .65rem Nunito, sans-serif; vertical-align: middle; }
 .lovable-btn svg { width: .95rem; height: .95rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .minis { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; margin-top: 1.2rem; }
 .mini { display: flex; align-items: center; gap: .8rem; padding: .7rem .9rem; border: 3px solid var(--z-ink); border-radius: 1rem; background: var(--z-sky); box-shadow: 3px 3px 0 var(--z-ink); }
