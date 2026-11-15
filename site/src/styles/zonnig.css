@@ -131,6 +131,7 @@ main { padding: 2.5rem 2rem 1.5rem; }
 /* Lovable look-alikes */
 .lovable-btn { display: inline-flex; align-items: center; gap: .35rem; padding: .3rem .7rem; border-radius: .45rem; background: #1c1c1c; color: #fff; font: 600 .85rem/1 Inter, system-ui, sans-serif; white-space: nowrap; }
 .road-stack { grid-template-columns: 1fr; max-width: 46rem; row-gap: 2rem; }
+.road .card-loop::before { counter-increment: none; content: '↻'; }
 
 /* Lovable's dark prompt box, rebuilt so participants recognise it */
 .lovable-box { display: block; margin: .6rem 0 .5rem; padding: .8rem 1rem .6rem; background: #282828; color: #999; border: 2px solid #111; border-radius: 1.4rem; text-align: left; }
@@ -150,7 +151,6 @@ main { padding: 2.5rem 2rem 1.5rem; }
 .modes b { display: block; font: 800 1.1rem var(--z-heading); }
 
 .change-loop { display: block; color: var(--z-ink); }
-.change-loop > b { display: block; margin-bottom: .5rem; font: 800 1.15rem var(--z-heading); }
 .loop-box { display: flex; align-items: center; gap: .6rem; margin: 0 0 .8rem; color: #eee; }
 .loop-text { flex: 1; min-height: 1.4em; white-space: nowrap; overflow: hidden; }
 .lovable-send.pressed { background: var(--z-sun); transform: scale(.85); transition: transform .15s, background .15s; }
@@ -170,7 +170,6 @@ main { padding: 2.5rem 2rem 1.5rem; }
 .loop-count { display: flex; justify-content: center; gap: .35rem; margin-top: .6rem; }
 .loop-count i { width: .8rem; height: .8rem; border: 2px solid var(--z-ink); border-radius: 50%; background: #fff; transition: background .3s; }
 .loop-count i.on { background: var(--z-rose); }
-.loop-again { display: block; margin-top: .3rem; font: 800 1rem var(--z-heading); }
 .lovable-btn svg { width: .95rem; height: .95rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 /* one-shot prompt modal */

@@ -11,13 +11,14 @@ interface Props {
 	href?: string;
 	oneShot?: boolean;
 	buildTime?: string;
+	class?: string;
 }
 
-const { icon, title, hint, prompts, time, words, href, oneShot, buildTime } = Astro.props;
+const { icon, title, hint, prompts, time, words, href, oneShot, buildTime, class: className } = Astro.props;
 const modalId = `prompt-${title.toLowerCase().replace(/[^a-z]+/g, '-')}`;
 ---
 
-<div class:list={['card', { 'card-stamped': prompts }]}>
+<div class:list={['card', className, { 'card-stamped': prompts }]}>
 	<span class="card-icon">{icon}</span>
 	<b>{title}</b>
 	<small><slot /></small>

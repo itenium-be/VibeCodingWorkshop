@@ -228,6 +228,14 @@ describe('aan de slag', () => {
 		expect(html('aan-de-slag')).toMatch(new RegExp(`class="change-loop"[\\s\\S]*${message}`));
 	});
 
+	test('gives the change loop its own card, between Bouwen and Remix', () => {
+		expect(html('aan-de-slag')).toMatch(/<b>Bouwen<\/b>[\s\S]*?<\/div><div class="card card-loop">[\s\S]*?<b>Daarna: 1 wijziging per bericht<\/b>[\s\S]*class="change-loop"[\s\S]*<b>Remix &amp; Publish<\/b>/);
+	});
+
+	test('no longer labels the loop "en opnieuw"', () => {
+		expect(html('aan-de-slag')).not.toContain('en opnieuw');
+	});
+
 	test('sends the Remix to Mijn workspace', () => {
 		const main = html('aan-de-slag').match(/<main[\s\S]*?<\/main>/)![0].replace(pager(html('aan-de-slag')), '');
 		expect(hrefs(main)).toContain(`${BASE}mijn-workspace/`);
