@@ -88,7 +88,7 @@ class: rules
   </div>
   <div class="col">
     <Card v-click icon="🔌" title="Integraties">E-mail, agenda, sms, Google Sheets</Card>
-    <div v-click class="rule"><Squiggle /><div class="note ask">Geavanceerd gebruik: check met de lesgever</div></div>
+    <div v-click class="rule"><Squiggle /><div class="note ask">Geavanceerd: check met de lesgever</div></div>
   </div>
 </div>
 
