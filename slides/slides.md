@@ -105,6 +105,29 @@ class: rules
 
 ---
 
+# Een bericht sturen
+
+<div class="lovable-send">
+  <div class="lovable-box">
+    <div>Maak een app om bij te houden wanneer mijn planten water nodig hebben</div>
+    <div class="lovable-bar">
+      <span class="lovable-plus">+</span>
+      <span class="lovable-target">Build ⌄<span v-click="2" class="lovable-mark"><span class="callout callout-below"><span class="callout-n">2</span>Kies</span></span></span>
+      <span>🎤</span>
+      <span class="lovable-target lovable-send-btn">↑<span v-click="6" class="lovable-mark"><span class="callout callout-right"><span class="callout-n">3</span>Verstuur</span></span></span>
+    </div>
+  </div>
+  <span v-click="1" class="callout" style="left: 0; top: -1.5rem"><span class="callout-n">1</span>Typ je idee</span>
+</div>
+
+<div class="grid-3">
+  <Card v-click="3" icon="💬" title="Chat" tag="gratis">Praat over je idee. Je app verandert niet.</Card>
+  <Card v-click="4" icon="🔨" title="Build">Lovable bouwt of verandert meteen je app.</Card>
+  <Card v-click="5" icon="📋" title="Plan">Eerst een plan voor grote dingen. Jij keurt het goed.</Card>
+</div>
+
+---
+
 # Slim beginnen
 
 <div class="grid-2" style="margin-top: 1.5rem; gap: 1.4rem">

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ icon: string, title: string, prompts?: number, time?: string, words?: number, href?: string, hint?: string, step?: number }>()
+defineProps<{ icon: string, title: string, prompts?: number, time?: string, words?: number, href?: string, hint?: string, step?: number, tag?: string }>()
 </script>
 
 <template>
@@ -9,6 +9,7 @@ defineProps<{ icon: string, title: string, prompts?: number, time?: string, word
     <span v-else class="card-icon">{{ icon }}</span>
     <b>{{ title }}</b>
     <small><slot /></small>
+    <span v-if="tag" class="card-tag">{{ tag }}</span>
     <span v-if="words" class="card-words">✍️ {{ words.toLocaleString('nl-BE') }} woorden getypt</span>
     <span v-if="hint" class="card-hint">💡 Hint: {{ hint }}</span>
     <div v-if="prompts" class="card-stamp">
