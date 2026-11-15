@@ -7,15 +7,10 @@ import { url } from '../nav';
 ---
 
 <Layout subtitle="Blijf eigenaar van je app, ook na de workshop">
-	<div class="note ask steps-start">Eerst nodig: een <a href={url('github-account/')}>GitHub-account</a> ✔️</div>
+	<div class="note ask steps-start">Eerst nodig: <a href={url('mijn-workspace/')}>je app in je eigen workspace</a> en een <a href={url('github-account/')}>GitHub-account</a> ✔️</div>
 	<Steps>
-		<Step icon="📦" title="Neem je project mee naar je eigen account">
-			<p>Open je project in Lovable en klik:</p>
-			<Clicks path={['⋯', 'Remix project']} />
-			<p>Kies bij <b>Target workspace</b> je eigen naam. Zet <b>Include project history</b> aan. Klik <span class="lovable-btn">Remix</span>.</p>
-		</Step>
 		<Step icon="⚙️" title="Open de GitHub-instellingen">
-			<p>In de nieuwe kopie:</p>
+			<p>In je eigen kopie:</p>
 			<Clicks path={['Project settings', 'Git', 'GitHub', 'Add connection', 'Add account']} />
 		</Step>
 		<Step icon="🐙" title="Geef GitHub toestemming">

@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Steps from '../components/Steps.astro';
+import Step from '../components/Step.astro';
+import Clicks from '../components/Clicks.astro';
+import LovableButton from '../components/LovableButton.astro';
+---
+
+<Layout subtitle="Na een Remix werk je thuis gratis verder">
+	<Steps>
+		<Step icon="📂" title="Open je project in Lovable" />
+		<Step icon="⚙️" title="Open de instellingen">
+			<p>Klik bovenaan op <LovableButton icon="layers" />, dan:</p>
+			<Clicks path={['Settings']} />
+		</Step>
+		<Step icon="📦" title="Maak een kopie">
+			<p>Bij <b>Project actions</b>, naast <b>Remix project</b>:</p>
+			<Clicks path={['Remix']} />
+		</Step>
+		<Step icon="🏠" title="Kies je eigen workspace">
+			<p>Kies bij <b>Target workspace</b> je eigen naam. Laat de twee schakelaars aan. Klik <span class="lovable-btn">Remix</span>.</p>
+		</Step>
+		<Step icon="✅" title="Klaar">
+			<p>De kopie staat nu in je eigen workspace. Daar werk je verder.</p>
+		</Step>
+	</Steps>
+	<div class="ribbon steps-end">🙋 Vast? Steek je hand op!</div>
+</Layout>

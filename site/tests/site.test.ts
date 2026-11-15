@@ -8,7 +8,7 @@ const DIST = join(import.meta.dir, '..', 'dist');
 const BUILT_ELSEWHERE = [`${BASE}handout.pdf`, `${BASE}slides/`];
 const APPS_BUILT_ELSEWHERE = [`${BASE}aftellen/`, `${BASE}familiequiz/`, `${BASE}bingokaarten/`, `${BASE}planten-water-geven/`, `${BASE}leesclub/`, `${BASE}reisdagboek/`];
 
-const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'lovable-account', 'bezin', 'vastgelopen', 'aan-de-slag', 'github-account', 'lovable-koppelen', 'lesgever-toegang'];
+const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'lovable-account', 'bezin', 'vastgelopen', 'aan-de-slag', 'mijn-workspace', 'github-account', 'lovable-koppelen', 'lesgever-toegang'];
 
 const html = (slug: string) => readFileSync(join(DIST, slug, 'index.html'), 'utf8');
 const hrefs = (page: string) => [...page.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
@@ -187,7 +187,7 @@ describe('aan de slag', () => {
 });
 
 describe('meenemen', () => {
-	test.each([['github-account', 4], ['lovable-koppelen', 5]] as const)('%s walks through %d steps', (slug, count) => {
+	test.each([['mijn-workspace', 5], ['github-account', 4], ['lovable-koppelen', 4]] as const)('%s walks through %d steps', (slug, count) => {
 		const steps = html(slug).match(/<ol class="steps"[\s\S]*?<\/ol>/)?.[0] ?? '';
 		expect(steps.match(/<li/g)).toHaveLength(count);
 	});
@@ -206,7 +206,16 @@ describe('meenemen', () => {
 		expect(steps).toContain('Laoujin');
 	});
 
-	test('lovable-koppelen points back to the GitHub account page', () => {
-		expect(hrefs(html('lovable-koppelen'))).toContain(`${BASE}github-account/`);
+	test.each(['mijn-workspace', 'github-account'])('lovable-koppelen points back to %s', slug => {
+		expect(hrefs(html('lovable-koppelen'))).toContain(`${BASE}${slug}/`);
+	});
+
+	test('lovable-koppelen leaves the Remix to Mijn workspace', () => {
+		expect(html('lovable-koppelen')).not.toContain('Remix project');
+	});
+
+	test('mijn-workspace remixes into your own workspace via Settings', () => {
+		const page = html('mijn-workspace');
+		expect(page).toMatch(/Settings[\s\S]*Remix project[\s\S]*Target workspace/);
 	});
 });
