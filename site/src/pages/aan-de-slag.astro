@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import LovableButton from '../components/LovableButton.astro';
+import ChangeLoop from '../components/ChangeLoop.astro';
 import { url } from '../nav';
 ---
 
@@ -19,7 +20,7 @@ import { url } from '../nav';
 				<span><b>🔨 Build</b>Lovable bouwt of verandert meteen je app.</span>
 				<span><b>📋 Plan</b>Eerst een plan voor grote dingen. Jij keurt het goed.</span>
 			</span>
-			Daarna: 1 wijziging per keer
+			<ChangeLoop />
 		</Card>
 		<Card icon="🏠" title="Remix & Publish"><LovableButton icon="fork">Remix</LovableButton> naar <a href={url('mijn-workspace/')}>je eigen workspace</a><br /><LovableButton icon="globe">Publish</LovableButton> → <span class="pill">jouwnaam.lovable.app</span></Card>
 	</div>

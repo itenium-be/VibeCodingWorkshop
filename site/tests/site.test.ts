@@ -224,6 +224,10 @@ describe('aan de slag', () => {
 		expect(html('aan-de-slag')).toMatch(/<span class="card-hint">[^<]*Eerste keer\? <a href="[^"]*lovable-account\/">Account activeren<\/a><\/span>/);
 	});
 
+	test.each(['Toon de route op een kaart', 'Voeg een vraag toe bij de kerk', 'Geef een ster bij een goed antwoord'])('loops one change per message: %s', message => {
+		expect(html('aan-de-slag')).toMatch(new RegExp(`class="change-loop"[\\s\\S]*${message}`));
+	});
+
 	test('sends the Remix to Mijn workspace', () => {
 		const main = html('aan-de-slag').match(/<main[\s\S]*?<\/main>/)![0].replace(pager(html('aan-de-slag')), '');
 		expect(hrefs(main)).toContain(`${BASE}mijn-workspace/`);

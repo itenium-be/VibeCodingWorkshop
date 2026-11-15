@@ -148,6 +148,29 @@ main { padding: 2.5rem 2rem 1.5rem; }
 .modes { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: .6rem; margin-bottom: .8rem; text-align: left; }
 .modes > span { padding: .5rem .7rem; background: #fff; border: 2px solid var(--z-ink); border-radius: .9rem; font-size: .95rem; line-height: 1.3; }
 .modes b { display: block; font: 800 1.1rem var(--z-heading); }
+
+.change-loop { display: block; color: var(--z-ink); }
+.change-loop > b { display: block; margin-bottom: .5rem; font: 800 1.15rem var(--z-heading); }
+.loop-box { display: flex; align-items: center; gap: .6rem; margin: 0 0 .8rem; color: #eee; }
+.loop-text { flex: 1; min-height: 1.4em; white-space: nowrap; overflow: hidden; }
+.lovable-send.pressed { background: var(--z-sun); transform: scale(.85); transition: transform .15s, background .15s; }
+.loop-app { width: min(17rem, 100%); margin: 0 auto; padding: .6rem; background: #fff; border: 3px solid var(--z-ink); border-radius: 1rem; box-shadow: 4px 4px 0 var(--z-ink); text-align: left; }
+.loop-app h4 { font: 800 1.05rem var(--z-heading); }
+.loop-map, .loop-question { display: grid; overflow: hidden; max-height: 0; opacity: 0; transition: max-height .5s, opacity .5s, margin .5s; }
+.loop-map { position: relative; border-radius: .5rem; background: #cfe8b0; }
+.loop-map svg { width: 100%; height: 4.5rem; }
+.loop-map path { fill: none; stroke: var(--z-rose); stroke-width: 3; stroke-dasharray: 6 5; stroke-linecap: round; }
+.loop-map span { position: absolute; left: 62%; top: 22%; font-size: 1.3rem; }
+.loop-question { gap: .2rem; font-weight: 800; font-size: .95rem; }
+.loop-question span { padding: .1rem .5rem; border: 2px solid var(--z-ink); border-radius: .5rem; font-weight: 700; }
+.loop-star { display: inline-block; font-style: normal; transform: scale(0); transition: transform .4s cubic-bezier(.3, 1.6, .5, 1); }
+.change-loop:not([data-done="0"]) .loop-map { max-height: 6rem; opacity: 1; margin-top: .4rem; }
+.change-loop[data-done="2"] .loop-question, .change-loop[data-done="3"] .loop-question { max-height: 8rem; opacity: 1; margin-top: .4rem; }
+.change-loop[data-done="3"] .loop-star { transform: scale(1); }
+.loop-count { display: flex; justify-content: center; gap: .35rem; margin-top: .6rem; }
+.loop-count i { width: .8rem; height: .8rem; border: 2px solid var(--z-ink); border-radius: 50%; background: #fff; transition: background .3s; }
+.loop-count i.on { background: var(--z-rose); }
+.loop-again { display: block; margin-top: .3rem; font: 800 1rem var(--z-heading); }
 .lovable-btn svg { width: .95rem; height: .95rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 /* one-shot prompt modal */

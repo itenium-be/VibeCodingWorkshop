@@ -1,0 +1,60 @@
+---
+const MESSAGES = ['Toon de route op een kaart', 'Voeg een vraag toe bij de kerk', 'Geef een ster bij een goed antwoord'];
+---
+
+<div class="change-loop" data-done="3" data-messages={JSON.stringify(MESSAGES)}>
+	<b>Daarna: 1 wijziging per bericht</b>
+	<div class="lovable-box loop-box"><span class="loop-text" /><span class="lovable-send">↑</span></div>
+	<div class="loop-app">
+		<h4>🥾 Wandelquiz Lede</h4>
+		<div class="loop-map" aria-hidden="true">
+			<svg viewBox="0 0 200 70"><path d="M10 55 C 50 10, 90 65, 130 30 S 180 20, 190 12" /></svg>
+			<span>⛪</span>
+		</div>
+		<div class="loop-question">⛪ Hoe oud is de kerk?<span>A. 100 jaar</span><span>B. 800 jaar <i class="loop-star">⭐</i></span></div>
+	</div>
+	<div class="loop-count"><i /><i /><i /></div>
+	<span class="loop-again">↻ en opnieuw</span>
+</div>
+
+<script>
+	const wait = (ms: number) => new Promise(r => setTimeout(r, ms));
+	const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	for (const loop of document.querySelectorAll<HTMLElement>('.change-loop')) {
+		const messages: string[] = JSON.parse(loop.dataset.messages!);
+		const text = loop.querySelector('.loop-text')!;
+		const send = loop.querySelector('.lovable-send')!;
+		const dots = [...loop.querySelectorAll('.loop-count i')];
+		const show = (done: number) => {
+			loop.dataset.done = String(done);
+			dots.forEach((d, i) => d.classList.toggle('on', i < done));
+		};
+
+		if (reduced) {
+			show(messages.length);
+			continue;
+		}
+
+		(async () => {
+			for (;;) {
+				show(0);
+				await wait(900);
+				for (const [i, message] of messages.entries()) {
+					for (let n = 1; n <= message.length; n++) {
+						text.textContent = message.slice(0, n);
+						await wait(40);
+					}
+					await wait(300);
+					send.classList.add('pressed');
+					await wait(350);
+					send.classList.remove('pressed');
+					text.textContent = '';
+					show(i + 1);
+					await wait(1400);
+				}
+				await wait(1500);
+			}
+		})();
+	}
+</script>
