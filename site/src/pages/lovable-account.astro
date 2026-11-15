@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Steps from '../components/Steps.astro';
+import Step from '../components/Step.astro';
+import Clicks from '../components/Clicks.astro';
+---
+
+<Layout subtitle="Met de uitnodiging van de lesgever">
+	<Steps>
+		<Step icon="💌" title="Open de uitnodiging">
+			<p>Zoek in je mail: <b>You have been invited to a workspace in Lovable!</b></p>
+			<Clicks path={['Join Workspace']} />
+		</Step>
+		<Step icon="✍️" title="Maak je account">
+			<p>Typ je e-mailadres en klik <span class="lovable-btn">Continue</span>.</p>
+			<p>Kies een wachtwoord: minstens 8 tekens, met een cijfer.</p>
+			<Clicks path={['Create your account']} />
+		</Step>
+		<Step icon="📧" title="Bevestig je e-mail">
+			<p>Lovable stuurt een link naar je mail. Klik erop en ga terug naar Lovable.</p>
+			<Clicks path={["I've verified my email"]} />
+		</Step>
+		<Step icon="🎨" title="Beantwoord de vragen">
+			<p>Kies wat je wil en klik telkens <span class="lovable-btn">Next</span>. Geen reclame? Vink <b>Don't send me product news</b> aan.</p>
+		</Step>
+		<Step icon="🤝" title="Aanvaard de uitnodiging">
+			<Clicks path={['Accept']} />
+		</Step>
+		<Step icon="✅" title="Klaar">
+			<p>Linksboven staat <b>Wouter's Lovable</b>. Typ je idee en bouw!</p>
+		</Step>
+	</Steps>
+	<div class="ribbon steps-end">🙋 Geen mail gekregen? Vraag de lesgever!</div>
+</Layout>

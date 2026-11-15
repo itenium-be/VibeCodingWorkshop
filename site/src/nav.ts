@@ -23,6 +23,7 @@ export const GROUPS: { label: string; pages: Page[] }[] = [
 		pages: [
 			{ slug: 'slim-beginnen', title: 'Slim beginnen', icon: '✍️' },
 			{ slug: 'vastgelopen', title: 'Vastgelopen?', icon: '🧯' },
+			{ slug: 'lovable-account', title: 'Lovable-account', icon: '🔑' },
 			{ slug: 'aan-de-slag', title: 'Aan de slag!', icon: '🚀' },
 		],
 	},

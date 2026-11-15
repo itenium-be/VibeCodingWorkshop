@@ -8,7 +8,7 @@ const DIST = join(import.meta.dir, '..', 'dist');
 const BUILT_ELSEWHERE = [`${BASE}handout.pdf`, `${BASE}slides/`];
 const APPS_BUILT_ELSEWHERE = [`${BASE}aftellen/`, `${BASE}familiequiz/`, `${BASE}bingokaarten/`, `${BASE}planten-water-geven/`, `${BASE}leesclub/`, `${BASE}reisdagboek/`];
 
-const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'bezin', 'slim-beginnen', 'vastgelopen', 'aan-de-slag', 'github-account', 'lovable-koppelen', 'lesgever-toegang'];
+const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'bezin', 'slim-beginnen', 'vastgelopen', 'lovable-account', 'aan-de-slag', 'github-account', 'lovable-koppelen', 'lesgever-toegang'];
 
 const html = (slug: string) => readFileSync(join(DIST, slug, 'index.html'), 'utf8');
 const hrefs = (page: string) => [...page.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
@@ -128,6 +128,23 @@ describe('one-shot prompts', () => {
 
 	test.each(['woordzoeker', 'familiequiz', 'aftellen', 'bingokaarten', 'planten-water-geven', 'leesclub', 'reisdagboek'])('links the %s app in a new tab', app => {
 		expect(page()).toMatch(new RegExp(`<a class="open-app" href="${BASE}${app}/" target="_blank"`));
+	});
+});
+
+describe('lovable-account', () => {
+	const page = () => html('lovable-account');
+
+	test('walks through 6 steps', () => {
+		const steps = page().match(/<ol class="steps"[\s\S]*?<\/ol>/)?.[0] ?? '';
+		expect(steps.match(/<li/g)).toHaveLength(6);
+	});
+
+	test.each(['Join Workspace', 'Create your account', "I've verified my email", 'Accept'])('shows the %s button', label => {
+		expect(page()).toContain(`<span class="lovable-btn">${label.replace("'", '&#39;')}</span>`);
+	});
+
+	test('aan-de-slag links to it from the login card', () => {
+		expect(hrefs(html('aan-de-slag'))).toContain(`${BASE}lovable-account/`);
 	});
 });
 
