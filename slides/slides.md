@@ -112,7 +112,7 @@ class: rules
 
 <div class="lovable-send">
   <div class="lovable-box">
-    <div>Maak een app om bij te houden wanneer mijn planten water nodig hebben</div>
+    <TypeText placeholder="Ask Lovable to build" text="Stippel een wandelroute uit in Lede waarbij er op bepaalde punten een relevante multiple choice vraag gesteld wordt over die plaats" />
     <div class="lovable-bar">
       <span class="lovable-plus">+</span>
       <span class="lovable-target lovable-mode">Build<svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></svg><span v-click="2" class="lovable-mark"><span class="callout callout-below"><span class="callout-n">2</span>Kies</span></span></span>
