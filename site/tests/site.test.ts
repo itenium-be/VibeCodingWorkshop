@@ -224,12 +224,16 @@ describe('aan de slag', () => {
 		expect(html('aan-de-slag')).toMatch(/<span class="card-hint">[^<]*Eerste keer\? <a href="[^"]*lovable-account\/">Account activeren<\/a><\/span>/);
 	});
 
-	test.each(['Toon de route op een kaart', 'Voeg een vraag toe bij de kerk', 'Geef een ster bij een goed antwoord'])('loops one change per message: %s', message => {
+	test.each(['Toon de route op een kaart', 'Voeg een vraag toe bij de Guido Gezellestraat', 'Geef een ster bij een goed antwoord'])('loops one change per message: %s', message => {
 		expect(html('aan-de-slag')).toMatch(new RegExp(`class="change-loop"[\\s\\S]*${message}`));
 	});
 
 	test('gives the change loop its own card, between Bouwen and Remix', () => {
 		expect(html('aan-de-slag')).toMatch(/<b>Bouwen<\/b>[\s\S]*?<\/div><div class="card card-loop">[\s\S]*?<b>Daarna: 1 wijziging per bericht<\/b>[\s\S]*class="change-loop"[\s\S]*<b>Remix &amp; Publish<\/b>/);
+	});
+
+	test('asks who Guido Gezelle was, starring the poet', () => {
+		expect(html('aan-de-slag')).toMatch(/Wie was Guido Gezelle\?<span>A\. Een dichter <i class="loop-star">⭐<\/i><\/span><span>B\. Een schilder<\/span>/);
 	});
 
 	test('no longer labels the loop "en opnieuw"', () => {
