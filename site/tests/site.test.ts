@@ -160,6 +160,18 @@ describe('lovable-account', () => {
 	});
 });
 
+describe('vastgelopen', () => {
+	const page = () => html('vastgelopen');
+
+	test('undoes with the arrow under the previous message', () => {
+		expect(page()).toContain('Ongedaan maken');
+	});
+
+	test('no longer mentions Restore', () => {
+		expect(page()).not.toContain('Restore');
+	});
+});
+
 describe('aan de slag', () => {
 	test.each(['Chat', 'Build', 'Plan'])('shows the %s mode', mode => {
 		expect(html('aan-de-slag')).toMatch(new RegExp(`<span[^>]*>[^<]*${mode}`));

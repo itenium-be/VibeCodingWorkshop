@@ -1,5 +1,5 @@
 ---
-const { icon } = Astro.props as { icon: 'wrench' | 'restore' | 'globe' | 'fork' };
+const { icon } = Astro.props as { icon: 'wrench' | 'globe' | 'fork' | 'undo' };
 ---
 
 <!-- Approximates Lovable's own UI so participants recognise the button on screen. -->
@@ -8,7 +8,7 @@ const { icon } = Astro.props as { icon: 'wrench' | 'restore' | 'globe' | 'fork' 
 		{icon === 'wrench' && <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />}
 		{icon === 'globe' && <Fragment><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></Fragment>}
 		{icon === 'fork' && <Fragment><circle cx="12" cy="18" r="3" /><circle cx="6" cy="6" r="3" /><circle cx="18" cy="6" r="3" /><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9" /><path d="M12 12v3" /></Fragment>}
-		{icon === 'restore' && <Fragment><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></Fragment>}
+		{icon === 'undo' && <Fragment><path d="M9 14 4 9l5-5" /><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11" /></Fragment>}
 	</svg>
 	<slot />
 </span>
