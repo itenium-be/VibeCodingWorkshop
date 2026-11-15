@@ -1,5 +1,10 @@
 ---
-const MESSAGES = ['Toon de route op een kaart', 'Voeg een vraag toe bij de Guido Gezellestraat', 'Geef een ster bij een goed antwoord'];
+const MESSAGES = ['Toon de route op een kaart', 'Voeg een vraag toe bij de Guido Gezellestraat', 'Doe een leuke animatie bij een correct antwoord'];
+const BURST = ['🎉', '✨', '⭐', '🎊', '✨', '⭐', '🎉', '✨'];
+const spread = (i: number) => {
+	const a = i / BURST.length * Math.PI * 2;
+	return `--dx: ${Math.round(Math.cos(a) * 70)}px; --dy: ${Math.round(Math.sin(a) * 45)}px`;
+};
 ---
 
 <div class="change-loop" data-done="3" data-messages={JSON.stringify(MESSAGES)}>
@@ -10,7 +15,7 @@ const MESSAGES = ['Toon de route op een kaart', 'Voeg een vraag toe bij de Guido
 			<svg viewBox="0 0 200 70"><path d="M10 55 C 50 10, 90 65, 130 30 S 180 20, 190 12" /></svg>
 			<span>📍</span>
 		</div>
-		<div class="loop-question">📍 Wie was Guido Gezelle?<span>A. Een dichter <i class="loop-star">⭐</i></span><span>B. Een schilder</span></div>
+		<div class="loop-question">📍 Wie was Guido Gezelle?<span class="loop-correct">A. Een dichter<span class="loop-burst" aria-hidden="true">{BURST.map((b, i) => <i style={spread(i)}>{b}</i>)}</span><svg class="loop-cursor" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2 L4 19 L8.5 15 L11.5 22 L14.5 20.7 L11.5 14 L17.5 14 Z" /></svg></span><span>B. Een schilder</span></div>
 	</div>
 	<div class="loop-count"><i /><i /><i /></div>
 </div>
@@ -31,11 +36,13 @@ const MESSAGES = ['Toon de route op een kaart', 'Voeg een vraag toe bij de Guido
 
 		if (reduced) {
 			show(messages.length);
+			loop.classList.add('hit');
 			continue;
 		}
 
 		(async () => {
 			for (;;) {
+				loop.classList.remove('clicking', 'hit');
 				show(0);
 				await wait(900);
 				for (const [i, message] of messages.entries()) {
@@ -51,7 +58,10 @@ const MESSAGES = ['Toon de route op een kaart', 'Voeg een vraag toe bij de Guido
 					show(i + 1);
 					await wait(1400);
 				}
-				await wait(1500);
+				loop.classList.add('clicking');
+				await wait(650);
+				loop.classList.add('hit');
+				await wait(2500);
 			}
 		})();
 	}
