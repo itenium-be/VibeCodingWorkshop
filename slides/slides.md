@@ -16,7 +16,7 @@ Jij beschrijft, de AI bouwt.
 <Stamp v-click>zelf gemaakt</Stamp>
 
 <div style="position: absolute; bottom: 1.5rem; left: 3.5rem; padding: .5rem 1.25rem; font-size: 1.8rem; background: var(--z-paper); border: 4px solid var(--z-ink); border-radius: 1rem; box-shadow: var(--z-shadow)">
-📶 <strong>Lede-Mobile</strong> · <strong style="font-family: monospace">Eindelijk.Wifi2024</strong>
+📶 <strong>TODO</strong> · <strong style="font-family: monospace">TODO</strong>
 </div>
 
 ---
