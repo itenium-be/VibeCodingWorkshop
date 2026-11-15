@@ -508,7 +508,7 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .page .help-list { margin-top: .2rem; font: 700 1rem/1.35 Nunito, sans-serif; }
 
 /* handout: Lovable prompt box, scaled down for paper */
-.h-send { position: relative; margin: 1.6rem 6.5rem .9rem 0; }
+.h-send { position: relative; margin: 1.6rem 8rem .9rem 0; }
 .h-box { position: relative; padding: .7rem 1rem .5rem; background: #282828; color: #eee; border: 2px solid #111; border-radius: 1.2rem; font-size: .95rem; }
 .h-box .lovable-bar { margin-top: .35rem; gap: .9rem; }
 .h-box .lovable-send-btn { width: 1.9rem; height: 1.9rem; }
@@ -518,9 +518,17 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .h-co .callout-n { width: 1.3rem; height: 1.3rem; margin-right: .3rem; font-size: .75rem; }
 .h-top { left: .8rem; top: -1.4rem; }
 .h-below { top: calc(100% + 1rem); right: -.4rem; }
-.h-right { top: 50%; left: calc(100% + .9rem); transform: translateY(-50%); }
-.h-modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin-top: 2.4rem; }
+.h-right { top: 50%; left: calc(100% + 2rem); transform: translateY(-50%); }
+.h-right::before { content: ''; position: absolute; right: 100%; top: 50%; width: 1.6rem; border-top: 2px dashed var(--z-ink); }
+.h-below::before { content: ''; position: absolute; left: 50%; bottom: 100%; height: .9rem; border-left: 2px dashed var(--z-ink); }
+.h-below::after { content: ''; position: absolute; left: 50%; top: 100%; height: .8rem; border-left: 2px dashed var(--z-ink); }
+.h-placeholder { color: #999; }
+.h-modes { position: relative; }
+.h-bracket { position: absolute; left: 16.67%; right: 16.67%; bottom: 100%; height: .6rem; border: 2px dashed var(--z-ink); border-bottom: 0; border-radius: .4rem .4rem 0 0; }
+.h-bracket::after { content: ''; position: absolute; left: 50%; top: 0; height: 100%; border-left: 2px dashed var(--z-ink); }
+.page h3.h-then { margin-top: .8rem; font-size: 1.1rem; }
+.h-modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin-top: 3.5rem; }
 .page .h-modes .mini { flex-direction: column; align-items: flex-start; gap: .1rem; font-size: .85rem; }
 .page .h-modes .mini:nth-child(3) { background: var(--z-mint); }
 .h-modes .mini b { font: 800 1.05rem 'Baloo 2', sans-serif; }
-.h-tip { margin-top: .6rem; font-size: .95rem; font-weight: 700; }
+.h-tip { margin-top: .15rem; font-size: .95rem; font-weight: 700; }

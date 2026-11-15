@@ -20,7 +20,7 @@ transition: none
 
 <div class="h-send">
   <div class="h-box">
-    <div>Ik wil een app voor de planten van mijn tuin</div>
+    <div class="h-placeholder">Beschrijf hier je app…</div>
     <div class="lovable-bar">
       <span class="lovable-plus">+</span>
       <span class="lovable-target lovable-mode">Build<svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></svg><span class="h-co h-below"><span class="callout-n">2</span>Kies</span></span>
@@ -32,10 +32,12 @@ transition: none
 </div>
 
 <div class="h-modes">
+  <span class="h-bracket" />
   <div class="mini"><b>💬 Chat</b><span>"Stel me vragen tot mijn idee duidelijk is." Je app verandert niet.</span></div>
   <div class="mini"><b>🔨 Build</b><span>Lovable bouwt meteen. Gewoon in het Nederlands.</span></div>
   <div class="mini"><b>📋 Plan</b><span>Iets groots? Eerst een plan, jij keurt goed.</span></div>
 </div>
+<h3 class="h-then">Daarna</h3>
 <p class="h-tip">☝️ Eén wijziging per bericht: een knop, een kleur, een extra vraag.</p>
 
 ## Vastgelopen?
