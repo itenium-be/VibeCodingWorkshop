@@ -503,3 +503,6 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 
 .ink-stamp { position: absolute; right: 2rem; top: 2.2rem; padding: .3rem .9rem; border: 4px double var(--z-rose); border-radius: .5rem; color: var(--z-rose); font: 800 1rem/1.1 'Baloo 2', sans-serif; text-align: center; text-transform: uppercase; letter-spacing: .08em; transform: rotate(-8deg); }
 .ink-stamp b { display: block; font-size: 2.2rem; letter-spacing: .15em; }
+
+.page .grid-3 .card small { font-size: .85rem; }
+.page .help-list { margin-top: .2rem; font: 700 1rem/1.35 Nunito, sans-serif; }
