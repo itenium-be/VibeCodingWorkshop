@@ -489,3 +489,6 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .magic-spark { font-size: 2rem; opacity: 0; animation: magic-spark 1.1s ease-out forwards; }
 @keyframes magic-wand { 0% { opacity: 0; transform: rotate(-40deg) scale(.6); } 40% { opacity: 1; transform: rotate(20deg) scale(1.2); } 100% { opacity: 0; transform: none; } }
 @keyframes magic-spark { 0% { opacity: 0; transform: scale(.3); } 30% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1.4) rotate(160deg); } }
+
+.ink-stamp { position: absolute; right: 2rem; top: 2.2rem; padding: .3rem .9rem; border: 4px double var(--z-rose); border-radius: .5rem; color: var(--z-rose); font: 800 1rem/1.1 'Baloo 2', sans-serif; text-align: center; text-transform: uppercase; letter-spacing: .08em; transform: rotate(-8deg); }
+.ink-stamp b { display: block; font-size: 2.2rem; letter-spacing: .15em; }

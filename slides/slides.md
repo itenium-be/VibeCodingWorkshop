@@ -155,9 +155,10 @@ clicks: 4
 
 # Traktors Website
 
+<div class="ink-stamp">Zoals gezien in<b>Lede</b></div>
+
 <div class="traktors">
   <div class="tractor-tile">
-    <div class="card-postmark">Lede</div>
     <div class="tractor-photo">🚜<span class="tractor-over" :class="{ shown: $clicks >= 2, moved: $clicks >= 4 }">Nieuw binnen!<span class="tractor-hand">👈</span></span></div>
     <b>John Deere 6120M</b>
     <small>2015 · 120 pk · 4.200 uur</small>
