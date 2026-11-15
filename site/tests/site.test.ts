@@ -8,7 +8,7 @@ const DIST = join(import.meta.dir, '..', 'dist');
 const BUILT_ELSEWHERE = [`${BASE}handout.pdf`, `${BASE}slides/`];
 const APPS_BUILT_ELSEWHERE = [`${BASE}aftellen/`, `${BASE}familiequiz/`, `${BASE}bingokaarten/`, `${BASE}planten-water-geven/`, `${BASE}leesclub/`, `${BASE}reisdagboek/`];
 
-const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'bezin', 'slim-beginnen', 'vastgelopen', 'lovable-account', 'aan-de-slag', 'github-account', 'lovable-koppelen', 'lesgever-toegang'];
+const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'lovable-account', 'bezin', 'vastgelopen', 'aan-de-slag', 'github-account', 'lovable-koppelen', 'lesgever-toegang'];
 
 const html = (slug: string) => readFileSync(join(DIST, slug, 'index.html'), 'utf8');
 const hrefs = (page: string) => [...page.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
@@ -33,6 +33,14 @@ describe('sidebar', () => {
 	test('lists every page in order', () => {
 		const links = hrefs(nav(html(''))).filter(h => PAGES.some(p => h === `${BASE}${p}/`));
 		expect(links).toEqual(PAGES.map(p => `${BASE}${p}/`));
+	});
+
+	test('groups the account and Bezin under Beginnen', () => {
+		expect(nav(html(''))).toMatch(/<div class="grp">🚦 Beginnen<\/div>\s*<a href="[^"]*lovable-account\/"[\s\S]*?<a href="[^"]*bezin\/"/);
+	});
+
+	test('no longer builds Slim beginnen', () => {
+		expect(existsSync(join(DIST, 'slim-beginnen'))).toBe(false);
 	});
 
 	test.each(PAGES)('marks %s as current', slug => {

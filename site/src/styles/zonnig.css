@@ -104,7 +104,6 @@ main { padding: 2.5rem 2rem 1.5rem; }
 .card-icon { align-self: flex-start; font-size: 2.2rem; line-height: 1.1; text-decoration: none; }
 .card b { font: 800 1.3rem/1.1 var(--z-heading); }
 .card small { font-size: 1rem; color: var(--z-ink-soft); }
-.card-step { position: absolute; top: .7rem; right: .7rem; padding: 0 .6rem; border-radius: 999px; background: var(--z-ink); color: var(--z-sun); font-size: .85rem; font-weight: 800; }
 .card-hint { margin-top: .4rem; padding: .3rem .6rem; border: 2px dashed var(--z-ink); border-radius: .6rem; background: #fff8; font-size: .9rem; }
 .card-stamped { position: relative; padding-right: 7rem; }
 .card-stamp { position: absolute; right: .7rem; top: 50%; width: 5.6rem; height: 5.6rem; margin-top: -2.8rem; display: grid; place-items: center; border: 4px double var(--z-rose); border-radius: 50%; background: #fff8; color: var(--z-rose); font: 800 .75rem/1 var(--z-heading); text-align: center; text-transform: uppercase; letter-spacing: .04em; transform: rotate(-12deg); }

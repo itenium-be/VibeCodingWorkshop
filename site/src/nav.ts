@@ -15,15 +15,16 @@ export const GROUPS: { label: string; pages: Page[] }[] = [
 		],
 	},
 	{
-		label: '🔐 Veilig',
-		pages: [{ slug: 'bezin', title: 'Bezin voor je begint', icon: '🔐' }],
+		label: '🚦 Beginnen',
+		pages: [
+			{ slug: 'lovable-account', title: 'Lovable-account', icon: '🔑' },
+			{ slug: 'bezin', title: 'Bezin voor je begint', icon: '🔐' },
+		],
 	},
 	{
 		label: '🛠️ Zelf doen',
 		pages: [
-			{ slug: 'slim-beginnen', title: 'Slim beginnen', icon: '✍️' },
 			{ slug: 'vastgelopen', title: 'Vastgelopen?', icon: '🧯' },
-			{ slug: 'lovable-account', title: 'Lovable-account', icon: '🔑' },
 			{ slug: 'aan-de-slag', title: 'Aan de slag!', icon: '🚀' },
 		],
 	},

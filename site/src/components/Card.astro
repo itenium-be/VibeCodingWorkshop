@@ -4,7 +4,6 @@ import PromptModal from './PromptModal.astro';
 interface Props {
 	icon: string;
 	title: string;
-	step?: number;
 	hint?: string;
 	prompts?: number;
 	time?: string;
@@ -14,12 +13,11 @@ interface Props {
 	buildTime?: string;
 }
 
-const { icon, title, step, hint, prompts, time, words, href, oneShot, buildTime } = Astro.props;
+const { icon, title, hint, prompts, time, words, href, oneShot, buildTime } = Astro.props;
 const modalId = `prompt-${title.toLowerCase().replace(/[^a-z]+/g, '-')}`;
 ---
 
 <div class:list={['card', { 'card-stamped': prompts }]}>
-	{step && <span class="card-step">stap {step}</span>}
 	<span class="card-icon">{icon}</span>
 	<b>{title}</b>
 	<small><slot /></small>
