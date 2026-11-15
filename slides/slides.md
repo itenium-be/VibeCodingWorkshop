@@ -115,7 +115,7 @@ class: rules
 
 ---
 
-# Een bericht sturen
+# Je eerste bericht
 
 <div class="lovable-send">
   <div class="lovable-box">
