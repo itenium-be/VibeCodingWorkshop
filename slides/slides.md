@@ -115,7 +115,7 @@ class: rules
     <div>Maak een app om bij te houden wanneer mijn planten water nodig hebben</div>
     <div class="lovable-bar">
       <span class="lovable-plus">+</span>
-      <span class="lovable-target">Build ⌄<span v-click="2" class="lovable-mark"><span class="callout callout-below"><span class="callout-n">2</span>Kies</span></span></span>
+      <span class="lovable-target lovable-mode">Build<svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></svg><span v-click="2" class="lovable-mark"><span class="callout callout-below"><span class="callout-n">2</span>Kies</span></span></span>
       <span>🎤</span>
       <span class="lovable-target lovable-send-btn">↑<span v-click="6" class="lovable-mark"><span class="callout callout-right"><span class="callout-n">3</span>Verstuur</span></span></span>
     </div>
