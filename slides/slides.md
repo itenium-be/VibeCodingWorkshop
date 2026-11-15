@@ -48,7 +48,7 @@ disabled: true
 
 ---
 
-# En jij?
+# Inspiratie
 
 <div class="grid-3">
   <Card v-click icon="🔤" title="Woordzoeker-maker">Puzzels voor de (klein)kinderen, met hun eigen woorden</Card>
