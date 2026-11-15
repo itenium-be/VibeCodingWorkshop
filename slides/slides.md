@@ -50,7 +50,7 @@ disabled: true
 
 # Inspiratie
 
-<div class="grid-3">
+<div class="grid-3" style="row-gap: 2.2rem">
   <Card v-click icon="🥾" title="Wandelroutes Quiz" stamp="Lede">Een wandeling met quizvragen over de plekken onderweg</Card>
   <Card v-click icon="🧠" title="Familiequiz">Wie kent oma het best?</Card>
   <Card v-click icon="🍸" title="Cocktails" href="https://sangu.be/Sanguine-Spirits/">Je favoriete cocktailrecepten</Card>
