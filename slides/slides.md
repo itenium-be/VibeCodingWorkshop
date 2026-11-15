@@ -133,6 +133,8 @@ class: rules
 </div>
 
 ---
+disabled: true
+---
 
 # Slim beginnen
 
