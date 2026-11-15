@@ -34,9 +34,9 @@ const { slides } = Astro.props as { slides: Slide[] };
 		</section>
 	))}
 	<div class="slide-ctl">
-		<button type="button" data-step="-1">← Vorige</button>
+		<button type="button" data-step="-1" aria-label="Vorige">← <span class="slide-word">Vorige</span></button>
 		<div class="slide-dots">{slides.map((_, i) => <button type="button" data-go={i} aria-label={`Scherm ${i + 1}`} />)}</div>
-		<button type="button" data-step="1">Volgende →</button>
+		<button type="button" data-step="1" aria-label="Volgende"><span class="slide-word">Volgende</span> →</button>
 	</div>
 </div>
 

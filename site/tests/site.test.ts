@@ -170,8 +170,8 @@ describe('lovable-account', () => {
 	});
 
 	test('pages back and forth', () => {
-		expect(page()).toContain('← Vorige');
-		expect(page()).toContain('Volgende →');
+		expect(page()).toMatch(/aria-label="Vorige"[^>]*>← <span class="slide-word">Vorige<\/span>/);
+		expect(page()).toMatch(/aria-label="Volgende"[^>]*><span class="slide-word">Volgende<\/span> →/);
 	});
 
 	test('screenshots are built', () => {

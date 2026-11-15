@@ -184,3 +184,4 @@ main { padding: 2.5rem 2rem 1.5rem; }
 .slide-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; }
 .slide-dots button { width: .9rem; height: .9rem; padding: 0; border: 2px solid var(--z-ink); border-radius: 50%; background: #fff; cursor: pointer; }
 .slide-dots button.on { background: var(--z-rose); }
+@media (max-width: 52rem) { .slide-dots, .slide-word { display: none; } }
