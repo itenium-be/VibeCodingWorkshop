@@ -519,9 +519,9 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .h-top { left: .8rem; top: -1.4rem; }
 .h-below { top: calc(100% + 1rem); right: -.4rem; }
 .h-right { top: 50%; left: calc(100% + 2rem); transform: translateY(-50%); }
-/* yellow/ink dashes: these lines start on Lovable's black box and end on white paper */
-.h-right::before { content: ''; position: absolute; right: 100%; top: 50%; width: 2rem; height: 3px; margin-top: -1px; background: repeating-linear-gradient(90deg, var(--z-sun) 0 4px, var(--z-ink) 4px 8px); }
-.h-below::before { content: ''; position: absolute; left: 50%; bottom: 100%; width: 3px; height: 1rem; margin-left: -1px; background: repeating-linear-gradient(var(--z-sun) 0 4px, var(--z-ink) 4px 8px); }
+/* yellow dashes: these lines start on Lovable's black box, where ink would vanish */
+.h-right::before { content: ''; position: absolute; right: 100%; top: 50%; width: 2rem; height: 3px; margin-top: -1px; background: repeating-linear-gradient(90deg, var(--z-sun) 0 4px, transparent 4px 8px); }
+.h-below::before { content: ''; position: absolute; left: 50%; bottom: 100%; width: 3px; height: 1rem; margin-left: -1px; background: repeating-linear-gradient(var(--z-sun) 0 4px, transparent 4px 8px); }
 .h-below::after { content: ''; position: absolute; left: 50%; top: 100%; width: 2px; height: calc(.8rem + 4px); background: repeating-linear-gradient(to top, var(--z-ink) 0 4px, transparent 4px 8px); }
 .h-placeholder { color: #999; }
 .h-modes { position: relative; }
