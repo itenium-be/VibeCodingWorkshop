@@ -165,3 +165,22 @@ main { padding: 2.5rem 2rem 1.5rem; }
 .steps-start { max-width: 46rem; margin-bottom: 2rem; }
 .steps-end { max-width: 46rem; }
 .github-btn { display: inline-flex; align-items: center; padding: .3rem .7rem; border-radius: .4rem; background: #1f883d; color: #fff; font: 600 .85rem/1 system-ui, sans-serif; white-space: nowrap; }
+
+/* Screenshot slideshow */
+.slideshow { padding: 1.5rem; background: #fff; border: 3px solid var(--z-ink); border-radius: 1.2rem; box-shadow: var(--z-shadow); }
+.slide { display: none; }
+.slide.on { display: block; }
+.slide-hd { display: flex; align-items: center; gap: .7rem; }
+.slide-hd .n { display: inline-grid; flex: none; place-items: center; width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--z-ink); color: var(--z-sun); font: 800 1.2rem var(--z-heading); }
+.slide p { min-height: 1.5em; margin: .4rem 0 2.6rem; }
+.shot { position: relative; max-width: 34rem; margin: 0 auto; border: 3px solid var(--z-ink); border-radius: .8rem; box-shadow: var(--z-shadow); background: #1e1e1e; }
+.shot img { display: block; width: 100%; height: auto; border-radius: .6rem; }
+.ring { position: absolute; border: 4px solid var(--z-rose); border-radius: 1rem; box-shadow: 0 0 0 4px #ff7a8a55; animation: ring-pulse 1.6s ease-in-out infinite; pointer-events: none; }
+.ring b { position: absolute; left: -.6rem; top: -2.1rem; padding: .1rem .6rem; background: var(--z-rose); color: #fff; border: 2px solid var(--z-ink); border-radius: .6rem; font-size: .95rem; white-space: nowrap; transform: rotate(-3deg); }
+@keyframes ring-pulse { 50% { box-shadow: 0 0 0 9px #ff7a8a33; } }
+.slide-ctl { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.4rem; }
+.slide-ctl > button { padding: .5rem 1.2rem; border: 3px solid var(--z-ink); border-radius: 1rem; background: var(--z-sun); box-shadow: 3px 3px 0 var(--z-ink); color: var(--z-ink); font: 800 1.1rem var(--z-heading); cursor: pointer; }
+.slide-ctl > button:disabled { opacity: .35; cursor: default; }
+.slide-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; }
+.slide-dots button { width: .9rem; height: .9rem; padding: 0; border: 2px solid var(--z-ink); border-radius: 50%; background: #fff; cursor: pointer; }
+.slide-dots button.on { background: var(--z-rose); }

@@ -145,14 +145,33 @@ test('bezin only covers what does not belong in your app', () => {
 
 describe('lovable-account', () => {
 	const page = () => html('lovable-account');
+	const slides = () => [...page().matchAll(/<section class="slide[^"]*"[\s\S]*?<\/section>/g)].map(m => m[0]);
 
-	test('walks through 6 steps', () => {
-		const steps = page().match(/<ol class="steps"[\s\S]*?<\/ol>/)?.[0] ?? '';
-		expect(steps.match(/<li/g)).toHaveLength(6);
+	test('shows one screenshot per slide', () => {
+		expect(slides()).toHaveLength(12);
+		for (const s of slides()) expect(s.match(/<img /g)).toHaveLength(1);
 	});
 
-	test.each(['Join Workspace', 'Create your account', "I've verified my email", 'Accept'])('shows the %s button', label => {
-		expect(page()).toContain(`<span class="lovable-btn">${label.replace("'", '&#39;')}</span>`);
+	test('walks through 6 steps', () => {
+		expect(new Set(slides().map(s => s.match(/class="n">(\d+)</)![1]))).toEqual(new Set(['1', '2', '3', '4', '5', '6']));
+	});
+
+	test('only the first slide is shown at start', () => {
+		expect(slides().map(s => s.startsWith('<section class="slide on"'))).toEqual([true, ...Array(11).fill(false)]);
+	});
+
+	test('marks where to click', () => {
+		expect(slides().every(s => s.includes('class="ring"'))).toBe(true);
+	});
+
+	test('pages back and forth', () => {
+		expect(page()).toContain('← Vorige');
+		expect(page()).toContain('Volgende →');
+	});
+
+	test('screenshots are built', () => {
+		const srcs = [...page().matchAll(/<img [^>]*src="([^"]+)"/g)].map(m => m[1]);
+		expect(srcs.filter(s => !existsSync(join(DIST, s.slice(BASE.length))))).toEqual([]);
 	});
 
 	test('aan-de-slag links to it from the login card', () => {

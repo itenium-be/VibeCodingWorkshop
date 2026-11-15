@@ -1,34 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Steps from '../components/Steps.astro';
-import Step from '../components/Step.astro';
-import Clicks from '../components/Clicks.astro';
+import Slideshow, { type Slide } from '../components/Slideshow.astro';
+import invitation from '../assets/lovable-account/0-invitation-email.png';
+import enterEmail from '../assets/lovable-account/1-enter-email.png';
+import createAccount from '../assets/lovable-account/2-create-account.png';
+import verifyAccount from '../assets/lovable-account/3-verify-account.png';
+import verifyEmail from '../assets/lovable-account/4-verify-email.png';
+import theme from '../assets/lovable-account/5-config-theme.png';
+import name from '../assets/lovable-account/6-config-name.png';
+import role from '../assets/lovable-account/7-config-founder.png';
+import size from '../assets/lovable-account/8-config-size.png';
+import workspace from '../assets/lovable-account/9-config-workspace.png';
+import wouters from '../assets/lovable-account/10-wouters-lovable.png';
+import buildIt from '../assets/lovable-account/12-build-it.png';
+
+const invite = { n: 1, icon: '💌', title: 'Open de uitnodiging' };
+const account = { n: 2, icon: '✍️', title: 'Maak je account' };
+const verify = { n: 3, icon: '📧', title: 'Bevestig je e-mail' };
+const questions = { n: 4, icon: '🎨', title: 'Beantwoord de vragen', text: 'Kies wat je wil en klik telkens Next.' };
+const accept = { n: 5, icon: '🤝', title: 'Aanvaard de uitnodiging' };
+const done = { n: 6, icon: '✅', title: 'Klaar' };
+
+const slides: Slide[] = [
+	{ ...invite, text: 'Zoek de mail van Lovable.', img: invitation, rings: [{ at: [4.4, 84.7, 26.3, 12], label: 'Klik' }] },
+	{ ...account, text: 'Typ je e-mailadres.', img: enterEmail, rings: [{ at: [5.2, 78, 91.6, 19.7], label: 'Je e-mail' }] },
+	{ ...account, text: 'Kies een wachtwoord: minstens 8 tekens, met een cijfer.', img: createAccount, rings: [{ at: [4.8, 34.2, 92.8, 9.6], label: '8 tekens + cijfer' }, { at: [4.8, 88, 92.8, 9.6], label: 'Klik' }] },
+	{ ...verify, text: 'Klik de link in je mail.', img: verifyEmail, rings: [{ at: [5.4, 52.4, 92, 19.6], label: 'Klik de link' }] },
+	{ ...verify, text: 'Ga terug naar Lovable.', img: verifyAccount, rings: [{ at: [5.2, 52.6, 91.6, 12.3], label: 'Klik' }] },
+	{ ...questions, img: theme, rings: [{ at: [6.7, 82.2, 87.2, 10], label: 'Next' }] },
+	{ ...questions, img: name, rings: [{ at: [8.3, 61.5, 67, 6.1], label: 'Geen reclame' }, { at: [8.3, 89.2, 85.6, 6.8], label: 'Next' }] },
+	{ ...questions, img: role, rings: [{ at: [74.3, 72.7, 21.9, 23.9], label: 'Bv. Other' }] },
+	{ ...questions, img: size, rings: [{ at: [1.6, 62, 18.1, 33.9], label: 'Bv. Solo' }] },
+	{ ...accept, text: '', img: workspace, rings: [{ at: [51.3, 51.5, 41.7, 8], label: 'Klik' }] },
+	{ ...done, text: "Linksboven staat Wouter's Lovable.", img: wouters, rings: [{ at: [0.6, 17.3, 98.8, 12.2], label: 'Juist!' }] },
+	{ ...done, text: 'Typ je idee en bouw!', img: buildIt, rings: [{ at: [1.4, 42.5, 96.6, 48], label: 'Typ je idee' }] },
+];
 ---
 
 <Layout subtitle="Met de uitnodiging van de lesgever">
-	<Steps>
-		<Step icon="💌" title="Open de uitnodiging">
-			<p>Zoek in je mail: <b>You have been invited to a workspace in Lovable!</b></p>
-			<Clicks path={['Join Workspace']} />
-		</Step>
-		<Step icon="✍️" title="Maak je account">
-			<p>Typ je e-mailadres en klik <span class="lovable-btn">Continue</span>.</p>
-			<p>Kies een wachtwoord: minstens 8 tekens, met een cijfer.</p>
-			<Clicks path={['Create your account']} />
-		</Step>
-		<Step icon="📧" title="Bevestig je e-mail">
-			<p>Lovable stuurt een link naar je mail. Klik erop en ga terug naar Lovable.</p>
-			<Clicks path={["I've verified my email"]} />
-		</Step>
-		<Step icon="🎨" title="Beantwoord de vragen">
-			<p>Kies wat je wil en klik telkens <span class="lovable-btn">Next</span>. Geen reclame? Vink <b>Don't send me product news</b> aan.</p>
-		</Step>
-		<Step icon="🤝" title="Aanvaard de uitnodiging">
-			<Clicks path={['Accept']} />
-		</Step>
-		<Step icon="✅" title="Klaar">
-			<p>Linksboven staat <b>Wouter's Lovable</b>. Typ je idee en bouw!</p>
-		</Step>
-	</Steps>
+	<Slideshow slides={slides} />
 	<div class="ribbon steps-end">🙋 Geen mail gekregen? Vraag de lesgever!</div>
 </Layout>

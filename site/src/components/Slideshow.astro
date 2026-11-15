@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+export interface Ring {
+	/** left, top, width, height in % of the screenshot */
+	at: [number, number, number, number];
+	label: string;
+}
+
+export interface Slide {
+	n: number;
+	icon: string;
+	title: string;
+	text: string;
+	img: ImageMetadata;
+	rings: Ring[];
+}
+
+const { slides } = Astro.props as { slides: Slide[] };
+---
+
+<div class="slideshow">
+	{slides.map((s, i) => (
+		<section class:list={['slide', { on: i === 0 }]}>
+			<div class="slide-hd"><span class="n">{s.n}</span><h3>{s.icon} {s.title}</h3></div>
+			<p>{s.text}</p>
+			<figure class="shot">
+				<Image src={s.img} alt={s.title} />
+				{s.rings.map(({ at: [l, t, w, h], label }) => (
+					<span class="ring" style={`left:${l}%;top:${t}%;width:${w}%;height:${h}%`}><b>{label}</b></span>
+				))}
+			</figure>
+		</section>
+	))}
+	<div class="slide-ctl">
+		<button type="button" data-step="-1">← Vorige</button>
+		<div class="slide-dots">{slides.map((_, i) => <button type="button" data-go={i} aria-label={`Scherm ${i + 1}`} />)}</div>
+		<button type="button" data-step="1">Volgende →</button>
+	</div>
+</div>
+
+<script>
+	for (const show of document.querySelectorAll<HTMLElement>('.slideshow')) {
+		const slides = [...show.querySelectorAll('.slide')];
+		const dots = [...show.querySelectorAll<HTMLButtonElement>('[data-go]')];
+		const [prev, next] = show.querySelectorAll<HTMLButtonElement>('[data-step]');
+		let at = 0;
+		const go = (i: number) => {
+			at = Math.max(0, Math.min(slides.length - 1, i));
+			slides.forEach((s, k) => s.classList.toggle('on', k === at));
+			dots.forEach((d, k) => d.classList.toggle('on', k === at));
+			prev.disabled = at === 0;
+			next.disabled = at === slides.length - 1;
+		};
+		prev.onclick = () => go(at - 1);
+		next.onclick = () => go(at + 1);
+		dots.forEach((d, k) => (d.onclick = () => go(k)));
+		document.addEventListener('keydown', e => {
+			if (e.key === 'ArrowRight') go(at + 1);
+			if (e.key === 'ArrowLeft') go(at - 1);
+		});
+		go(0);
+	}
+</script>
