@@ -119,7 +119,7 @@ class: rules
 
 <div class="lovable-send">
   <div class="lovable-box">
-    <TypeText placeholder="Ask Lovable to build" text="Stippel een wandelroute uit in Lede waarbij er op bepaalde punten een relevante multiple choice vraag gesteld wordt over die plaats" />
+    <TypeText placeholder="Ask Lovable to build" :script="{ 1: 'Stippel een wandelroute uit in Lede waarbij er op bepaalde punten een relevante multiple choice vraag gesteld wordt over die plaats' }" />
     <div class="lovable-bar">
       <span class="lovable-plus">+</span>
       <span class="lovable-target lovable-mode">Build<svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></svg><span v-click="2" class="lovable-mark"><span class="callout callout-below"><span class="callout-n">2</span>Kies</span></span></span>
@@ -150,7 +150,7 @@ disabled: true
 </div>
 
 ---
-clicks: 2
+clicks: 4
 ---
 
 # Traktors Website
@@ -158,15 +158,16 @@ clicks: 2
 <div class="traktors">
   <div class="tractor-tile">
     <div class="card-postmark">Lede</div>
-    <div class="tractor-photo">🚜<span class="tractor-over" :class="{ shown: $clicks >= 2 }">Nieuw binnen!</span></div>
+    <div class="tractor-photo">🚜<span class="tractor-over" :class="{ shown: $clicks >= 2, moved: $clicks >= 4 }">Nieuw binnen!<span class="tractor-hand">👈</span></span></div>
     <b>John Deere 6120M</b>
     <small>2015 · 120 pk · 4.200 uur</small>
   </div>
   <div class="lovable-box">
-    <TypeText placeholder="Ask Lovable to build" text="Ik wil tekst kunnen ingeven die op de foto geplaatst wordt" />
-    <div class="lovable-bar"><span class="lovable-plus">+</span><span>Build</span><span>🎤</span><span class="lovable-send-btn" :class="{ pressed: $clicks >= 2 }">↑</span></div>
+    <TypeText placeholder="Ask Lovable to build" :script="{ 1: 'Ik wil tekst kunnen ingeven die op de foto geplaatst wordt', 3: 'Ik wil zelf kunnen kiezen waar die geplaatst wordt' }" />
+    <div class="lovable-bar"><span class="lovable-plus">+</span><span>Build</span><span>🎤</span><span class="lovable-send-btn" :class="{ pressed: $clicks === 2 || $clicks >= 4 }">↑</span></div>
   </div>
   <Magic :at="2" />
+  <Magic :at="4" />
 </div>
 
 ---
