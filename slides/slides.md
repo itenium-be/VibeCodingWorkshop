@@ -87,8 +87,8 @@ class: rules
     <div v-click class="rule"><Squiggle flip /><div class="note stop">Dit gaan we niet doen</div></div>
   </div>
   <div class="col">
-    <Card v-click icon="🙈" title="Gegevens van anderen">Adressen, telefoonnummers</Card>
-    <div v-click class="rule"><Squiggle /><div class="note ask">Niet zonder inloggen: vraag de lesgever</div></div>
+    <Card v-click icon="🙈" title="Persoonlijk">Foto's, adressen, telefoonnummers</Card>
+    <div v-click class="rule"><Squiggle /><div class="note ask">De AI maakt een loginscherm</div></div>
   </div>
 </div>
 
