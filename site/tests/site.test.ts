@@ -170,6 +170,10 @@ describe('vastgelopen', () => {
 	test('no longer mentions Restore', () => {
 		expect(page()).not.toContain('Restore');
 	});
+
+	test('no longer mentions Try to fix', () => {
+		expect(page()).not.toContain('Try to fix');
+	});
 });
 
 describe('aan de slag', () => {

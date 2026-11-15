@@ -132,9 +132,6 @@ main { padding: 2.5rem 2rem 1.5rem; }
 .mode-chips > span { padding: .2rem .6rem; background: #fff; border: 2px solid var(--z-ink); border-radius: 1rem; font: 800 .95rem var(--z-heading); }
 .free-badge { margin-left: .2rem; padding: 0 .35rem; background: #2463eb; color: #fff; border-radius: .6rem; font: 800 .65rem Nunito, sans-serif; vertical-align: middle; }
 .lovable-btn svg { width: .95rem; height: .95rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.minis { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; margin-top: 1.2rem; }
-.mini { display: flex; align-items: center; gap: .8rem; padding: .7rem .9rem; border: 3px solid var(--z-ink); border-radius: 1rem; background: var(--z-sky); box-shadow: 3px 3px 0 var(--z-ink); }
-.mini + .mini { background: var(--z-peach); }
 
 /* one-shot prompt modal */
 .oneshot { align-self: flex-start; margin-top: .8rem; padding: .25rem .9rem; border: 2px solid var(--z-ink); border-radius: 999px; background: #fff; box-shadow: 3px 3px 0 var(--z-ink); color: inherit; font: 800 1rem Nunito, sans-serif; cursor: pointer; }
