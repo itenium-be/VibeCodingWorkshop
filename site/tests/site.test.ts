@@ -220,6 +220,10 @@ describe('aan de slag', () => {
 		expect(html('aan-de-slag')).toMatch(/class="lovable-box"[\s\S]*Typ je idee[\s\S]*Kies[\s\S]*Verstuur/);
 	});
 
+	test('points first-timers to account activation in a hint box', () => {
+		expect(html('aan-de-slag')).toMatch(/<span class="card-hint">[^<]*Eerste keer\? <a href="[^"]*lovable-account\/">Account activeren<\/a><\/span>/);
+	});
+
 	test('sends the Remix to Mijn workspace', () => {
 		const main = html('aan-de-slag').match(/<main[\s\S]*?<\/main>/)![0].replace(pager(html('aan-de-slag')), '');
 		expect(hrefs(main)).toContain(`${BASE}mijn-workspace/`);
