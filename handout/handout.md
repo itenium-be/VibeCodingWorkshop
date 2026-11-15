@@ -18,9 +18,10 @@ transition: none
 
 ## Begin met bouwen
 
-<Step n="1"><b>💬 Chat</b> <span class="free-badge">gratis</span><small>"Ik wil een app voor … Stel me vragen tot mijn idee duidelijk is."</small></Step>
+<Step n="1"><b>💬 Chat</b><small>"Ik wil een app voor … Stel me vragen tot mijn idee duidelijk is."</small></Step>
 <Step n="2"><b>🔨 Build</b><small>"Bouw het nu." Gewoon in het Nederlands.</small></Step>
-<Step n="3"><b>Eén wijziging per bericht</b><small>Een knop, een kleur, een extra vraag: telkens één ding.</small></Step>
+<Step n="3"><b>📋 Plan</b><small>Iets groots? Lovable maakt eerst een plan, jij keurt het goed.</small></Step>
+<Step n="4"><b>Eén wijziging per bericht</b><small>Een knop, een kleur, een extra vraag: telkens één ding.</small></Step>
 
 ## Vastgelopen?
 
@@ -32,7 +33,7 @@ transition: none
 
 ## Mee naar huis
 
-<Step n="1"><LovableButton icon="fork">Remix</LovableButton> naar je eigen account<small>Vandaag werk je met ons Pro-plan. Na een Remix werk je gratis verder.</small></Step>
+<Step n="1"><LovableButton icon="fork">Remix</LovableButton> naar je eigen account<small>Vandaag werk je met ons Pro-plan. Na een Remix werk je thuis gratis verder.</small></Step>
 <Step n="2"><LovableButton icon="globe">Publish</LovableButton><small>Je krijgt een link om te delen.</small></Step>
 
 <div class="note-corner">
