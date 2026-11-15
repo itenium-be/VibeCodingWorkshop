@@ -54,7 +54,7 @@ disabled: true
   <Card v-click icon="🥾" title="Wandelroutes Quiz" stamp="Lede">Een wandeling met quizvragen over de plekken onderweg</Card>
   <Card v-click icon="🧠" title="Familiequiz">Wie kent oma het best?</Card>
   <Card v-click icon="🍸" title="Cocktails" href="https://sangu.be/Sanguine-Spirits/">Je favoriete cocktailrecepten</Card>
-  <Card v-click icon="⏳" title="Aftellen">Nog hoeveel nachtjes tot de vakantie?</Card>
+  <Card v-click icon="🏎️" title="3D race game" stamp="Lede">Met powerups</Card>
   <Card v-click icon="📚" title="Leesclub">Wat lezen we, wanneer komen we samen, wie brengt koffie?</Card>
   <Card v-click icon="🧳" title="Reisdagboek">Foto's en verhaaltjes van je reis, per dag</Card>
 </div>
