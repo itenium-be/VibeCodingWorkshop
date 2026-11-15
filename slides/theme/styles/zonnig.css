@@ -426,7 +426,7 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .card-tag { align-self: flex-start; margin-top: .3rem; padding: .1rem .6rem; background: #fff; border: 2px solid var(--z-ink); border-radius: 1rem; font-weight: 800; font-size: .85rem; }
 
 /* Lovable's dark prompt box, rebuilt so it stays sharp on a beamer */
-.lovable-send { position: relative; margin: 0 9rem 3.6rem 2rem; }
+.lovable-send { position: relative; margin: 0 9rem 3.2rem 2rem; padding-top: 1.6rem; }
 .lovable-box { padding: 1rem 1.2rem .7rem; background: #282828; color: #eee; border: 2px solid #111; border-radius: 1.6rem; font-size: 1.2rem; }
 .lovable-bar { display: flex; align-items: center; gap: 1.1rem; margin-top: .6rem; font-weight: 700; }
 .lovable-plus { margin-right: auto; font-size: 1.6rem; }

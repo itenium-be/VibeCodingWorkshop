@@ -120,7 +120,7 @@ class: rules
       <span class="lovable-target lovable-send-btn">↑<span v-click="6" class="lovable-mark"><span class="callout callout-right"><span class="callout-n">3</span>Verstuur</span></span></span>
     </div>
   </div>
-  <span v-click="1" class="callout" style="left: 0; top: -1.5rem"><span class="callout-n">1</span>Typ je idee</span>
+  <span v-click="1" class="callout" style="left: 0; top: -1.2rem"><span class="callout-n">1</span>Typ je idee</span>
 </div>
 
 <div class="grid-3">
