@@ -24,8 +24,8 @@ export const GROUPS: { label: string; pages: Page[] }[] = [
 	{
 		label: '🛠️ Zelf doen',
 		pages: [
-			{ slug: 'vastgelopen', title: 'Vastgelopen?', icon: '🧯' },
 			{ slug: 'aan-de-slag', title: 'Aan de slag!', icon: '🚀' },
+			{ slug: 'vastgelopen', title: 'Vastgelopen?', icon: '🧯' },
 		],
 	},
 	{
