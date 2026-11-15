@@ -127,22 +127,6 @@ main { padding: 2.5rem 2rem 1.5rem; }
 .ribbon { margin-top: 1.4rem; padding: .7rem 1.1rem; border: 3px solid var(--z-ink); border-radius: 1rem; background: var(--z-rose); color: #fff; box-shadow: var(--z-shadow); font: 800 1.35rem var(--z-heading); }
 .pill { display: inline-block; padding: .1rem .7rem; border: 2px solid var(--z-ink); border-radius: 999px; background: #fff; color: var(--z-ink); font-weight: 700; }
 
-.divider { display: flex; align-items: center; gap: 1rem; margin: 2.8rem 0 2rem; }
-.divider::before, .divider::after { content: ''; flex: 1; height: 14px; background: radial-gradient(circle at 7px -3px, transparent 6px, var(--z-ink) 7px 9px, transparent 10px) 0 0 / 14px 14px repeat-x; }
-.divider span { font-size: 1.8rem; }
-
-.narrow { max-width: 46rem; }
-.chat { display: flex; flex-direction: column; gap: .8rem; }
-.chat-row { display: flex; align-items: center; gap: .6rem; }
-.chat-row.right { justify-content: flex-end; }
-.chat-who { font-size: 2.4rem; }
-.bubble { padding: .6rem 1rem; border: 3px solid var(--z-ink); border-radius: 1.2rem; background: #fff; box-shadow: var(--z-shadow); }
-.bubble.ask { background: var(--z-sun); font-weight: 800; }
-.postits { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 1.4rem; }
-.postit { flex: 1 1 12rem; padding: 1rem; border: 3px solid var(--z-ink); background: var(--z-sky); box-shadow: var(--z-shadow); transform: rotate(-2deg); }
-.postit + .postit { background: var(--z-pink); transform: rotate(2deg); }
-.postit b { display: block; font: 800 1.4rem var(--z-heading); }
-
 /* Lovable look-alikes */
 .lovable-btn { display: inline-flex; align-items: center; gap: .35rem; padding: .3rem .7rem; border-radius: .45rem; background: #1c1c1c; color: #fff; font: 600 .85rem/1 Inter, system-ui, sans-serif; white-space: nowrap; }
 .mode-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; margin: .3rem 0; }

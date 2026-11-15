@@ -131,6 +131,10 @@ describe('one-shot prompts', () => {
 	});
 });
 
+test('bezin only covers what does not belong in your app', () => {
+	expect(html('bezin')).not.toContain('Wie kan je app zien?');
+});
+
 describe('lovable-account', () => {
 	const page = () => html('lovable-account');
 
