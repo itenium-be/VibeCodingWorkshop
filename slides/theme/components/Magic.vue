@@ -8,7 +8,7 @@ const on = computed(() => $clicks.value >= props.at)
 const SPARKS = ['✨', '⭐', '💫', '✨', '🌟', '✨', '⭐', '💫']
 const spread = (i: number) => {
   const a = i / SPARKS.length * Math.PI * 2
-  return { '--dx': `${Math.cos(a) * 11}rem`, '--dy': `${Math.sin(a) * 7}rem`, 'animation-delay': `${i * 40}ms` }
+  return { '--dx': `${Math.cos(a) * 11}rem`, '--dy': `${Math.sin(a) * 7}rem`, 'animation-delay': `calc(var(--magic-delay, 0s) + ${i * 40}ms)` }
 }
 </script>
 

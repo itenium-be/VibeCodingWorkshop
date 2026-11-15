@@ -165,10 +165,10 @@ clicks: 4
   </div>
   <div class="lovable-box">
     <TypeText placeholder="Ask Lovable to build" :script="{ 1: 'Ik wil tekst kunnen ingeven die op de foto geplaatst wordt', 3: 'Ik wil zelf kunnen kiezen waar die geplaatst wordt' }" />
-    <div class="lovable-bar"><span class="lovable-plus">+</span><span>Build</span><span>🎤</span><span class="lovable-send-btn" :class="{ pressed: $clicks === 2 || $clicks >= 4 }">↑</span></div>
+    <div class="lovable-bar"><span class="lovable-plus">+</span><span>Build</span><span>🎤</span><span class="lovable-send-btn" :class="{ pressed: $clicks === 2 || $clicks >= 4 }">↑<template v-if="$clicks === 2 || $clicks === 4"><span :key="$clicks" class="click-ripple" /><svg :key="$clicks" class="click-cursor" viewBox="0 0 24 24"><path d="M4 2 L4 19 L8.5 15 L11.5 22 L14.5 20.7 L11.5 14 L17.5 14 Z" /></svg></template></span></div>
   </div>
-  <Magic :at="2" />
-  <Magic :at="4" />
+  <Magic :at="2" style="--magic-delay: .7s" />
+  <Magic :at="4" style="--magic-delay: .7s" />
 </div>
 
 ---
