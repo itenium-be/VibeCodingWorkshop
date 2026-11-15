@@ -8,7 +8,7 @@ const DIST = join(import.meta.dir, '..', 'dist');
 const BUILT_ELSEWHERE = [`${BASE}handout.pdf`, `${BASE}slides/`];
 const APPS_BUILT_ELSEWHERE = [`${BASE}aftellen/`, `${BASE}familiequiz/`, `${BASE}bingokaarten/`, `${BASE}planten-water-geven/`, `${BASE}leesclub/`, `${BASE}reisdagboek/`];
 
-const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'lovable-account', 'bezin', 'aan-de-slag', 'vastgelopen', 'mijn-workspace', 'github-account', 'lovable-koppelen', 'lesgever-toegang'];
+const PAGES = ['wat-is-vibe-coding', 'zelf-gemaakt', 'bezin', 'lovable-account', 'aan-de-slag', 'vastgelopen', 'mijn-workspace', 'github-account', 'lovable-koppelen', 'lesgever-toegang'];
 
 const html = (slug: string) => readFileSync(join(DIST, slug, 'index.html'), 'utf8');
 const hrefs = (page: string) => [...page.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
@@ -35,8 +35,15 @@ describe('sidebar', () => {
 		expect(links).toEqual(PAGES.map(p => `${BASE}${p}/`));
 	});
 
-	test('groups the account and Bezin under Beginnen', () => {
-		expect(nav(html(''))).toMatch(/<div class="grp">🚦 Beginnen<\/div>\s*<a href="[^"]*lovable-account\/"[\s\S]*?<a href="[^"]*bezin\/"/);
+	const group = (label: string) => hrefs(nav(html('')).match(new RegExp(`<div class="grp">${label}<\\/div>[\\s\\S]*?(?=<div class="grp">|<\\/nav>)`))?.[0] ?? '');
+
+	test('ends Wat with Bezin', () => {
+		expect(group('✨ Wat').at(-1)).toBe(`${BASE}bezin/`);
+	});
+
+	test('puts the account, Aan de slag and Vastgelopen under one Zelf doen', () => {
+		expect(group('🛠️ Zelf doen')).toEqual(['lovable-account', 'aan-de-slag', 'vastgelopen'].map(p => `${BASE}${p}/`));
+		expect(nav(html(''))).not.toContain('Beginnen');
 	});
 
 	test('groups the GitHub runbooks under Geavanceerd', () => {
@@ -202,11 +209,20 @@ describe('vastgelopen', () => {
 
 describe('aan de slag', () => {
 	test.each(['Chat', 'Build', 'Plan'])('shows the %s mode', mode => {
-		expect(html('aan-de-slag')).toMatch(new RegExp(`<span[^>]*>[^<]*${mode}`));
+		expect(html('aan-de-slag')).toMatch(new RegExp(`<b>[^<]*${mode}</b>`));
 	});
 
 	test('takes the app home with Remix and Publish', () => {
 		expect(html('aan-de-slag')).toMatch(/Remix[\s\S]*Publish/);
+	});
+
+	test('shows how to send a prompt in the Lovable box', () => {
+		expect(html('aan-de-slag')).toMatch(/class="lovable-box"[\s\S]*Typ je idee[\s\S]*Kies[\s\S]*Verstuur/);
+	});
+
+	test('sends the Remix to Mijn workspace', () => {
+		const main = html('aan-de-slag').match(/<main[\s\S]*?<\/main>/)![0].replace(pager(html('aan-de-slag')), '');
+		expect(hrefs(main)).toContain(`${BASE}mijn-workspace/`);
 	});
 });
 

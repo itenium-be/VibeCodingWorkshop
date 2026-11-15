@@ -12,18 +12,13 @@ export const GROUPS: { label: string; pages: Page[] }[] = [
 		pages: [
 			{ slug: 'wat-is-vibe-coding', title: 'Wat is vibe coding?', icon: '💬' },
 			{ slug: 'zelf-gemaakt', title: 'Zelf gemaakt', icon: SPARKLE },
-		],
-	},
-	{
-		label: '🚦 Beginnen',
-		pages: [
-			{ slug: 'lovable-account', title: 'Lovable-account', icon: '🔑' },
 			{ slug: 'bezin', title: 'Bezin voor je begint', icon: '🔐' },
 		],
 	},
 	{
 		label: '🛠️ Zelf doen',
 		pages: [
+			{ slug: 'lovable-account', title: 'Lovable-account', icon: '🔑' },
 			{ slug: 'aan-de-slag', title: 'Aan de slag!', icon: '🚀' },
 			{ slug: 'vastgelopen', title: 'Vastgelopen?', icon: '🧯' },
 		],

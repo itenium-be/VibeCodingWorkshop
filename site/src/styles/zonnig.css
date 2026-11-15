@@ -129,9 +129,23 @@ main { padding: 2.5rem 2rem 1.5rem; }
 
 /* Lovable look-alikes */
 .lovable-btn { display: inline-flex; align-items: center; gap: .35rem; padding: .3rem .7rem; border-radius: .45rem; background: #1c1c1c; color: #fff; font: 600 .85rem/1 Inter, system-ui, sans-serif; white-space: nowrap; }
-.mode-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; margin: .3rem 0; }
-.mode-chips > span { padding: .2rem .6rem; background: #fff; border: 2px solid var(--z-ink); border-radius: 1rem; font: 800 .95rem var(--z-heading); }
-.free-badge { margin-left: .2rem; padding: 0 .35rem; background: #2463eb; color: #fff; border-radius: .6rem; font: 800 .65rem Nunito, sans-serif; vertical-align: middle; }
+.road-stack { grid-template-columns: 1fr; max-width: 46rem; row-gap: 2rem; }
+
+/* Lovable's dark prompt box, rebuilt so participants recognise it */
+.lovable-box { display: block; margin: .6rem 0 .5rem; padding: .8rem 1rem .6rem; background: #282828; color: #999; border: 2px solid #111; border-radius: 1.4rem; text-align: left; }
+.lovable-bar { display: flex; align-items: center; gap: .9rem; margin-top: .5rem; color: #eee; font-weight: 700; }
+.lovable-plus { margin-right: auto; font-size: 1.4rem; }
+.lovable-mode { display: inline-flex; align-items: center; gap: .3rem; }
+.lovable-mode svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.lovable-send { display: grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: #eee; color: #222; font-weight: 800; }
+.lovable-box .callout-n { margin-right: .4rem; }
+.lovable-bar .callout-n { margin-right: -.5rem; }
+.callout-n { display: inline-grid; place-items: center; width: 1.5rem; height: 1.5rem; flex: none; background: var(--z-rose); border: 2px solid var(--z-ink); border-radius: 50%; color: #fff; font: 800 .8rem var(--z-heading); }
+.callouts { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 1.2rem; margin-bottom: .8rem; font-weight: 800; }
+.callouts > span { display: inline-flex; align-items: center; gap: .35rem; }
+.modes { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: .6rem; margin-bottom: .8rem; text-align: left; }
+.modes > span { padding: .5rem .7rem; background: #fff; border: 2px solid var(--z-ink); border-radius: .9rem; font-size: .95rem; line-height: 1.3; }
+.modes b { display: block; font: 800 1.1rem var(--z-heading); }
 .lovable-btn svg { width: .95rem; height: .95rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 /* one-shot prompt modal */
