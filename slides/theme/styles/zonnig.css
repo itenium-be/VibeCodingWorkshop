@@ -419,9 +419,15 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .station-hinted { padding-bottom: 0; }
 .station .card-hint { display: block; margin: 1rem -1.1rem 0; white-space: normal; line-height: 1.3; border-radius: 0 0 1.05rem 1.05rem; }
 
-.publish-flow { display: flex; flex-direction: column; align-items: center; }
-.publish-flow .squiggle { width: 3.2rem; height: 2.8rem; margin: .15rem 0; }
-.publish-flow .pill { font-size: 1rem; padding: .35rem .9rem; }
+.mode-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; }
+.mode-chips > span { padding: .2rem .6rem; background: #fff; border: 2px solid var(--z-ink); border-radius: 1rem; font: 800 .95rem 'Baloo 2', sans-serif; }
+.free-badge { margin-left: .2rem; padding: 0 .35rem; background: #2463eb; color: #fff; border-radius: .6rem; font: 800 .65rem Nunito, sans-serif; vertical-align: middle; }
+.station .mode-note { margin-top: .6rem; }
+
+.station-steps { display: flex; flex-direction: column; gap: .55rem; font-size: .95rem; text-align: left; }
+.station-steps > div { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; }
+.station-steps .pill { padding: .2rem .6rem; font-size: .85rem; box-shadow: 3px 3px 0 var(--z-ink); }
+.station-n { display: inline-grid; flex: none; place-items: center; width: 1.5rem; height: 1.5rem; background: var(--z-rose); border: 2px solid var(--z-ink); border-radius: 50%; color: #fff; font: 800 .85rem 'Baloo 2', sans-serif; }
 
 .card-tag { align-self: flex-start; margin-top: .3rem; padding: .1rem .6rem; background: #fff; border: 2px solid var(--z-ink); border-radius: 1rem; font-weight: 800; font-size: .85rem; }
 

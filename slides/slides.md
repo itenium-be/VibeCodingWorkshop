@@ -206,26 +206,24 @@ class: big-cards
   <div class="station-icon">🔑</div>
   <h3>Inloggen</h3>
   <span class="pill">lovable.dev</span>
-  <span class="card-hint">💡 Hint: Google-adres nog niet doorgegeven? Geef het aan de lesgever.</span>
+  <span class="card-hint">💡 Hint: Geen Lovable-mail? Vraag de lesgever.</span>
 </div>
 
 <div v-click="2" class="station after-road" style="left: 23.4rem; top: 8.4rem; background: var(--z-mint)">
   <span class="station-tag">Bouwen</span>
   <div class="station-icon">🛠️</div>
   <h3>Zoals besproken</h3>
-  <p>Brainstormen → 1 bericht</p>
-  <p>3 ontwerpen</p>
-  <p>1 wijziging per keer</p>
+  <div class="mode-chips"><span>💬 Chat<span class="free-badge">gratis</span></span><span>🔨 Build</span><span>📋 Plan</span></div>
+  <p class="mode-note">1 wijziging per keer</p>
 </div>
 
-<div v-click="3" class="station after-road" style="right: 2.5rem; top: 15rem; background: var(--z-pink)">
+<div v-click="3" class="station after-road" style="right: 2.5rem; top: 14rem; background: var(--z-pink)">
   <span class="station-tag">Mee naar huis</span>
   <div class="station-icon">🏠</div>
-  <h3>Publish &amp; delen</h3>
-  <div class="publish-flow">
-    <LovableButton icon="globe">Publish</LovableButton>
-    <Squiggle />
-    <span class="pill">jouwnaam.lovable.app</span>
+  <h3>Remix &amp; Publish</h3>
+  <div class="station-steps">
+    <div><span class="station-n">1</span><LovableButton icon="fork">Remix</LovableButton> naar je eigen account</div>
+    <div><span class="station-n">2</span><LovableButton icon="globe">Publish</LovableButton> → <span class="pill">jouwnaam.lovable.app</span></div>
   </div>
 </div>
 
