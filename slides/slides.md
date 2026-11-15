@@ -150,6 +150,27 @@ disabled: true
 </div>
 
 ---
+clicks: 2
+---
+
+# Traktors Website
+
+<div class="traktors">
+  <div class="tractor-tile">
+    <div class="card-postmark"><small>gemaakt in</small>Lede</div>
+    <div class="tractor-photo">🚜<span class="tractor-over" :class="{ shown: $clicks >= 2 }">Nieuw binnen!</span></div>
+    <b>John Deere 6120M</b>
+    <small>2015 · 120 pk · 4.200 uur</small>
+  </div>
+  <div class="lovable-box">
+    <TypeText placeholder="Ask Lovable to build" text="Ik wil tekst kunnen ingeven die op de foto geplaatst wordt" />
+    <div class="lovable-bar"><span class="lovable-plus">+</span><span>Build</span><span>🎤</span><span class="lovable-send-btn" :class="{ pressed: $clicks >= 2 }">↑</span></div>
+  </div>
+  <Magic :at="2" />
+</div>
+
+---
+disabled: true
 class: big-cards
 ---
 
