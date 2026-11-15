@@ -34,6 +34,8 @@ class: big-cards
 <div v-click class="ribbon">✨ Programmeren hoef je niet te kunnen.<small>Typen kan je al.</small></div>
 
 ---
+disabled: true
+---
 
 # Zelf gemaakt
 
