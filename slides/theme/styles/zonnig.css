@@ -448,3 +448,25 @@ a.card-icon { align-self: flex-start; text-decoration: none; border: 0; }
 .type-text-placeholder { color: #888; }
 .type-text-caret { display: inline-block; width: 2px; height: 1.1em; margin-left: 2px; vertical-align: text-bottom; background: currentColor; animation: type-text-blink 1s steps(1) infinite; }
 @keyframes type-text-blink { 50% { opacity: 0; } }
+
+.card-postmarked { position: relative; }
+.card-postmark {
+  position: absolute;
+  z-index: 1;
+  right: -.6rem;
+  top: -1.1rem;
+  width: 4.4rem;
+  height: 4.4rem;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  background: var(--z-rose);
+  border: 3px solid var(--z-ink);
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 var(--z-ink);
+  color: #fff;
+  font: 800 1.1rem/1 'Baloo 2', sans-serif;
+  text-transform: uppercase;
+  transform: rotate(12deg);
+}
+.card .card-postmark small { margin-bottom: .1rem; color: #fff; font: 700 .55rem/1 Nunito, sans-serif; letter-spacing: .05em; }
