@@ -103,7 +103,10 @@ class: rules
     <Card v-click icon="🙈" title="Persoonlijk">Foto's, adressen, telefoonnummers</Card>
     <div v-click class="rule"><Squiggle /><div class="note ask">De AI maakt een loginscherm</div></div>
   </div>
-  <Card v-click icon="🗣️" title="Gewoon in het Nederlands">Lovable is Engelstalig, maar de AI begrijpt perfect Nederlands!</Card>
+  <div class="col">
+    <Card v-click icon="🗣️" title="Gewoon in het Nederlands">Lovable is Engelstalig</Card>
+    <div v-click class="rule"><Squiggle flip /><div class="note ask">De AI begrijpt perfect Nederlands</div></div>
+  </div>
 </div>
 
 ---
