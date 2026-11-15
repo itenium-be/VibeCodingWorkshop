@@ -39,6 +39,11 @@ describe('sidebar', () => {
 		expect(nav(html(''))).toMatch(/<div class="grp">🚦 Beginnen<\/div>\s*<a href="[^"]*lovable-account\/"[\s\S]*?<a href="[^"]*bezin\/"/);
 	});
 
+	test('groups the GitHub runbooks under Geavanceerd', () => {
+		const grp = nav(html('')).match(/<div class="grp">🧰 Geavanceerd<\/div>[\s\S]*?(?=<div class="grp">|<\/nav>)/)?.[0] ?? '';
+		expect(hrefs(grp)).toEqual(['github-account', 'lovable-koppelen', 'lesgever-toegang'].map(p => `${BASE}${p}/`));
+	});
+
 	test('no longer builds Slim beginnen', () => {
 		expect(existsSync(join(DIST, 'slim-beginnen'))).toBe(false);
 	});

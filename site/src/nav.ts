@@ -32,6 +32,11 @@ export const GROUPS: { label: string; pages: Page[] }[] = [
 		label: '🎒 Meenemen',
 		pages: [
 			{ slug: 'mijn-workspace', title: 'Mijn workspace', icon: '🏠' },
+		],
+	},
+	{
+		label: '🧰 Geavanceerd',
+		pages: [
 			{ slug: 'github-account', title: 'GitHub-account', icon: '🐙' },
 			{ slug: 'lovable-koppelen', title: 'Lovable koppelen', icon: '🔗' },
 			{ slug: 'lesgever-toegang', title: 'Lesgever toegang geven', icon: '🤝' },
