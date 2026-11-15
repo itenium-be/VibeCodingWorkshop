@@ -12,7 +12,7 @@ defineProps<{ icon: string, title: string, prompts?: number, time?: string, word
     <span v-if="tag" class="card-tag">{{ tag }}</span>
     <span v-if="words" class="card-words">✍️ {{ words.toLocaleString('nl-BE') }} woorden getypt</span>
     <span v-if="hint" class="card-hint">💡 Hint: {{ hint }}</span>
-    <div v-if="stamp" class="card-postmark"><small>gemaakt in</small>{{ stamp }}</div>
+    <div v-if="stamp" class="card-postmark">{{ stamp }}</div>
     <div v-if="prompts" class="card-stamp">
       <span><strong>{{ prompts }}</strong>prompts<br>±{{ time }}</span>
     </div>

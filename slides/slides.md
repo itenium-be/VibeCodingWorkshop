@@ -157,7 +157,7 @@ clicks: 2
 
 <div class="traktors">
   <div class="tractor-tile">
-    <div class="card-postmark"><small>gemaakt in</small>Lede</div>
+    <div class="card-postmark">Lede</div>
     <div class="tractor-photo">🚜<span class="tractor-over" :class="{ shown: $clicks >= 2 }">Nieuw binnen!</span></div>
     <b>John Deere 6120M</b>
     <small>2015 · 120 pk · 4.200 uur</small>
