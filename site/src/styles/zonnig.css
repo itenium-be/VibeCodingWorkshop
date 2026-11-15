@@ -124,6 +124,7 @@ main { padding: 2.5rem 2rem 1.5rem; }
 .note.stop { background: var(--z-rose); }
 .note.ask { background: var(--z-butter); }
 .ribbon { margin-top: 1.4rem; padding: .7rem 1.1rem; border: 3px solid var(--z-ink); border-radius: 1rem; background: var(--z-rose); color: #fff; box-shadow: var(--z-shadow); font: 800 1.35rem var(--z-heading); }
+.ribbon.done { background: var(--z-butter); color: var(--z-ink); }
 .pill { display: inline-block; padding: .1rem .7rem; border: 2px solid var(--z-ink); border-radius: 999px; background: #fff; color: var(--z-ink); font-weight: 700; }
 
 /* Lovable look-alikes */
