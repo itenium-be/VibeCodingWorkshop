@@ -87,9 +87,20 @@ class: rules
     <div v-click class="rule"><Squiggle flip /><div class="note stop">Dit gaan we niet doen</div></div>
   </div>
   <div class="col">
-    <Card v-click icon="🙈" title="Persoonlijk">Foto's, adressen, telefoonnummers</Card>
-    <div v-click class="rule"><Squiggle /><div class="note ask">De AI maakt een loginscherm</div></div>
+    <Card v-click icon="🔌" title="Integraties">E-mail, agenda, sms, Google Sheets</Card>
+    <div v-click class="rule"><Squiggle /><div class="note ask">Geavanceerd gebruik: check met de lesgever</div></div>
   </div>
+</div>
+
+---
+class: rules
+---
+
+# We gebruiken Lovable
+
+<div class="col" style="max-width: 20rem; margin: 2rem auto 0">
+  <Card v-click icon="🙈" title="Persoonlijk">Foto's, adressen, telefoonnummers</Card>
+  <div v-click class="rule"><Squiggle /><div class="note ask">De AI maakt een loginscherm</div></div>
 </div>
 
 ---
