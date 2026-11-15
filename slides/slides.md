@@ -94,20 +94,6 @@ class: rules
 
 ---
 
-# Bezin voor je begint
-
-<div class="chat">
-  <div v-click class="chat-row"><span class="chat-who">🙋</span><div class="bubble ask">Kan iedereen mijn app zien?</div></div>
-  <div v-click class="chat-row right"><div class="bubble">Ja: iedereen met de link kan je app openen 🔗</div><span class="chat-who">🤖</span></div>
-</div>
-
-<div class="postits">
-  <div v-click class="postit"><b>💻 Tenzij…</b>het alleen op je eigen computer draait</div>
-  <div v-click class="postit"><b>🔒 Tenzij…</b>je er een aanmeldscherm op zet</div>
-</div>
-
----
-
 # Slim beginnen
 
 <div class="grid-2" style="margin-top: 1.5rem; gap: 1.4rem">
