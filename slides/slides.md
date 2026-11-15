@@ -7,7 +7,7 @@ siteUrl: https://dev.itenium.be/VibeCodingWorkshop/
 layout: cover
 ---
 
-<span class="kicker">Bibliotheek Lede · 12 november</span>
+<span class="kicker">Bibliotheek Erpe-Mere · 1 december</span>
 
 # Vibe coding
 
