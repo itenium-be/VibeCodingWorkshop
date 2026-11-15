@@ -18,10 +18,25 @@ transition: none
 
 ## Begin met bouwen
 
-<Step n="1"><b>💬 Chat</b><small>"Ik wil een app voor … Stel me vragen tot mijn idee duidelijk is."</small></Step>
-<Step n="2"><b>🔨 Build</b><small>"Bouw het nu." Gewoon in het Nederlands.</small></Step>
-<Step n="3"><b>📋 Plan</b><small>Iets groots? Lovable maakt eerst een plan, jij keurt het goed.</small></Step>
-<Step n="4"><b>Eén wijziging per bericht</b><small>Een knop, een kleur, een extra vraag: telkens één ding.</small></Step>
+<div class="h-send">
+  <div class="h-box">
+    <div>Ik wil een app voor de planten van mijn tuin</div>
+    <div class="lovable-bar">
+      <span class="lovable-plus">+</span>
+      <span class="lovable-target lovable-mode">Build<svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></svg><span class="h-co h-below"><span class="callout-n">2</span>Kies</span></span>
+      <span>🎤</span>
+      <span class="lovable-target lovable-send-btn">↑<span class="h-co h-right"><span class="callout-n">3</span>Verstuur</span></span>
+    </div>
+    <span class="h-co h-top"><span class="callout-n">1</span>Typ je idee</span>
+  </div>
+</div>
+
+<div class="h-modes">
+  <div class="mini"><b>💬 Chat</b><span>"Stel me vragen tot mijn idee duidelijk is." Je app verandert niet.</span></div>
+  <div class="mini"><b>🔨 Build</b><span>Lovable bouwt meteen. Gewoon in het Nederlands.</span></div>
+  <div class="mini"><b>📋 Plan</b><span>Iets groots? Eerst een plan, jij keurt goed.</span></div>
+</div>
+<p class="h-tip">☝️ Eén wijziging per bericht: een knop, een kleur, een extra vraag.</p>
 
 ## Vastgelopen?
 
