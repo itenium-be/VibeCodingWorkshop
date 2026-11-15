@@ -98,9 +98,12 @@ class: rules
 
 # We gebruiken Lovable
 
-<div class="col" style="max-width: 20rem; margin: 2rem auto 0">
-  <Card v-click icon="🙈" title="Persoonlijk">Foto's, adressen, telefoonnummers</Card>
-  <div v-click class="rule"><Squiggle /><div class="note ask">De AI maakt een loginscherm</div></div>
+<div class="grid-2" style="max-width: 42rem; margin: 2rem auto 0; align-items: start">
+  <div class="col">
+    <Card v-click icon="🙈" title="Persoonlijk">Foto's, adressen, telefoonnummers</Card>
+    <div v-click class="rule"><Squiggle /><div class="note ask">De AI maakt een loginscherm</div></div>
+  </div>
+  <Card v-click icon="🗣️" title="Gewoon in het Nederlands">Lovable is Engelstalig, maar de AI begrijpt perfect Nederlands!</Card>
 </div>
 
 ---
